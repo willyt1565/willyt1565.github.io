@@ -1,0 +1,10 @@
+# ==============================================================================
+# NEWERA PROPERTY MANAGEMENT — robots.txt
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /partials/
+
+Sitemap: https://www.newerapm.com/sitemap.xml

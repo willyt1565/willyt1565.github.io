@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =======================================================================
+       NEWERA PROPERTY MANAGEMENT — SERVICES PAGE (/services.html)
+       -----------------------------------------------------------------------
+       Structure: Page banner → sticky anchor nav → 4 service-detail sections
+                  (alternating backgrounds, each ~300 words + feature callout
+                  + 3-4 step "How It Works") → pricing placeholder → final CTA
+       H1:        "Everything Your Investment Needs"
+       Anchors:   #leasing, #reporting, #maintenance, #inspections
+       ======================================================================= -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Property Management Services in Houston | Newera</title>
+  <meta name="description" content="Full-service Houston property management: marketing &amp; leasing, rent collection &amp; reporting, maintenance &amp; vendor management, and inspections. Transparent, photo-documented, investor-focused.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.newerapm.com/services.html">
+  <meta name="theme-color" content="#1E3A8A">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Houston Property Management Services | Newera">
+  <meta property="og:description" content="Four pillars of investor-focused property management in Houston: leasing, rent collection, maintenance, and inspections.">
+  <meta property="og:url" content="https://www.newerapm.com/services.html">
+  <meta property="og:image" content="https://www.newerapm.com/assets/brand/og-image.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/x-icon" href="/assets/brand/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Structured data: Service x 4 + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.newerapm.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.newerapm.com/services.html" }
+        ]
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Property Marketing, Leasing & Tenant Screening",
+        "provider": { "@id": "https://www.newerapm.com/#business" },
+        "areaServed": "Houston, TX",
+        "url": "https://www.newerapm.com/services.html#leasing"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Rent Collection & Owner Reporting",
+        "provider": { "@id": "https://www.newerapm.com/#business" },
+        "areaServed": "Houston, TX",
+        "url": "https://www.newerapm.com/services.html#reporting"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Maintenance & Vendor Management",
+        "provider": { "@id": "https://www.newerapm.com/#business" },
+        "areaServed": "Houston, TX",
+        "url": "https://www.newerapm.com/services.html#maintenance"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Property Inspections & Oversight",
+        "provider": { "@id": "https://www.newerapm.com/#business" },
+        "areaServed": "Houston, TX",
+        "url": "https://www.newerapm.com/services.html#inspections"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+
+  <!-- =====================================================================
+       HEADER — shared partial. aria-current="page" on "Services".
+       ===================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+
+      <a href="/" class="site-header__logo" aria-label="Newera Property Management — Home">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="28" height="28" rx="6" fill="#1E3A8A"/>
+          <path d="M9 22V10h2.8l8.4 8.5V10H23v12h-2.8l-8.4-8.5V22H9Z" fill="#0EA5E9"/>
+        </svg>
+        <span>Newera</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="/index.html" class="site-nav__link">Home</a></li>
+          <li class="site-nav__item"><a href="/about.html" class="site-nav__link">About Us</a></li>
+
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="/services.html" class="site-nav__link" aria-current="page">Services</a>
+            <ul class="site-nav__dropdown" role="menu">
+              <li role="none"><a role="menuitem" href="/services.html#leasing">Marketing, Leasing &amp; Tenant Screening</a></li>
+              <li role="none"><a role="menuitem" href="/services.html#reporting">Rent Collection &amp; Owner Reporting</a></li>
+              <li role="none"><a role="menuitem" href="/services.html#maintenance">Maintenance &amp; Vendor Management</a></li>
+              <li role="none"><a role="menuitem" href="/services.html#inspections">Inspections &amp; Property Oversight</a></li>
+            </ul>
+          </li>
+
+          <li class="site-nav__item"><a href="/properties.html" class="site-nav__link">Available Properties</a></li>
+
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="#" class="site-nav__link" aria-haspopup="true">Owners</a>
+            <ul class="site-nav__dropdown" role="menu">
+              <li role="none"><a role="menuitem" href="/about.html#why-choose-us">Why Choose Us</a></li>
+              <li role="none"><a role="menuitem" href="https://newerapm.managebuilding.com/manager" target="_blank" rel="noopener noreferrer">Owner Portal Login ↗</a></li>
+              <li role="none"><a role="menuitem" href="/faq.html#owners">Owner Resources &amp; FAQ</a></li>
+            </ul>
+          </li>
+
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a href="#" class="site-nav__link" aria-haspopup="true">Residents</a>
+            <ul class="site-nav__dropdown" role="menu">
+              <li role="none"><a role="menuitem" href="https://newerapm.managebuilding.com/Resident/portal" target="_blank" rel="noopener noreferrer">Resident Portal Login ↗</a></li>
+              <li role="none"><a role="menuitem" href="https://newerapm.managebuilding.com/Resident/portal" target="_blank" rel="noopener noreferrer">Pay Rent Online ↗</a></li>
+              <li role="none"><a role="menuitem" href="https://newerapm.managebuilding.com/Resident/portal" target="_blank" rel="noopener noreferrer">Submit Maintenance Request ↗</a></li>
+              <li role="none"><a role="menuitem" href="/faq.html#residents">Resident FAQ</a></li>
+            </ul>
+          </li>
+
+          <li class="site-nav__item"><a href="/contact.html" class="site-nav__link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <a href="/contact.html?form=consultation" class="btn btn--primary site-header__cta">Get a Free Consultation</a>
+
+      <button type="button"
+              class="nav-toggle"
+              id="nav-toggle"
+              aria-label="Open menu"
+              aria-controls="mobile-nav"
+              aria-expanded="false">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true" aria-label="Mobile">
+      <ul class="mobile-nav__list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li>
+          <a href="/services.html">Services</a>
+          <ul class="mobile-nav__sublist">
+            <li><a href="/services.html#leasing">Marketing, Leasing &amp; Screening</a></li>
+            <li><a href="/services.html#reporting">Rent Collection &amp; Reporting</a></li>
+            <li><a href="/services.html#maintenance">Maintenance &amp; Vendors</a></li>
+            <li><a href="/services.html#inspections">Inspections &amp; Oversight</a></li>
+          </ul>
+        </li>
+        <li><a href="/properties.html">Available Properties</a></li>
+        <li>
+          <a href="#" aria-label="Owners section">Owners</a>
+          <ul class="mobile-nav__sublist">
+            <li><a href="/about.html#why-choose-us">Why Choose Us</a></li>
+            <li><a href="https://newerapm.managebuilding.com/manager" target="_blank" rel="noopener noreferrer">Owner Portal ↗</a></li>
+            <li><a href="/faq.html#owners">Owner FAQ</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" aria-label="Residents section">Residents</a>
+          <ul class="mobile-nav__sublist">
+            <li><a href="https://newerapm.managebuilding.com/Resident/portal" target="_blank" rel="noopener noreferrer">Resident Portal ↗</a></li>
+            <li><a href="https://newerapm.managebuilding.com/Resident/portal" target="_blank" rel="noopener noreferrer">Pay Rent ↗</a></li>
+            <li><a href="/faq.html#residents">Resident FAQ</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Contact Us</a></li>
+      </ul>
+      <a href="/contact.html?form=consultation" class="btn btn--primary mobile-nav__cta">Get a Free Consultation</a>
+    </nav>
+  </header>
+
+
+  <main id="main">
+
+    <!-- ===================================================================
+         PAGE BANNER
+         =================================================================== -->
+    <section class="page-banner" aria-labelledby="page-title">
+      <div class="container">
+        <div class="page-banner__content">
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">›</span>
+            <span aria-current="page">Services</span>
+          </nav>
+          <span class="eyebrow page-banner__eyebrow">Our Services</span>
+          <h1 id="page-title">Everything Your Investment Needs</h1>
+          <p>
+            Four pillars of professional property management — from first listing to
+            long-term asset protection. Every service is documented, every report is
+            photo-backed, and every decision is made with your long-term returns in mind.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         STICKY ANCHOR NAV — quick jump to each service section
+         =================================================================== -->
+    <div class="services-anchor-nav" aria-label="Jump to section">
+      <div class="container services-anchor-nav__inner">
+        <a href="#leasing">Marketing &amp; Leasing</a>
+        <a href="#reporting">Rent Collection &amp; Reporting</a>
+        <a href="#maintenance">Maintenance</a>
+        <a href="#inspections">Inspections</a>
+        <a href="#pricing" style="margin-left: auto;">Pricing</a>
+      </div>
+    </div>
+
+
+    <!-- ===================================================================
+         SERVICE 1 — Marketing, Leasing & Tenant Screening
+         =================================================================== -->
+    <section class="service-detail" id="leasing" aria-labelledby="leasing-title">
+      <div class="container">
+        <div class="service-detail__grid">
+
+          <div class="service-detail__text">
+            <div class="service-detail__header">
+              <span class="service-detail__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="9" r="6"/>
+                  <path d="m13.5 13.5 7 7"/>
+                  <path d="m6 9 2 2 4-4"/>
+                </svg>
+              </span>
+              <div>
+                <span class="service-detail__number">Service 01</span>
+                <h2 id="leasing-title">Marketing, Leasing &amp; Tenant Screening</h2>
+              </div>
+            </div>
+
+            <p>
+              Vacancy is the single most expensive line item on a rental property. Every
+              day a property sits empty is rent you'll never recover — which is why
+              marketing and leasing is the first service we take seriously. We start
+              with high-quality listing photography, a written description crafted to
+              attract qualified renters, and syndication to all of the major rental
+              platforms: Zillow, Trulia, Apartments.com, Realtor.com, Rent., HotPads,
+              and our own website.
+            </p>
+
+            <p>
+              Every interested applicant is qualified before we ever schedule a showing.
+              Our screening process is thorough and Fair-Housing compliant: a full
+              three-bureau credit report, nationwide criminal background check, eviction
+              history, income verification (typically 3× monthly rent), employment
+              verification, and direct contact with previous landlords. We apply the
+              same consistent standards to every applicant — always.
+            </p>
+
+            <p>
+              Once an applicant is approved, we handle everything: the lease agreement
+              (state-compliant and regularly updated by legal counsel), security deposit
+              collection and escrow, move-in walkthrough with full photo documentation,
+              and the initial welcome handoff to the resident. You approve the applicant
+              before we sign; after that, the lease is active and rent collection begins.
+            </p>
+
+            <div class="service-detail__ctas">
+              <a href="/contact.html?form=rental-analysis" class="btn btn--primary">Get a Free Rental Analysis</a>
+              <a href="/contact.html" class="btn btn--ghost">
+                Ask a Question
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Feature callout -->
+          <aside class="feature-callout" aria-labelledby="leasing-features">
+            <h3 id="leasing-features">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              What's included
+            </h3>
+            <ul class="feature-callout__list">
+              <li><div><strong>Professional listing photography</strong>Wide-angle, well-lit photos that help your property stand out in search results.</div></li>
+              <li><div><strong>Multi-platform syndication</strong>Zillow, Trulia, Apartments.com, Realtor.com, Rent., HotPads, and more.</div></li>
+              <li><div><strong>Full applicant screening</strong>Credit, criminal, eviction, income, employment, and landlord verification.</div></li>
+              <li><div><strong>Fair-Housing compliance</strong>Consistent screening criteria applied to every applicant, every time.</div></li>
+              <li><div><strong>State-compliant lease</strong>Reviewed by legal counsel. Updated as Texas landlord-tenant law evolves.</div></li>
+              <li><div><strong>Move-in documentation</strong>Full photo record of property condition at handoff.</div></li>
+            </ul>
+          </aside>
+        </div>
+
+        <!-- How It Works -->
+        <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-3);">How It Works</h3>
+        <div class="process-steps">
+          <div class="process-step">
+            <h4>Listing &amp; Marketing Go Live</h4>
+            <p>We photograph the property, write the listing, and syndicate to every major platform within 24–48 hours of the marketing agreement.</p>
+          </div>
+          <div class="process-step">
+            <h4>Applicants Apply &amp; Are Screened</h4>
+            <p>Every applicant completes an online application. We run credit, criminal, eviction, and income checks, and verify employment + prior landlords.</p>
+          </div>
+          <div class="process-step">
+            <h4>You Approve the Resident</h4>
+            <p>We present qualified applicants with a summary of their screening. You have final approval authority — we never sign a lease without your sign-off.</p>
+          </div>
+          <div class="process-step">
+            <h4>Lease Signed &amp; Move-in Complete</h4>
+            <p>We execute the lease, collect security deposit, perform the move-in walkthrough with photos, and hand keys to the new resident.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         SERVICE 2 — Rent Collection & Owner Reporting
+         =================================================================== -->
+    <section class="service-detail service-detail--alt service-detail--reverse" id="reporting" aria-labelledby="reporting-title">
+      <div class="container">
+        <div class="service-detail__grid">
+
+          <!-- Feature callout (appears first in DOM, flipped via CSS on desktop) -->
+          <aside class="feature-callout" aria-labelledby="reporting-features">
+            <h3 id="reporting-features">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              What's included
+            </h3>
+            <ul class="feature-callout__list">
+              <li><div><strong>Online rent collection</strong>ACH, debit, and credit card payments. Direct deposit to your bank account.</div></li>
+              <li><div><strong>Monthly owner statements</strong>Itemized income and expense reports, delivered every month.</div></li>
+              <li><div><strong>Real-time portal access</strong>Check balances, statements, and work orders 24/7 from any device.</div></li>
+              <li><div><strong>Late fee &amp; delinquency handling</strong>Automated reminders, late-fee assessment, and notice posting.</div></li>
+              <li><div><strong>Year-end 1099 &amp; tax documents</strong>Everything your CPA needs, delivered in January.</div></li>
+              <li><div><strong>Security deposit escrow</strong>Held in accordance with Texas trust account requirements.</div></li>
+            </ul>
+          </aside>
+
+          <div class="service-detail__text">
+            <div class="service-detail__header">
+              <span class="service-detail__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 6v12M9 9h4.5a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3H15"/>
+                </svg>
+              </span>
+              <div>
+                <span class="service-detail__number">Service 02</span>
+                <h2 id="reporting-title">Rent Collection &amp; Owner Reporting</h2>
+              </div>
+            </div>
+
+            <p>
+              Reliable rent collection is the foundation of a profitable rental portfolio
+              — and transparent reporting is the foundation of a sustainable
+              owner-manager relationship. We handle both rigorously. Residents pay rent
+              online through a secure portal via ACH, debit, or credit card. Funds clear
+              through our trust account and are deposited directly into your designated
+              bank account on a consistent monthly schedule.
+            </p>
+
+            <p>
+              Every owner has a secure, always-on portal with their current statement,
+              year-to-date ledger, unit photos, work order history, and tax documents.
+              Nothing is hidden behind a request form, nothing requires a phone call to
+              retrieve. If you want to know where your rent is at any given moment —
+              log in. If you want a printed statement mailed to you instead, we can do
+              that too. The goal is simple: you should never have to chase us for
+              information about your own property.
+            </p>
+
+            <p>
+              When a resident pays late or stops paying, our process is predictable and
+              Texas-compliant. Late fees are assessed per the lease terms. Formal notices
+              are posted on the legally required schedule. If a payment plan can be
+              negotiated that preserves your cash flow and avoids eviction costs, we'll
+              propose it to you with the math. If eviction becomes necessary, we
+              coordinate the filing, the court date, and the turnover — keeping your
+              vacancy window as short as possible.
+            </p>
+
+            <div class="service-detail__ctas">
+              <a href="https://newerapm.managebuilding.com/manager" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                Owner Portal Login
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="/faq.html#owners" class="btn btn--ghost">
+                Owner FAQ
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-3);">How It Works</h3>
+        <div class="process-steps">
+          <div class="process-step">
+            <h4>Residents Pay Online</h4>
+            <p>Rent is collected through our secure resident portal. Funds clear through our trust account, not a third party.</p>
+          </div>
+          <div class="process-step">
+            <h4>We Deposit to Your Account</h4>
+            <p>Net proceeds are transferred to your bank account on a consistent monthly schedule — typically by the 10th.</p>
+          </div>
+          <div class="process-step">
+            <h4>Monthly Statements Generated</h4>
+            <p>Full income and expense statements post to your owner portal the same week. You can also opt-in to email PDFs.</p>
+          </div>
+          <div class="process-step">
+            <h4>Year-End Tax Docs Delivered</h4>
+            <p>1099s and annual statements arrive every January — ready to hand to your CPA without follow-up.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         SERVICE 3 — Maintenance & Vendor Management
+         =================================================================== -->
+    <section class="service-detail" id="maintenance" aria-labelledby="maintenance-title">
+      <div class="container">
+        <div class="service-detail__grid">
+
+          <div class="service-detail__text">
+            <div class="service-detail__header">
+              <span class="service-detail__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.8-2.8 2.1-2.1Z"/>
+                </svg>
+              </span>
+              <div>
+                <span class="service-detail__number">Service 03</span>
+                <h2 id="maintenance-title">Maintenance &amp; Vendor Management</h2>
+              </div>
+            </div>
+
+            <p>
+              Maintenance is where most property managers either overspend or underperform.
+              Newera does neither. Every vendor in our network is licensed, insured, and
+              vetted before they ever touch a Newera-managed property. We've built
+              long-term relationships with HVAC techs, plumbers, electricians, roofers,
+              and general handymen across Houston — which means we get fair pricing,
+              prompt service, and skilled work consistently.
+            </p>
+
+            <p>
+              When a resident submits a maintenance request through the portal, the
+              ticket enters our system immediately and is triaged by priority. Routine
+              items (a leaky faucet, a broken blind) are scheduled within a few business
+              days. Urgent items (a non-functioning A/C unit in July, a water leak) are
+              dispatched same-day. Emergency items (gas leak, sewer backup, fire
+              hazard) are handled through our 24/7 emergency line — a real person
+              answers, dispatches a vendor, and notifies you immediately.
+            </p>
+
+            <p>
+              Every repair gets documented. Before-and-after photos are uploaded to
+              your portal, invoices are itemized, and work orders are kept on file for
+              the life of the property. If a repair costs more than a pre-agreed
+              threshold (typically $300–$500, set with you at onboarding), we call you
+              before authorizing the work. No surprises, no "management fee" markups on
+              vendor invoices, no mystery charges on your statement.
+            </p>
+
+            <div class="service-detail__ctas">
+              <a href="/contact.html?form=consultation" class="btn btn--primary">Discuss Your Property</a>
+            </div>
+          </div>
+
+          <aside class="feature-callout" aria-labelledby="maintenance-features">
+            <h3 id="maintenance-features">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              What's included
+            </h3>
+            <ul class="feature-callout__list">
+              <li><div><strong>Vetted, licensed vendor network</strong>Pre-qualified Houston-area HVAC, plumbing, electrical, roofing, and handyman contractors.</div></li>
+              <li><div><strong>24/7 emergency response</strong>A real person answers after-hours emergencies. Not a call center.</div></li>
+              <li><div><strong>Online work-order tracking</strong>Residents submit, owners monitor, all parties see status updates live.</div></li>
+              <li><div><strong>Photo-documented repairs</strong>Before and after. Uploaded to your portal with every closed work order.</div></li>
+              <li><div><strong>No markup on vendor invoices</strong>You pay what the vendor charges. Period.</div></li>
+              <li><div><strong>Owner approval for major repairs</strong>We call before authorizing anything over your pre-agreed threshold.</div></li>
+            </ul>
+          </aside>
+        </div>
+
+        <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-3);">How It Works</h3>
+        <div class="process-steps">
+          <div class="process-step">
+            <h4>Resident Submits a Request</h4>
+            <p>Through the portal, by phone, or in an emergency by 24/7 phone line. Tickets are logged and triaged within minutes.</p>
+          </div>
+          <div class="process-step">
+            <h4>Priority Triaged &amp; Vendor Dispatched</h4>
+            <p>Emergency → same-hour. Urgent → same-day. Routine → within a few business days. Work scope is documented before dispatch.</p>
+          </div>
+          <div class="process-step">
+            <h4>Owner Notified for Major Work</h4>
+            <p>Anything above your pre-set threshold gets a call (or email, your preference) with scope and estimate, before any work is authorized.</p>
+          </div>
+          <div class="process-step">
+            <h4>Work Completed &amp; Documented</h4>
+            <p>Before/after photos, itemized invoice, and work notes are uploaded to your portal. The work order closes when you can see the result.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         SERVICE 4 — Inspections & Property Oversight
+         =================================================================== -->
+    <section class="service-detail service-detail--alt service-detail--reverse" id="inspections" aria-labelledby="inspections-title">
+      <div class="container">
+        <div class="service-detail__grid">
+
+          <aside class="feature-callout" aria-labelledby="inspections-features">
+            <h3 id="inspections-features">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              What's included
+            </h3>
+            <ul class="feature-callout__list">
+              <li><div><strong>Move-in inspection</strong>Full written report + 100+ photos documenting every room, appliance, and fixture.</div></li>
+              <li><div><strong>Mid-lease inspection</strong>At 6-month mark. Catches deferred maintenance before it becomes expensive.</div></li>
+              <li><div><strong>Move-out inspection</strong>Side-by-side photo comparison with move-in condition. Drives deposit-return decisions.</div></li>
+              <li><div><strong>Drive-by checks</strong>Curb-appeal and exterior condition audits. No notice to resident required.</div></li>
+              <li><div><strong>Annual property assessment</strong>Full report with recommended capital improvements and repair priorities.</div></li>
+              <li><div><strong>All reports in your portal</strong>Instantly accessible. Compare year-over-year. Never lost in email.</div></li>
+            </ul>
+          </aside>
+
+          <div class="service-detail__text">
+            <div class="service-detail__header">
+              <span class="service-detail__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="4" width="14" height="17" rx="2"/>
+                  <path d="M9 4V2h6v2M9 12l2 2 4-4"/>
+                </svg>
+              </span>
+              <div>
+                <span class="service-detail__number">Service 04</span>
+                <h2 id="inspections-title">Inspections &amp; Property Oversight</h2>
+              </div>
+            </div>
+
+            <p>
+              Inspections are what separate property management from property collection.
+              A property that's inspected on a consistent schedule holds its value; one
+              that isn't develops problems that compound silently. We perform a formal
+              move-in inspection at lease start, a mid-lease check at the six-month
+              mark, and a move-out inspection at lease end — each one with full
+              photographic documentation uploaded directly to your portal.
+            </p>
+
+            <p>
+              The move-in inspection is where expectations are set. Every room is
+              photographed. Every appliance is tested. Every fixture is documented.
+              The resident signs off on the condition report, which becomes the baseline
+              we use at move-out to determine security deposit disposition. If a wall
+              had a ding at move-in, the photos prove it. If the carpet was new, the
+              photos prove that too. No he-said-she-said, no disputed deposit claims.
+            </p>
+
+            <p>
+              Mid-lease inspections are where we catch the issues residents don't report
+              — a slow plumbing leak under a sink, a fence panel starting to rot, a
+              gutter issue that's going to become a roof issue. These inspections are
+              short, respectful of the resident's privacy, and focused on the property's
+              long-term health. You receive a written report with photos and
+              recommendations within 48 hours. Small issues get scheduled for repair.
+              Larger capital concerns are flagged with estimates for your next quarterly
+              planning conversation.
+            </p>
+
+            <div class="service-detail__ctas">
+              <a href="/contact.html?form=consultation" class="btn btn--primary">Schedule a Consultation</a>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="margin-top: var(--space-10); margin-bottom: var(--space-3);">How It Works</h3>
+        <div class="process-steps">
+          <div class="process-step">
+            <h4>Move-in Inspection</h4>
+            <p>Performed at lease start with the resident present. Full written report and 100+ photos uploaded the same day.</p>
+          </div>
+          <div class="process-step">
+            <h4>Mid-lease Inspection</h4>
+            <p>At the 6-month mark. Scheduled with proper notice to resident. Focus: deferred maintenance and property condition.</p>
+          </div>
+          <div class="process-step">
+            <h4>Move-out Inspection</h4>
+            <p>Side-by-side photo comparison to move-in. Drives an itemized, defensible security deposit return decision.</p>
+          </div>
+          <div class="process-step">
+            <h4>Annual Property Assessment</h4>
+            <p>Year-end report with current condition, recommended improvements, and capital expense forecast for next year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         PRICING PLACEHOLDER — transparent about "we're finalizing fees"
+         REPLACE: When Ann provides the final fee schedule, replace this
+         .pricing-placeholder block with a real pricing table (full markup
+         scaffold ready in /site-content.json → services.pricing).
+         =================================================================== -->
+    <section class="section section--offwhite" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="eyebrow">Pricing</span>
+          <h2 id="pricing-title">Transparent Pricing — No Surprises</h2>
+          <p>We'll publish our full fee schedule here once onboarding is finalized. In the meantime, we'll walk you through pricing in detail during your free consultation.</p>
+        </div>
+
+        <div class="pricing-placeholder">
+          <span class="pricing-placeholder__badge">Coming Soon</span>
+          <h3>Our Pricing Philosophy</h3>
+          <p>
+            We charge a flat monthly management fee plus standard leasing and renewal
+            fees. No hidden charges. No vendor invoice markups. No "administration"
+            fees tacked on. Before you sign a management agreement, you'll see every
+            fee spelled out in writing — and every line item will match what you see
+            on your monthly statements.
+          </p>
+          <a href="/contact.html?form=consultation" class="btn btn--primary">Request Our Fee Schedule</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         FINAL CTA
+         =================================================================== -->
+    <section class="final-cta" aria-labelledby="final-cta-title">
+      <div class="container">
+        <div class="final-cta__content">
+          <h2 id="final-cta-title">Ready to See Newera in Action?</h2>
+          <p>Schedule a free consultation. We'll analyze your property, answer your questions, and show you exactly how we'd manage it — before you commit to anything.</p>
+          <div class="final-cta__ctas">
+            <a href="/contact.html?form=consultation" class="btn btn--inverse">Schedule Your Free Consultation</a>
+            <a href="tel:+18325582911" class="final-cta__phone">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/>
+              </svg>
+              Or call us at (832) 558-2911
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================================
+       FOOTER — canonical copy, from /partials/footer.html
+       ===================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__grid">
+
+        <div>
+          <div class="footer__brand-logo">Newera</div>
+          <p class="footer__tagline">The New Era of Property Management</p>
+
+          <div class="footer__social" aria-label="Follow Newera on social media">
+            <a href="https://www.linkedin.com/company/newerapm" target="_blank" rel="noopener noreferrer" aria-label="Newera on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5V9h3v10Zm-1.5-11.3a1.7 1.7 0 1 1 0-3.5 1.7 1.7 0 0 1 0 3.5ZM19 19h-3v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V19H9V9h2.9v1.3h.1c.4-.7 1.4-1.5 2.9-1.5 3 0 3.6 2 3.6 4.6V19Z"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/newera_pm" target="_blank" rel="noopener noreferrer" aria-label="Newera on Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61572141067451" target="_blank" rel="noopener noreferrer" aria-label="Newera on Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.3A22 22 0 0 0 14.4 4c-2.5 0-4.2 1.5-4.2 4.3v2.5H7.5V14h2.7v8h3.3Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/properties.html">Available Properties</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services.html#leasing">Marketing, Leasing &amp; Tenant Screening</a></li>
+            <li><a href="/services.html#reporting">Rent Collection &amp; Owner Reporting</a></li>
+            <li><a href="/services.html#maintenance">Maintenance &amp; Vendor Management</a></li>
+            <li><a href="/services.html#inspections">Inspections &amp; Property Oversight</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <div class="footer__contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/>
+            </svg>
+            <a href="tel:+18325582911">(832) 558-2911</a>
+          </div>
+          <div class="footer__contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3 7 9 6 9-6"/>
+            </svg>
+            <a href="mailto:info@newerapm.com">info@newerapm.com <span style="color: var(--color-slate-soft); font-weight: 400;">(Owners)</span></a>
+          </div>
+          <div class="footer__contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3 7 9 6 9-6"/>
+            </svg>
+            <a href="mailto:support@newerapm.com">support@newerapm.com <span style="color: var(--color-slate-soft); font-weight: 400;">(Residents)</span></a>
+          </div>
+          <div class="footer__contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>17350 State Hwy 249 Ste 220<br>Houston, TX 77064</span>
+          </div>
+
+          <h4 style="margin-top: var(--space-7);">Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="/assets/legal/iabs.pdf" target="_blank" rel="noopener noreferrer">TREC IABS Disclosure</a></li>
+            <li><a href="/assets/legal/consumer-protection-notice.pdf" target="_blank" rel="noopener noreferrer">TREC Consumer Protection Notice</a></li>
+          </ul>
+
+          <div class="footer__logos" aria-label="Licensing and fair housing">
+            <span class="placeholder-logo">EQUAL HOUSING</span>
+            <span class="placeholder-logo">TREC LICENSED</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <div>© 2026 Newera Property Management LLC. All Rights Reserved.</div>
+        <div><a href="/privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms.html">Terms of Service</a></div>
+        <div>Licensed Texas Real Estate Broker #9016567-BB</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    (function () {
+      'use strict';
+      var header = document.getElementById('site-header');
+      if (header) {
+        var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+      var toggle = document.getElementById('nav-toggle');
+      var drawer = document.getElementById('mobile-nav');
+      if (toggle && drawer) {
+        toggle.addEventListener('click', function () {
+          var expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          toggle.setAttribute('aria-label', expanded ? 'Open menu' : 'Close menu');
+          drawer.setAttribute('aria-hidden', String(expanded));
+          document.body.classList.toggle('has-open-menu', !expanded);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

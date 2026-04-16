@@ -1,0 +1,39 @@
+{
+  "name": "newera-property-management",
+  "version": "1.0.0",
+  "description": "Professional property management website for Newera Property Management LLC. Featuring responsive design, Buildium API integration, and Formspree contact submissions.",
+  "type": "module",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/newera-property-management.git"
+  },
+  "author": "Newera Property Management LLC",
+  "license": "MIT",
+  "keywords": [
+    "property management",
+    "real estate",
+    "residential",
+    "houston",
+    "texas",
+    "buildium"
+  ],
+  "scripts": {
+    "start": "npx http-server -p 8000 -c-1",
+    "build": "echo \"No build step needed for static site\"",
+    "serve": "python -m http.server 8000",
+    "test": "echo \"Add your test suite here\""
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

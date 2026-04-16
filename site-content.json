@@ -1,0 +1,237 @@
+{
+  "_comment": "NEWERA PROPERTY MANAGEMENT — SITE CONTENT CONFIG. This file is the single source of truth for all editable content, colors, links, and toggles across the website. Mary Ann (designer) edits this JSON file and the site content updates throughout the codebase. See Section 8 of the project spec and the README for the edit-and-rebuild workflow.",
+
+  "global": {
+    "businessName": "Newera Property Management",
+    "legalName": "Newera Property Management LLC",
+    "tagline": "The New Era of Property Management",
+    "phone": "(832) 558-2911",
+    "phoneTel": "+18325582911",
+    "emailOwners": "info@newerapm.com",
+    "emailResidents": "support@newerapm.com",
+    "address": {
+      "street": "17350 State Hwy 249 Ste 220",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77064",
+      "full": "17350 State Hwy 249 Ste 220, Houston, TX 77064"
+    },
+    "hoursBusiness": "Mon–Fri 9 AM–5 PM Central",
+    "hoursEmergency": "24/7 Emergency Line",
+    "trecLicense": "#9016567-BB",
+    "yearFounded": "2026",
+    "ownerPortalUrl": "https://newerapm.managebuilding.com/manager",
+    "residentPortalUrl": "https://newerapm.managebuilding.com/Resident/portal",
+    "social": {
+      "linkedin": "https://www.linkedin.com/company/newerapm",
+      "instagram": "https://www.instagram.com/newera_pm",
+      "facebook": "https://www.facebook.com/profile.php?id=61572141067451"
+    }
+  },
+
+  "colors": {
+    "navy": "#1E3A8A",
+    "teal": "#0EA5E9",
+    "slate": "#334155",
+    "offwhite": "#F8FAFC",
+    "gold": "#CDA434",
+    "white": "#FFFFFF",
+    "ink": "#0F172A"
+  },
+
+  "toggles": {
+    "testimonialsEnabled": false,
+    "blogPreviewEnabled": false,
+    "blogInNavEnabled": false
+  },
+
+  "homepage": {
+    "meta": {
+      "title": "Property Management Houston TX | Newera",
+      "description": "Modern, investor-focused property management for single-family and small multifamily homes in Houston. Transparent reporting, 24/7 portal access, real human support."
+    },
+    "hero": {
+      "headline": "Modern Property Management for Houston Investors.",
+      "subheadline": "We manage your single-family and small multifamily properties with the transparency, technology, and investor focus you deserve — whether you're across town or across the country.",
+      "primaryCta": { "label": "Get a Free Rental Analysis", "href": "/contact.html?form=rental-analysis" },
+      "secondaryCta": { "label": "See How We Work", "href": "/services.html" },
+      "backgroundImage": "images/hero/houston-home.jpg"
+    },
+    "trustStats": [
+      { "icon": "shield", "primary": "Licensed", "description": "Texas Real Estate Broker License #9016567-BB" },
+      { "icon": "phone", "primary": "24/7", "description": "Emergency Maintenance Response for Residents" },
+      { "icon": "chart", "primary": "100%", "description": "Transparent Reporting & Real-Time Portal Access" },
+      { "icon": "house", "primary": "Houston-Focused", "description": "Single-Family + Small Multifamily Experts" }
+    ],
+    "services": {
+      "headline": "Everything Your Investment Needs",
+      "subheadline": "Four pillars of professional property management — covering every stage of ownership from first listing to long-term asset protection.",
+      "cards": [
+        {
+          "icon": "key",
+          "title": "Marketing, Leasing & Tenant Screening",
+          "description": "We list your property across all major rental platforms, conduct professional showings, and rigorously screen every applicant — credit, criminal, employment, and rental history — to place long-term, qualified residents fast.",
+          "href": "/services.html#leasing"
+        },
+        {
+          "icon": "dollar",
+          "title": "Rent Collection & Owner Reporting",
+          "description": "Rent arrives in your account on time through secure online payments. Monthly owner statements, real-time income tracking, and year-end tax documents — all available 24/7 in your owner portal.",
+          "href": "/services.html#reporting"
+        },
+        {
+          "icon": "wrench",
+          "title": "Maintenance & Vendor Management",
+          "description": "Every repair handled by vetted, licensed vendors. Residents submit requests online, work orders are tracked live, and every job is photo-documented — so you always know what was done and why.",
+          "href": "/services.html#maintenance"
+        },
+        {
+          "icon": "clipboard",
+          "title": "Inspections & Property Oversight",
+          "description": "Move-in, mid-lease, and move-out inspections — all with full photo documentation uploaded to your portal. We catch issues early to protect your property's long-term value.",
+          "href": "/services.html#inspections"
+        }
+      ],
+      "cta": { "label": "See All Our Services", "href": "/services.html" }
+    },
+    "about": {
+      "headline": "A New Era of Property Management in Houston",
+      "paragraphs": [
+        "Newera Property Management wasn't born in a corporate office — it was born from frustration. Our founders have spent years in the trenches: buying distressed properties, renovating them, managing rehabilitation timelines and contractor relationships, and learning what it takes to keep a property profitable and well-maintained. As our fix-and-flip portfolio grew into rental holdings, we realized that most property management companies don't think the way investors think. They treat properties like files, not assets. They optimize for their commission, not your long-term wealth. So we built Newera as the property management company we wished existed when we started out.",
+        "Because we own and actively manage properties ourselves, we bring something most traditional property managers lack: real investor perspective. We understand renovation economics. We know which repairs protect property value and which ones are unnecessary. We recognize that responsive maintenance isn't an expense — it's an investment in asset protection. Every decision we make is informed by our own property holdings. We don't just manage your investments; we manage them the way we'd manage our own.",
+        "Today, Newera combines our decade of hands-on real estate experience with modern property management technology. We're a licensed Texas broker focused exclusively on Houston single-family and small multifamily properties — the same properties we invest in ourselves. That alignment means your success is our success."
+      ],
+      "cta": { "label": "Learn More About Us", "href": "/about.html" },
+      "differentiators": [
+        {
+          "icon": "device",
+          "title": "Anywhere, Anytime Access",
+          "description": "Check your property's performance anytime, from anywhere. Our secure online owner portal gives you real-time access to rent payments, maintenance updates, inspection reports, financial statements, and property photos — all from your phone or laptop."
+        },
+        {
+          "icon": "headset",
+          "title": "Responsive, Real Human Support",
+          "description": "When you call Newera, a real person answers. Our dedicated support team is available by phone during business hours, with 24/7 emergency line for critical maintenance issues."
+        },
+        {
+          "icon": "camera",
+          "title": "Transparent, Photo-Documented Reporting",
+          "description": "Every inspection includes photos. Every repair includes before-and-after documentation. You'll always know exactly what's happening at your property."
+        },
+        {
+          "icon": "growth",
+          "title": "Investor-Minded Operations",
+          "description": "We're managed by real estate investors, for real estate investors. We understand property values, renovation economics, and what protects long-term asset performance."
+        }
+      ]
+    },
+    "featuredProperties": {
+      "headline": "Currently Available in Houston",
+      "subheadline": "Browse our latest rental homes and small multifamily units available for lease.",
+      "fallbackText": "New listings coming soon. Join our rental alert list.",
+      "fallbackCta": { "label": "Join Rental Alerts", "href": "/contact.html?form=rental-alert" },
+      "cta": { "label": "See All Available Properties", "href": "/properties.html" },
+      "count": 3
+    },
+    "trustStrip": {
+      "headline": "Why Investors Choose Newera",
+      "subheadline": "We're new — and that's the point. Newera was built from the ground up around the things traditional property managers get wrong.",
+      "cards": [
+        {
+          "icon": "shield",
+          "title": "Licensed & Accountable",
+          "description": "Newera Property Management LLC is a licensed Texas real estate broker (TREC #9016567-BB). Every action we take is documented and compliant with Texas real estate law."
+        },
+        {
+          "icon": "device",
+          "title": "Modern, Transparent Technology",
+          "description": "Owners and residents get 24/7 portal access to statements, work orders, and photo-documented reports — no chasing updates, no guessing what's happening at your property."
+        },
+        {
+          "icon": "growth",
+          "title": "Run by Real Estate Investors",
+          "description": "Our founders come from home-buying and fix-and-flip backgrounds. We understand property values, renovation trade-offs, and what it takes to protect a long-term investment."
+        }
+      ]
+    },
+    "testimonials": {
+      "headline": "What Our Clients Say",
+      "subheadline": "Real feedback from the owners and residents we serve.",
+      "items": []
+    },
+    "residentCta": {
+      "headline": "Currently Renting With Us?",
+      "cardTitle": "Resident Portal",
+      "cardSubtext": "Pay rent, submit maintenance requests, and manage your lease — all in one place.",
+      "buttonLabel": "Resident Portal Login"
+    },
+    "blogPreview": {
+      "headline": "Resources for Property Owners & Investors",
+      "subheadline": "Industry insights, Houston market updates, and property management best practices to help you maximize your investment.",
+      "cta": { "label": "View All Articles", "href": "/blog.html" },
+      "posts": []
+    },
+    "finalCta": {
+      "headline": "Ready to Simplify Your Property Management?",
+      "subtext": "Schedule a free consultation with our team. We'll analyze your portfolio, answer your questions, and show you exactly how Newera can work for you.",
+      "primaryCta": { "label": "Schedule Your Free Consultation", "href": "/contact.html?form=consultation" }
+    }
+  },
+
+  "navigation": {
+    "main": [
+      { "label": "Home", "href": "/index.html" },
+      { "label": "About Us", "href": "/about.html" },
+      {
+        "label": "Services",
+        "href": "/services.html",
+        "dropdown": [
+          { "label": "Marketing, Leasing & Tenant Screening", "href": "/services.html#leasing" },
+          { "label": "Rent Collection & Owner Reporting", "href": "/services.html#reporting" },
+          { "label": "Maintenance & Vendor Management", "href": "/services.html#maintenance" },
+          { "label": "Inspections & Property Oversight", "href": "/services.html#inspections" }
+        ]
+      },
+      { "label": "Available Properties", "href": "/properties.html" },
+      {
+        "label": "Owners",
+        "href": "#",
+        "dropdown": [
+          { "label": "Why Choose Us", "href": "/about.html#why-choose-us" },
+          { "label": "Owner Portal Login", "href": "https://newerapm.managebuilding.com/manager", "external": true },
+          { "label": "Owner Resources / FAQ", "href": "/faq.html#owners" }
+        ]
+      },
+      {
+        "label": "Residents",
+        "href": "#",
+        "dropdown": [
+          { "label": "Resident Portal Login", "href": "https://newerapm.managebuilding.com/Resident/portal", "external": true },
+          { "label": "Pay Rent Online", "href": "https://newerapm.managebuilding.com/Resident/portal", "external": true },
+          { "label": "Submit Maintenance Request", "href": "https://newerapm.managebuilding.com/Resident/portal", "external": true },
+          { "label": "Resident FAQ", "href": "/faq.html#residents" }
+        ]
+      },
+      { "label": "Contact Us", "href": "/contact.html" }
+    ],
+    "headerCta": { "label": "Get a Free Consultation", "href": "/contact.html?form=consultation" }
+  },
+
+  "footer": {
+    "tagline": "The New Era of Property Management",
+    "servicesLinks": [
+      { "label": "Marketing, Leasing & Tenant Screening", "href": "/services.html#leasing" },
+      { "label": "Rent Collection & Owner Reporting", "href": "/services.html#reporting" },
+      { "label": "Maintenance & Vendor Management", "href": "/services.html#maintenance" },
+      { "label": "Inspections & Property Oversight", "href": "/services.html#inspections" }
+    ],
+    "legalLinks": [
+      { "label": "Privacy Policy", "href": "/privacy.html" },
+      { "label": "Terms of Service", "href": "/terms.html" },
+      { "label": "TREC Information About Brokerage Services (IABS)", "href": "/assets/legal/iabs.pdf" },
+      { "label": "TREC Consumer Protection Notice", "href": "/assets/legal/consumer-protection-notice.pdf" }
+    ],
+    "copyright": "© 2026 Newera Property Management LLC. All Rights Reserved.",
+    "licenseLine": "Licensed Texas Real Estate Broker #9016567-BB"
+  }
+}
