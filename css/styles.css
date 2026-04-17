@@ -1922,29 +1922,46 @@ p:last-child { margin-bottom: 0; }
    ============================================================================= */
 
 .property-card {
-  opacity: 0.6;
+  opacity: 1;
   pointer-events: none;
   cursor: not-allowed;
 }
 
 .property-card__media {
   position: relative;
-  background: #f0f0f0;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.property-card__media img {
+  opacity: 0.1;
+  filter: grayscale(100%);
+}
+
+.property-card__media::before {
+  content: "🏠";
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  z-index: 5;
+  opacity: 0.8;
 }
 
 .property-card__media::after {
   content: "Coming Soon";
   position: absolute;
-  top: 50%;
+  top: 58%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.7);
   color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 6px;
 }
 
 .property-card__badge--coming-soon {
@@ -1960,4 +1977,12 @@ p:last-child { margin-bottom: 0; }
 
 .property-card__cta:disabled:hover {
   background: #9ca3af;
+}
+
+.property-card__address,
+.property-card__rent,
+.property-card__specs,
+.property-card__meta {
+  opacity: 0.5;
+  color: #6b7280;
 }
