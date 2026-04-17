@@ -1915,3 +1915,49 @@ p:last-child { margin-bottom: 0; }
   height: 100%;
   border: none;
 }
+
+
+/* =============================================================================
+   PROPERTY CARDS — Coming Soon State
+   ============================================================================= */
+
+.property-card {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.property-card__media {
+  position: relative;
+  background: #f0f0f0;
+}
+
+.property-card__media::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  z-index: 10;
+}
+
+.property-card__badge--coming-soon {
+  background: #6b7280;
+  color: white;
+}
+
+.property-card__cta:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.property-card__cta:disabled:hover {
+  background: #9ca3af;
+}
