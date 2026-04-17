@@ -599,6 +599,14 @@ p:last-child { margin-bottom: 0; }
 }
 @media (min-width: 768px) { .hero__content { padding-block: var(--space-12); } }
 
+.hero__logo {
+  height: 64px;
+  width: auto;
+  margin-bottom: var(--space-6);
+  opacity: 0;
+  animation: fadeUp var(--dur-slow) var(--ease-out) 100ms forwards;
+}
+
 .hero__eyebrow {
   color: var(--color-teal);
   opacity: 0;
