@@ -577,8 +577,8 @@ p:last-child { margin-bottom: 0; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* Standard US residential rental property - typical single-family home */
-  background-image: url('https://images.unsplash.com/photo-1570129477492-45a003537e1f?auto=format&fit=crop&w=2400&q=80');
+  /* Local hero property image */
+  background-image: url('/assets/images/hero-property.jpg');
 }
 .hero__overlay {
   position: absolute;
@@ -586,9 +586,9 @@ p:last-child { margin-bottom: 0; }
   z-index: -1;
   background: linear-gradient(
     135deg,
-    rgba(30, 58, 138, 0.75) 0%,
-    rgba(30, 58, 138, 0.55) 45%,
-    rgba(15, 23, 42, 0.65) 100%
+    rgba(30, 58, 138, 0.68) 0%,
+    rgba(30, 58, 138, 0.60) 45%,
+    rgba(15, 23, 42, 0.70) 100%
   );
 }
 
