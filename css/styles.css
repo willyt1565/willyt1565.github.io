@@ -400,7 +400,7 @@ p:last-child { margin-bottom: 0; }
   .site-nav {
     display: flex;
     align-items: center;
-    gap: var(--space-6);
+    gap: var(--space-3);
   }
 }
 .site-nav__list {
@@ -408,13 +408,15 @@ p:last-child { margin-bottom: 0; }
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: var(--space-5);
+  gap: var(--space-3);
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 .site-nav__item { position: relative; }
 .site-nav__link {
   display: inline-block;
-  padding: var(--space-3) 0;
-  font-size: var(--fs-sm);
+  padding: var(--space-2) 0;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-slate);
   text-decoration: none;
