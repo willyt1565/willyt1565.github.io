@@ -557,60 +557,18 @@ p:last-child { margin-bottom: 0; }
 
 
 /* =============================================================================
-   7. HERO (TWO-SECTION DESIGN)
+   7. HERO
    ============================================================================= */
 .hero {
-  display: flex;
-  flex-direction: column;
-  color: var(--color-white);
-  overflow: hidden;
-  isolation: isolate;
-}
-
-/* --- HERO TOP: Logo & Tagline Zone --- */
-.hero__top {
-  background: var(--color-white);
-  padding-block: var(--space-8);
-  border-bottom: 1px solid var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 180px;
-}
-.hero__top .container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.hero__logo {
-  height: 80px;
-  width: auto;
-  margin-bottom: var(--space-5);
-  opacity: 0;
-  animation: fadeUp var(--dur-slow) var(--ease-out) 50ms forwards;
-}
-.hero__tagline {
-  font-family: var(--font-subhead);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--color-teal);
-  text-transform: uppercase;
-  margin: 0;
-  opacity: 0;
-  animation: fadeUp var(--dur-slow) var(--ease-out) 150ms forwards;
-}
-
-/* --- HERO BOTTOM: Image & Content Zone --- */
-.hero__bottom {
   position: relative;
   min-height: 70vh;
   display: flex;
   align-items: center;
+  color: var(--color-white);
   overflow: hidden;
+  isolation: isolate;
 }
-@media (min-width: 768px) { .hero__bottom { min-height: 75vh; } }
+@media (min-width: 768px) { .hero { min-height: 85vh; } }
 
 .hero__bg {
   position: absolute;
@@ -619,8 +577,8 @@ p:last-child { margin-bottom: 0; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* Aerial Houston property photo - update with your own aerial shot */
-  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80');
+  /* Standard US residential rental property - typical single-family home */
+  background-image: url('https://images.unsplash.com/photo-1570129477492-45a003537e1f?auto=format&fit=crop&w=2400&q=80');
 }
 .hero__overlay {
   position: absolute;
@@ -628,9 +586,9 @@ p:last-child { margin-bottom: 0; }
   z-index: -1;
   background: linear-gradient(
     135deg,
-    rgba(30, 58, 138, 0.48) 0%,
-    rgba(30, 58, 138, 0.42) 50%,
-    rgba(15, 23, 42, 0.55) 100%
+    rgba(30, 58, 138, 0.75) 0%,
+    rgba(30, 58, 138, 0.55) 45%,
+    rgba(15, 23, 42, 0.65) 100%
   );
 }
 
@@ -642,28 +600,31 @@ p:last-child { margin-bottom: 0; }
 }
 @media (min-width: 768px) { .hero__content { padding-block: var(--space-12); } }
 
+.hero__logo {
+  height: 64px;
+  width: auto;
+  margin-bottom: var(--space-6);
+  opacity: 0;
+  animation: fadeUp var(--dur-slow) var(--ease-out) 100ms forwards;
+}
+
 .hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 3.75rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
   color: var(--color-white);
+  font-size: clamp(2.25rem, 5.5vw, var(--fs-5xl));
+  line-height: 1.05;
   margin-bottom: var(--space-5);
   opacity: 0;
-  animation: fadeUp var(--dur-slow) var(--ease-out) 200ms forwards;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeUp var(--dur-slow) var(--ease-out) 250ms forwards;
 }
 
 .hero__subtitle {
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 1.5vw, var(--fs-md));
+  font-size: clamp(1.0625rem, 1.6vw, var(--fs-md));
   line-height: var(--lh-loose);
   color: rgba(255, 255, 255, 0.92);
   max-width: 640px;
   margin-bottom: var(--space-7);
   opacity: 0;
-  animation: fadeUp var(--dur-slow) var(--ease-out) 350ms forwards;
+  animation: fadeUp var(--dur-slow) var(--ease-out) 400ms forwards;
 }
 
 .hero__ctas {
@@ -671,7 +632,7 @@ p:last-child { margin-bottom: 0; }
   flex-wrap: wrap;
   gap: var(--space-4);
   opacity: 0;
-  animation: fadeUp var(--dur-slow) var(--ease-out) 500ms forwards;
+  animation: fadeUp var(--dur-slow) var(--ease-out) 550ms forwards;
 }
 
 .hero__scroll-cue {
@@ -688,8 +649,7 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   gap: var(--space-2);
   opacity: 0;
-  animation: fadeUp var(--dur-slow) var(--ease-out) 750ms forwards;
-  z-index: 1;
+  animation: fadeUp var(--dur-slow) var(--ease-out) 800ms forwards;
 }
 .hero__scroll-cue svg {
   width: 22px; height: 22px;
