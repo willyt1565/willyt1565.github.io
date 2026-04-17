@@ -392,8 +392,7 @@ p:last-child { margin-bottom: 0; }
   text-decoration: none;
 }
 .site-header__logo:hover { color: var(--color-navy-deep); }
-.site-header__logo svg { width: 32px; height: 32px; color: var(--color-teal); }
-.site-header__logo-img { max-width: 40px; height: auto; display: block; }
+.site-header__logo svg { max-width: 140px; height: auto; display: block; }
 
 /* --- Desktop nav --- */
 .site-nav { display: none; }
