@@ -604,6 +604,8 @@ p:last-child { margin-bottom: 0; }
   height: 64px;
   width: auto;
   margin-bottom: var(--space-6);
+  margin-right: auto;
+  display: block;
   opacity: 0;
   animation: fadeUp var(--dur-slow) var(--ease-out) 100ms forwards;
 }
