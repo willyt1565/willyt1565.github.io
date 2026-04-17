@@ -1934,34 +1934,19 @@ p:last-child { margin-bottom: 0; }
 }
 
 .property-card__media img {
-  opacity: 0.1;
-  filter: grayscale(100%);
-}
-
-.property-card__media::before {
-  content: "🏠";
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  z-index: 5;
-  opacity: 0.8;
+  opacity: 0;
 }
 
 .property-card__media::after {
   content: "Coming Soon";
   position: absolute;
-  top: 58%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
   font-weight: 600;
   font-size: 18px;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 8px 16px;
-  border-radius: 6px;
 }
 
 .property-card__badge--coming-soon {
