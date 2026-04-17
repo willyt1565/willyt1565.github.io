@@ -604,10 +604,13 @@ p:last-child { margin-bottom: 0; }
   height: 64px;
   width: auto;
   margin-bottom: var(--space-6);
-  margin-right: auto;
+  margin-left: 0;
   display: block;
   opacity: 0;
   animation: fadeUp var(--dur-slow) var(--ease-out) 100ms forwards;
+  /* Align precisely with header logo at left edge */
+  object-fit: contain;
+  object-position: left center;
 }
 
 .hero__title {
