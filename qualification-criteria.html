@@ -121,10 +121,10 @@
     }
 
     /* ---- Criteria grid ---------------------------------------------------
-       Desktop (≥1200px):   6 cards in one horizontal row + Criminal wide below
-       Laptop (900–1199px): 3 columns × 2 rows + Criminal wide
-       Tablet (600–899px):  2 columns + Criminal wide
-       Mobile (<600px):     single column stack
+       Desktop (≥900px):   2-column grid — matches the printable flyer.
+                           Criminal Background card spans full width.
+       Tablet  (600-899):  2-column grid, same layout, tighter padding.
+       Mobile  (<600px):   single column stack.
        -------------------------------------------------------------------- */
     .qc-grid {
       display: grid;
@@ -132,41 +132,32 @@
       gap: var(--space-5);
     }
     @media (min-width: 600px) {
-      .qc-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 900px) {
-      .qc-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (min-width: 1200px) {
-      .qc-grid { grid-template-columns: repeat(6, 1fr); gap: var(--space-4); }
+      .qc-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
     }
     .qc-card {
       background: var(--color-white);
       border: 1px solid var(--color-border);
-      border-top: 3px solid var(--color-navy);
+      border-top: 4px solid var(--color-navy);
       border-radius: var(--radius-md);
-      padding: var(--space-5);
+      padding: var(--space-6);
       box-shadow: var(--shadow-xs);
       display: flex;
       flex-direction: column;
       transition: transform var(--dur-base) var(--ease-out),
-                  box-shadow var(--dur-base) var(--ease-out),
-                  border-top-color var(--dur-base) var(--ease-out);
-    }
-    @media (min-width: 1200px) {
-      .qc-card { padding: var(--space-5) var(--space-4); }
-      .qc-card .qc-card__body { font-size: 0.8125rem; }
-      .qc-card .qc-card__headline { font-size: var(--fs-md); }
-      /* Criminal Background card reverts to its roomier feature padding */
-      .qc-card--wide { padding: var(--space-6) var(--space-7); }
-      .qc-card--wide .qc-card__body { font-size: var(--fs-sm); }
-      .qc-card--wide .qc-card__headline { font-size: var(--fs-lg); }
+                  box-shadow var(--dur-base) var(--ease-out);
     }
     .qc-card:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
-      border-top-color: var(--color-teal);
     }
+    /* Accent variants — matches flyer color rhythm */
+    .qc-card--navy { border-top-color: var(--color-navy); }
+    .qc-card--teal { border-top-color: var(--color-teal); }
+    .qc-card--navy .qc-card__icon { background: var(--color-navy); color: var(--color-white); }
+    .qc-card--teal .qc-card__icon { background: var(--color-teal); color: var(--color-white); }
+    .qc-card--navy .qc-card__headline { color: var(--color-navy); }
+    .qc-card--teal .qc-card__headline { color: var(--color-teal); }
+
     .qc-card__icon {
       display: inline-flex;
       align-items: center;
@@ -174,24 +165,25 @@
       width: 44px;
       height: 44px;
       border-radius: var(--radius-sm);
-      background: rgba(14, 165, 233, 0.10);
-      color: var(--color-teal);
-      margin-bottom: var(--space-4);
+      background: var(--color-navy);
+      color: var(--color-white);
+      margin-bottom: var(--space-5);
     }
     .qc-card__icon svg { width: 22px; height: 22px; }
     .qc-card__label {
-      font-family: var(--font-subhead);
-      font-weight: 600;
-      font-size: var(--fs-sm);
-      color: var(--color-slate);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--fs-base);
+      color: var(--color-ink);
       margin: 0 0 var(--space-2);
+      letter-spacing: 0.01em;
     }
     .qc-card__headline {
       font-family: var(--font-display);
       font-weight: 700;
       font-size: var(--fs-lg);
       line-height: var(--lh-tight);
-      color: var(--color-teal);
+      color: var(--color-navy);
       margin: 0 0 var(--space-4);
     }
     .qc-card__body {
@@ -201,13 +193,16 @@
       margin: 0;
     }
 
-    /* Wide cards span the full row (criminal-background section) */
-    .qc-card--wide { grid-column: 1 / -1; border-top-color: var(--color-gold); }
-    .qc-card--wide:hover { border-top-color: var(--color-gold); }
-    .qc-card--wide .qc-card__headline { color: var(--color-ink); }
+    /* Wide card — Criminal Background spans the full row */
+    .qc-card--wide {
+      grid-column: 1 / -1;
+      padding: var(--space-6) var(--space-7);
+    }
     .qc-card--wide .qc-card__icon {
-      background: rgba(205, 164, 52, 0.12);
-      color: var(--color-gold);
+      margin-bottom: var(--space-2);
+    }
+    .qc-card--wide .qc-card__label {
+      margin-top: calc(var(--space-2) * -1);
     }
 
     /* ---- Policy notes (bottom 3-up) ------------------------------------- */
@@ -494,8 +489,8 @@
 
         <div class="qc-grid">
 
-          <!-- 1. Income Requirement -->
-          <article class="qc-card">
+          <!-- 1. Income Requirement — left column, navy accent -->
+          <article class="qc-card qc-card--navy">
             <span class="qc-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="6" width="20" height="12" rx="2"/>
@@ -513,12 +508,13 @@
             </p>
           </article>
 
-          <!-- 2. Credit History -->
-          <article class="qc-card">
+          <!-- 2. Credit History — right column, teal accent -->
+          <article class="qc-card qc-card--teal">
             <span class="qc-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 12a9 9 0 1 0 9-9"/>
-                <path d="M3 12h9V3"/>
+                <rect x="3" y="6" width="18" height="12" rx="2"/>
+                <path d="M3 10h18"/>
+                <path d="M7 15h3"/>
               </svg>
             </span>
             <h3 class="qc-card__label">Credit History</h3>
@@ -531,13 +527,12 @@
             </p>
           </article>
 
-          <!-- 3. Rental History -->
-          <article class="qc-card">
+          <!-- 3. Rental History — left column, navy accent -->
+          <article class="qc-card qc-card--navy">
             <span class="qc-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 10 12 3l9 7"/>
-                <path d="M5 10v10h14V10"/>
-                <path d="M10 20v-6h4v6"/>
+                <rect x="3" y="5" width="18" height="16" rx="2"/>
+                <path d="M3 10h18M8 3v4M16 3v4"/>
               </svg>
             </span>
             <h3 class="qc-card__label">Rental History</h3>
@@ -550,13 +545,12 @@
             </p>
           </article>
 
-          <!-- 4. Eviction History -->
-          <article class="qc-card">
+          <!-- 4. Eviction History — right column, teal accent -->
+          <article class="qc-card qc-card--teal">
             <span class="qc-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
-                <path d="M14 2v6h6"/>
-                <path d="m9 15 2 2 4-4"/>
+                <path d="M12 3 2 20h20L12 3Z"/>
+                <path d="M12 10v4M12 17h.01"/>
               </svg>
             </span>
             <h3 class="qc-card__label">Eviction History</h3>
@@ -569,8 +563,30 @@
             </p>
           </article>
 
-          <!-- 5. Employment Verification -->
-          <article class="qc-card">
+          <!-- 5. Criminal Background — full-width feature card, teal accent -->
+          <article class="qc-card qc-card--teal qc-card--wide">
+            <span class="qc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+                <path d="M9 12h6M12 9v6"/>
+              </svg>
+            </span>
+            <h3 class="qc-card__label">Criminal Background</h3>
+            <p class="qc-card__body">
+              Criminal history is screened at the county, state, and national level.
+              <strong>Per HUD 2024 guidance, Newera Property Management does not apply
+              blanket denial policies.</strong> Each applicant receives an individualized
+              assessment considering the nature and severity of the offense, time
+              elapsed, evidence of rehabilitation, and relevance to tenancy.
+              Applicants registered on the sex offender registry and those with
+              felony convictions for crimes involving harm to persons or property
+              within the past 7 years are generally ineligible. Applicants are
+              encouraged to provide a written explanation of any record.
+            </p>
+          </article>
+
+          <!-- 6. Employment Verification — left column, navy accent -->
+          <article class="qc-card qc-card--navy">
             <span class="qc-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="7" width="18" height="13" rx="2"/>
@@ -588,8 +604,8 @@
             </p>
           </article>
 
-          <!-- 6. Application Requirements -->
-          <article class="qc-card">
+          <!-- 7. Application Requirements — right column, navy accent (closes the rhythm) -->
+          <article class="qc-card qc-card--navy">
             <span class="qc-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
@@ -604,29 +620,6 @@
               criterion not disclosed here, applicant is entitled to a full refund
               per TX § 92.3515. Written FCRA consent is required before any report
               is pulled.
-            </p>
-          </article>
-
-          <!-- 7. Criminal Background — full-width feature card (spans full row) -->
-          <article class="qc-card qc-card--wide">
-            <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
-                <path d="M9 12h6M12 9v6"/>
-              </svg>
-            </span>
-            <h3 class="qc-card__label">Criminal Background</h3>
-            <p class="qc-card__headline">Individualized Assessment — No Blanket Denials</p>
-            <p class="qc-card__body">
-              Criminal history is screened at the county, state, and national level.
-              <strong>Per HUD 2024 guidance, Newera Property Management does not apply
-              blanket denial policies.</strong> Each applicant receives an individualized
-              assessment considering the nature and severity of the offense, time
-              elapsed, evidence of rehabilitation, and relevance to tenancy.
-              Applicants registered on the sex offender registry and those with
-              felony convictions for crimes involving harm to persons or property
-              within the past 7 years are generally ineligible. Applicants are
-              encouraged to provide a written explanation of any record.
             </p>
           </article>
 
