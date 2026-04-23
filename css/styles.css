@@ -1981,18 +1981,8 @@ p:last-child { margin-bottom: 0; }
   color: #6b7280;
 }
 
-/* Logo above hero section */
-.page-banner {
-  position: relative;
-}
-
-.page-banner::before {
-  content: "";
-  display: block;
-  height: 80px;
-  margin-bottom: 20px;
-  background: url('data:image/svg+xml,<svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg"><text x="50%" y="50%" font-size="48" font-weight="bold" fill="%231E3A8A" text-anchor="middle" dominant-baseline="middle">NEWERA</text></svg>');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+/* (Removed: legacy "NEWERA" text watermark override on .page-banner.
+    The canonical .page-banner::before above (lines ~1341) defines the
+    navy gradient + radial accent used across every inner page hero.
+    The placeholder watermark was from the early scaffold before the
+    brand logo existed — no longer needed.) */
