@@ -120,22 +120,47 @@
       background: var(--color-border);
     }
 
-    /* ---- Criteria grid --------------------------------------------------- */
+    /* ---- Criteria grid ---------------------------------------------------
+       Desktop (≥1200px):   6 cards in one horizontal row + Criminal wide below
+       Laptop (900–1199px): 3 columns × 2 rows + Criminal wide
+       Tablet (600–899px):  2 columns + Criminal wide
+       Mobile (<600px):     single column stack
+       -------------------------------------------------------------------- */
     .qc-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: 1fr;
       gap: var(--space-5);
+    }
+    @media (min-width: 600px) {
+      .qc-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .qc-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1200px) {
+      .qc-grid { grid-template-columns: repeat(6, 1fr); gap: var(--space-4); }
     }
     .qc-card {
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-top: 3px solid var(--color-navy);
       border-radius: var(--radius-md);
-      padding: var(--space-6);
+      padding: var(--space-5);
       box-shadow: var(--shadow-xs);
+      display: flex;
+      flex-direction: column;
       transition: transform var(--dur-base) var(--ease-out),
                   box-shadow var(--dur-base) var(--ease-out),
                   border-top-color var(--dur-base) var(--ease-out);
+    }
+    @media (min-width: 1200px) {
+      .qc-card { padding: var(--space-5) var(--space-4); }
+      .qc-card .qc-card__body { font-size: 0.8125rem; }
+      .qc-card .qc-card__headline { font-size: var(--fs-md); }
+      /* Criminal Background card reverts to its roomier feature padding */
+      .qc-card--wide { padding: var(--space-6) var(--space-7); }
+      .qc-card--wide .qc-card__body { font-size: var(--fs-sm); }
+      .qc-card--wide .qc-card__headline { font-size: var(--fs-lg); }
     }
     .qc-card:hover {
       transform: translateY(-2px);
@@ -544,7 +569,45 @@
             </p>
           </article>
 
-          <!-- 5. Criminal Background — full-width feature card -->
+          <!-- 5. Employment Verification -->
+          <article class="qc-card">
+            <span class="qc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="7" width="18" height="13" rx="2"/>
+                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                <path d="M3 13h18"/>
+              </svg>
+            </span>
+            <h3 class="qc-card__label">Employment Verification</h3>
+            <p class="qc-card__headline">Current &amp; Stable</p>
+            <p class="qc-card__body">
+              Current employment or a verifiable income source required. Self-employed,
+              retired, military, and first responder applicants are welcome —
+              alternative income documentation accepted. Gaps in employment are
+              evaluated with context.
+            </p>
+          </article>
+
+          <!-- 6. Application Requirements -->
+          <article class="qc-card">
+            <span class="qc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+                <path d="M14 2v6h6M9 13h6M9 17h4"/>
+              </svg>
+            </span>
+            <h3 class="qc-card__label">Application Requirements</h3>
+            <p class="qc-card__headline">Complete File Required</p>
+            <p class="qc-card__body">
+              All adults 18+ must submit a separate application. Government-issued
+              photo ID required. Application fee is non-refundable. If denied on any
+              criterion not disclosed here, applicant is entitled to a full refund
+              per TX § 92.3515. Written FCRA consent is required before any report
+              is pulled.
+            </p>
+          </article>
+
+          <!-- 7. Criminal Background — full-width feature card (spans full row) -->
           <article class="qc-card qc-card--wide">
             <span class="qc-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -564,44 +627,6 @@
               felony convictions for crimes involving harm to persons or property
               within the past 7 years are generally ineligible. Applicants are
               encouraged to provide a written explanation of any record.
-            </p>
-          </article>
-
-          <!-- 6. Employment Verification -->
-          <article class="qc-card">
-            <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="7" width="18" height="13" rx="2"/>
-                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                <path d="M3 13h18"/>
-              </svg>
-            </span>
-            <h3 class="qc-card__label">Employment Verification</h3>
-            <p class="qc-card__headline">Current &amp; Stable</p>
-            <p class="qc-card__body">
-              Current employment or a verifiable income source required. Self-employed,
-              retired, military, and first responder applicants are welcome —
-              alternative income documentation accepted. Gaps in employment are
-              evaluated with context.
-            </p>
-          </article>
-
-          <!-- 7. Application Requirements -->
-          <article class="qc-card">
-            <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
-                <path d="M14 2v6h6M9 13h6M9 17h4"/>
-              </svg>
-            </span>
-            <h3 class="qc-card__label">Application Requirements</h3>
-            <p class="qc-card__headline">Complete File Required</p>
-            <p class="qc-card__body">
-              All adults 18+ must submit a separate application. Government-issued
-              photo ID required. Application fee is non-refundable. If denied on any
-              criterion not disclosed here, applicant is entitled to a full refund
-              per TX § 92.3515. Written FCRA consent is required before any report
-              is pulled.
             </p>
           </article>
 
