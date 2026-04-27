@@ -1927,26 +1927,26 @@ p:last-child { margin-bottom: 0; }
 
 
 /* =============================================================================
-   PROPERTY CARDS — Coming Soon State
+   PROPERTY CARDS — Coming Soon Placeholder State
+   Scoped to placeholder cards only (cards containing a disabled CTA button).
+   Real listings (which use an <a> "View Details") are NOT affected, so their
+   photos display, the card stays clickable, and text isn't faded out.
    ============================================================================= */
 
-.property-card {
-  opacity: 1;
+.property-card:has(.property-card__cta:disabled) {
   pointer-events: none;
   cursor: not-allowed;
 }
 
-.property-card__media {
-  position: relative;
+.property-card:has(.property-card__cta:disabled) .property-card__media {
   background: #1a1a1a;
-  overflow: hidden;
 }
 
-.property-card__media img {
+.property-card:has(.property-card__cta:disabled) .property-card__media img {
   opacity: 0;
 }
 
-.property-card__media::after {
+.property-card:has(.property-card__cta:disabled) .property-card__media::after {
   content: "Coming Soon";
   position: absolute;
   top: 50%;
@@ -1958,11 +1958,22 @@ p:last-child { margin-bottom: 0; }
   z-index: 10;
 }
 
+.property-card:has(.property-card__cta:disabled) .property-card__address,
+.property-card:has(.property-card__cta:disabled) .property-card__rent,
+.property-card:has(.property-card__cta:disabled) .property-card__specs,
+.property-card:has(.property-card__cta:disabled) .property-card__meta {
+  opacity: 0.5;
+  color: #6b7280;
+}
+
+/* Coming Soon badge color — used on both placeholder cards and real
+   pre-launch listings, so this stays unscoped. */
 .property-card__badge--coming-soon {
   background: #6b7280;
   color: white;
 }
 
+/* Disabled CTA styling — auto-scoped via :disabled, safe globally. */
 .property-card__cta:disabled {
   background: #9ca3af;
   cursor: not-allowed;
@@ -1971,14 +1982,6 @@ p:last-child { margin-bottom: 0; }
 
 .property-card__cta:disabled:hover {
   background: #9ca3af;
-}
-
-.property-card__address,
-.property-card__rent,
-.property-card__specs,
-.property-card__meta {
-  opacity: 0.5;
-  color: #6b7280;
 }
 
 /* (Removed: legacy "NEWERA" text watermark override on .page-banner.
