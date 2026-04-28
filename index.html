@@ -636,6 +636,105 @@
 
 
     <!-- ===================================================================
+         5b. REFERRAL CALLOUT — "Refer & Earn"
+         Sits between Featured Listings and the Trust Strip so it gets
+         seen without competing with the bottom Final CTA.
+         =================================================================== -->
+    <section class="referral-callout" aria-labelledby="referral-callout-title">
+      <style>
+        .referral-callout {
+          background: linear-gradient(135deg, var(--color-teal, #14B8A6) 0%, #0F9488 100%);
+          color: #fff;
+          padding: var(--space-9, 4rem) 0;
+        }
+        .referral-callout__inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: var(--space-7, 2.5rem);
+          flex-wrap: wrap;
+        }
+        .referral-callout__text { flex: 1 1 480px; min-width: 0; }
+        .referral-callout__eyebrow {
+          display: inline-block;
+          font-family: 'League Spartan', 'Inter', sans-serif;
+          font-weight: 700;
+          letter-spacing: .12em;
+          text-transform: uppercase;
+          font-size: .82rem;
+          color: rgba(255,255,255,.85);
+          margin-bottom: var(--space-3, .75rem);
+        }
+        .referral-callout__title {
+          font-family: 'League Spartan', 'Inter', sans-serif;
+          font-weight: 700;
+          font-size: clamp(1.75rem, 3vw, 2.4rem);
+          line-height: 1.15;
+          margin: 0 0 var(--space-3, .75rem);
+          color: #fff;
+        }
+        .referral-callout__sub {
+          font-size: 1.05rem;
+          line-height: 1.55;
+          color: rgba(255,255,255,.92);
+          max-width: 56ch;
+          margin: 0;
+        }
+        .referral-callout__cta-wrap {
+          flex: 0 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-3, .75rem);
+          align-items: flex-start;
+        }
+        .referral-callout__cta {
+          background: #fff;
+          color: var(--color-teal, #0F9488);
+          font-weight: 700;
+          padding: .95rem 1.6rem;
+          border-radius: 8px;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: .5rem;
+          transition: transform .15s ease, box-shadow .15s ease;
+          box-shadow: 0 4px 12px rgba(0,0,0,.12);
+          white-space: nowrap;
+        }
+        .referral-callout__cta:hover,
+        .referral-callout__cta:focus-visible {
+          transform: translateY(-1px);
+          box-shadow: 0 8px 18px rgba(0,0,0,.18);
+        }
+        .referral-callout__hint {
+          font-size: .82rem;
+          color: rgba(255,255,255,.78);
+          margin: 0;
+        }
+        @media (max-width: 720px) {
+          .referral-callout__inner { flex-direction: column; align-items: flex-start; }
+          .referral-callout__cta-wrap { width: 100%; }
+          .referral-callout__cta { width: 100%; justify-content: center; }
+        }
+      </style>
+      <div class="container referral-callout__inner">
+        <div class="referral-callout__text">
+          <span class="referral-callout__eyebrow">Refer &amp; Earn</span>
+          <h2 id="referral-callout-title" class="referral-callout__title">Know someone who needs a property manager — or a great rental?</h2>
+          <p class="referral-callout__sub">Send them our way. When your referral becomes a Newera owner or a signed resident, you get rewarded. It's our way of saying thanks for spreading the word.</p>
+        </div>
+        <div class="referral-callout__cta-wrap">
+          <a href="/referral/" class="referral-callout__cta">
+            Refer Someone
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <p class="referral-callout__hint">Open to anyone — no client relationship required.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
          6. TRUST STRIP — "Why Investors Choose Newera"
          Shown AT LAUNCH (testimonialsEnabled: false). Full testimonial
          carousel is commented out below and activated by toggling the
@@ -839,6 +938,7 @@
             <li><a href="/properties.html">Available Properties</a></li>
             <li><a href="/faq.html">FAQ</a></li>
             <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="/referral/">Refer &amp; Earn</a></li>
           </ul>
         </div>
 
