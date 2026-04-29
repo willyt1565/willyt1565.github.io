@@ -119,67 +119,403 @@
       <div class="container">
         <div class="contact-layout">
 
-          <!-- LEFT — Contact Form -->
+          <!-- LEFT — Contact Form (modern, floating-label design) -->
           <div>
-            <h2 id="contact-form-title" style="margin-bottom: var(--space-6);">Send Us a Message</h2>
+            <style>
+              /* =====================================================================
+                 MODERN CONTACT FORM — scoped to contact.html
+                 Floating labels, soft elevation card, teal focus ring, animated CTA
+                 ===================================================================== */
+              .nf-form-shell {
+                background: #fff;
+                border-radius: 18px;
+                padding: clamp(1.75rem, 4vw, 2.5rem);
+                box-shadow:
+                  0 1px 2px rgba(15, 23, 42, 0.04),
+                  0 12px 32px -8px rgba(15, 23, 42, 0.10);
+                border: 1px solid rgba(226, 232, 240, 0.8);
+                position: relative;
+                overflow: hidden;
+              }
+              .nf-form-shell::before {
+                content: "";
+                position: absolute;
+                inset: 0 0 auto 0;
+                height: 4px;
+                background: linear-gradient(90deg, var(--color-navy) 0%, var(--color-teal) 100%);
+              }
+              .nf-form-eyebrow {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                font-family: var(--font-display);
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--color-teal);
+                margin-bottom: 0.6rem;
+              }
+              .nf-form-eyebrow::before {
+                content: "";
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--color-teal);
+                box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.18);
+              }
+              .nf-form-title {
+                font-family: var(--font-display);
+                font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+                font-weight: 700;
+                color: var(--color-navy);
+                line-height: 1.15;
+                margin: 0 0 0.4rem;
+              }
+              .nf-form-sub {
+                color: var(--color-slate, #475569);
+                font-size: 0.95rem;
+                margin: 0 0 1.5rem;
+                line-height: 1.5;
+              }
 
-            <!-- Phase 4 wires up form-handler.js for validation + submission.
-                 For now, native HTML validation + action placeholder. -->
-            <div class="contact-form" id="contact-form-wrap">
-              <div class="form-status" id="form-status" role="alert"></div>
+              /* --- Field group ---------------------------------------------- */
+              .nf-field {
+                position: relative;
+                margin-bottom: 1rem;
+              }
+              .nf-field__control {
+                width: 100%;
+                padding: 1.5rem 1rem 0.55rem;
+                font-size: 1rem;
+                font-family: inherit;
+                line-height: 1.4;
+                color: var(--color-navy);
+                background: #fff;
+                border: 1.5px solid #E2E8F0;
+                border-radius: 12px;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+                outline: none;
+                appearance: none;
+                -webkit-appearance: none;
+              }
+              .nf-field__control:hover {
+                border-color: #CBD5E1;
+              }
+              .nf-field__control:focus {
+                border-color: var(--color-teal);
+                box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.12);
+                background: #fff;
+              }
+
+              /* Floating label trick — input has placeholder=" " (one space).
+                 :placeholder-shown means empty; combined with :not(:focus) we
+                 keep the label centered. Otherwise it floats up. */
+              .nf-field__label {
+                position: absolute;
+                left: 1rem;
+                top: 1rem;
+                font-size: 1rem;
+                color: #64748B;
+                font-weight: 500;
+                pointer-events: none;
+                transform-origin: 0 0;
+                transition: transform 0.18s ease, color 0.18s ease;
+                background: transparent;
+                padding: 0 0.25rem;
+                margin-left: -0.25rem;
+              }
+              .nf-field__control:focus ~ .nf-field__label,
+              .nf-field__control:not(:placeholder-shown) ~ .nf-field__label,
+              .nf-field--filled .nf-field__label {
+                transform: translateY(-0.7rem) scale(0.78);
+                color: var(--color-teal);
+                font-weight: 600;
+              }
+
+              /* Required asterisk */
+              .nf-field__required { color: #EF4444; margin-left: 2px; }
+              .nf-field__optional {
+                font-size: 0.78rem;
+                font-weight: 500;
+                color: #94A3B8;
+                margin-left: 4px;
+                text-transform: none;
+                letter-spacing: 0;
+              }
+
+              /* Textarea adjustments */
+              .nf-field--textarea .nf-field__control {
+                min-height: 130px;
+                resize: vertical;
+                padding-top: 1.6rem;
+              }
+              .nf-field--textarea .nf-field__label {
+                top: 1.05rem;
+              }
+
+              /* Custom select with chevron */
+              .nf-field--select { position: relative; }
+              .nf-field--select::after {
+                content: "";
+                position: absolute;
+                right: 1.1rem;
+                top: 50%;
+                width: 9px;
+                height: 9px;
+                border-right: 2px solid #64748B;
+                border-bottom: 2px solid #64748B;
+                transform: translateY(-65%) rotate(45deg);
+                pointer-events: none;
+                transition: border-color 0.2s ease, transform 0.2s ease;
+              }
+              .nf-field--select .nf-field__control {
+                padding-right: 2.5rem;
+                cursor: pointer;
+                color: var(--color-navy);
+              }
+              .nf-field--select .nf-field__control:focus ~ .nf-field__label,
+              .nf-field--select .nf-field__control[data-has-value="true"] ~ .nf-field__label {
+                transform: translateY(-0.7rem) scale(0.78);
+                color: var(--color-teal);
+                font-weight: 600;
+              }
+              .nf-field--select .nf-field__control:not([data-has-value="true"]) {
+                color: #64748B;       /* placeholder grey for empty state */
+              }
+              .nf-field--select:focus-within::after {
+                border-color: var(--color-teal);
+                transform: translateY(-30%) rotate(-135deg);
+              }
+
+              /* Inline error message */
+              .nf-field__error {
+                display: block;
+                font-size: 0.82rem;
+                color: #DC2626;
+                margin-top: 0.35rem;
+                min-height: 1em;
+                line-height: 1.3;
+              }
+              .nf-field__control[aria-invalid="true"] {
+                border-color: #DC2626;
+              }
+              .nf-field__control[aria-invalid="true"]:focus {
+                box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.10);
+              }
+
+              /* Two-column row on wider screens for short fields */
+              .nf-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.85rem;
+              }
+              @media (max-width: 540px) {
+                .nf-row { grid-template-columns: 1fr; gap: 0; }
+              }
+
+              /* Consent / fine print */
+              .nf-consent {
+                font-size: 0.82rem;
+                color: #64748B;
+                line-height: 1.5;
+                margin: 1rem 0 1.25rem;
+              }
+              .nf-consent a {
+                color: var(--color-teal);
+                text-decoration: underline;
+                text-underline-offset: 2px;
+              }
+
+              /* Submit button — animated arrow + loading state */
+              .nf-submit {
+                width: 100%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.6rem;
+                padding: 1rem 1.5rem;
+                font-family: var(--font-display);
+                font-size: 1.02rem;
+                font-weight: 700;
+                color: #fff;
+                background: linear-gradient(135deg, var(--color-navy) 0%, #1E3A8A 100%);
+                border: none;
+                border-radius: 12px;
+                cursor: pointer;
+                transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+                box-shadow: 0 6px 16px -4px rgba(30, 58, 138, 0.35);
+                letter-spacing: 0.01em;
+              }
+              .nf-submit:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 10px 24px -6px rgba(30, 58, 138, 0.45);
+                background: linear-gradient(135deg, #162B65 0%, var(--color-navy) 100%);
+              }
+              .nf-submit:active { transform: translateY(0); }
+              .nf-submit__arrow {
+                display: inline-flex;
+                transition: transform 0.2s ease;
+              }
+              .nf-submit:hover .nf-submit__arrow { transform: translateX(4px); }
+              .nf-submit:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+                transform: none;
+              }
+              .nf-submit[data-state="loading"] .nf-submit__label::after {
+                content: "...";
+                animation: nf-dots 1.4s linear infinite;
+              }
+              @keyframes nf-dots {
+                0%, 20%   { content: "";    }
+                40%       { content: ".";   }
+                60%       { content: "..";  }
+                80%, 100% { content: "..."; }
+              }
+
+              /* Form status banner (success/error from JS handler) */
+              .nf-status {
+                display: none;
+                padding: 0.85rem 1rem;
+                border-radius: 10px;
+                font-size: 0.92rem;
+                margin-bottom: 1rem;
+                line-height: 1.4;
+              }
+              .nf-status[data-state="success"] {
+                display: block;
+                background: #D1FAE5;
+                color: #065F46;
+                border: 1px solid #A7F3D0;
+              }
+              .nf-status[data-state="error"] {
+                display: block;
+                background: #FEE2E2;
+                color: #991B1B;
+                border: 1px solid #FECACA;
+              }
+
+              /* Trust strip below the form */
+              .nf-trust {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1.1rem;
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid #F1F5F9;
+                font-size: 0.8rem;
+                color: #64748B;
+                flex-wrap: wrap;
+              }
+              .nf-trust__item {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.35rem;
+              }
+              .nf-trust__item svg {
+                width: 14px;
+                height: 14px;
+                color: #10B981;
+              }
+            </style>
+
+            <div class="nf-form-shell" id="contact-form-wrap">
+              <span class="nf-form-eyebrow">Send Us a Message</span>
+              <h2 id="contact-form-title" class="nf-form-title">Tell us how we can help</h2>
+              <p class="nf-form-sub">Fill out the form below and we'll get back to you within one business day. For urgent matters, give us a call &mdash; we'd love to hear from you.</p>
+
+              <div class="nf-status" id="form-status" role="alert"></div>
 
               <form id="contact-form" action="https://formspree.io/f/mlgajalw" method="POST" novalidate>
-                <div class="form-group">
-                  <label for="full-name">Full Name <span class="required" aria-label="required">*</span></label>
-                  <input type="text" id="full-name" name="fullName" required autocomplete="name" placeholder="Jane Smith">
-                  <span class="form-group__error" id="full-name-error" aria-live="polite"></span>
+
+                <div class="nf-row">
+                  <div class="nf-field">
+                    <input type="text" id="full-name" name="fullName" class="nf-field__control" required autocomplete="name" placeholder=" ">
+                    <label for="full-name" class="nf-field__label">Full Name<span class="nf-field__required" aria-hidden="true">*</span></label>
+                    <span class="nf-field__error" id="full-name-error" aria-live="polite"></span>
+                  </div>
+
+                  <div class="nf-field">
+                    <input type="tel" id="phone" name="phone" class="nf-field__control" required autocomplete="tel" placeholder=" ">
+                    <label for="phone" class="nf-field__label">Phone<span class="nf-field__required" aria-hidden="true">*</span></label>
+                    <span class="nf-field__error" id="phone-error" aria-live="polite"></span>
+                  </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="email">Email Address <span class="required" aria-label="required">*</span></label>
-                  <input type="email" id="email" name="email" required autocomplete="email" placeholder="jane@example.com">
-                  <span class="form-group__error" id="email-error" aria-live="polite"></span>
+                <div class="nf-field">
+                  <input type="email" id="email" name="email" class="nf-field__control" required autocomplete="email" placeholder=" ">
+                  <label for="email" class="nf-field__label">Email Address<span class="nf-field__required" aria-hidden="true">*</span></label>
+                  <span class="nf-field__error" id="email-error" aria-live="polite"></span>
                 </div>
 
-                <div class="form-group">
-                  <label for="phone">Phone Number <span class="required" aria-label="required">*</span></label>
-                  <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(555) 123-4567">
-                  <span class="form-group__error" id="phone-error" aria-live="polite"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="inquiry-type">I am a… <span class="required" aria-label="required">*</span></label>
-                  <select id="inquiry-type" name="inquiryType" required>
-                    <option value="" disabled selected>Select one</option>
+                <div class="nf-field nf-field--select">
+                  <select id="inquiry-type" name="inquiryType" class="nf-field__control" required>
+                    <option value="" disabled selected hidden></option>
                     <option value="owner">Property Owner</option>
                     <option value="investor">Prospective Investor</option>
                     <option value="resident">Current Resident</option>
                     <option value="other">Other</option>
                   </select>
-                  <span class="form-group__error" id="inquiry-type-error" aria-live="polite"></span>
+                  <label for="inquiry-type" class="nf-field__label">I am a&hellip;<span class="nf-field__required" aria-hidden="true">*</span></label>
+                  <span class="nf-field__error" id="inquiry-type-error" aria-live="polite"></span>
                 </div>
 
-                <div class="form-group">
-                  <label for="property-address">Property Address <small style="font-weight:400; color: var(--color-slate-soft);">(optional)</small></label>
-                  <input type="text" id="property-address" name="propertyAddress" autocomplete="street-address" placeholder="1234 Main St, Houston, TX">
+                <div class="nf-field">
+                  <input type="text" id="property-address" name="propertyAddress" class="nf-field__control" autocomplete="street-address" placeholder=" ">
+                  <label for="property-address" class="nf-field__label">Property Address<span class="nf-field__optional">(optional)</span></label>
                 </div>
 
-                <div class="form-group">
-                  <label for="message">Message <span class="required" aria-label="required">*</span></label>
-                  <textarea id="message" name="message" required minlength="10" placeholder="Tell us how we can help you…"></textarea>
-                  <span class="form-group__error" id="message-error" aria-live="polite"></span>
+                <div class="nf-field nf-field--textarea">
+                  <textarea id="message" name="message" class="nf-field__control" required minlength="10" placeholder=" "></textarea>
+                  <label for="message" class="nf-field__label">How can we help?<span class="nf-field__required" aria-hidden="true">*</span></label>
+                  <span class="nf-field__error" id="message-error" aria-live="polite"></span>
                 </div>
 
-                <p class="form-consent">By submitting this form, you agree to our <a href="/privacy.html">Privacy Policy</a>. We'll respond within one business day.</p>
+                <p class="nf-consent">By submitting, you agree to our <a href="/privacy.html">Privacy Policy</a>. We'll respond within one business day.</p>
 
                 <!-- reCAPTCHA v3 invisible badge loads here. Token appended by JS (Phase 4). -->
                 <input type="hidden" name="recaptchaToken" id="recaptcha-token">
 
-                <div class="form-submit">
-                  <button type="submit" class="btn btn--primary" id="form-submit-btn">Send Message</button>
-                </div>
+                <button type="submit" class="nf-submit" id="form-submit-btn">
+                  <span class="nf-submit__label">Send Message</span>
+                  <span class="nf-submit__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                  </span>
+                </button>
               </form>
+
+              <div class="nf-trust" aria-label="Trust indicators">
+                <span class="nf-trust__item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  Replies within 1 business day
+                </span>
+                <span class="nf-trust__item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12Z"/></svg>
+                  Your info stays private
+                </span>
+                <span class="nf-trust__item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                  No obligation
+                </span>
+              </div>
             </div>
+
+            <script>
+              // Sync the select element's `data-has-value` attribute so the
+              // floating label and the placeholder color know whether the
+              // user has chosen an option (CSS uses [data-has-value="true"]).
+              (function () {
+                var sel = document.getElementById('inquiry-type');
+                if (!sel) return;
+                var sync = function () {
+                  sel.setAttribute('data-has-value', sel.value ? 'true' : 'false');
+                };
+                sel.addEventListener('change', sync);
+                sync();   // initial state
+              })();
+            </script>
           </div>
 
           <!-- RIGHT — Contact Info + Map -->
