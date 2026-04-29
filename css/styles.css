@@ -1072,6 +1072,27 @@ p:last-child { margin-bottom: 0; }
 }
 .property-card:hover .property-card__media img { transform: scale(1.05); }
 
+/* Clickable cover photo — wraps the <img> in an <a> that fills the media area */
+.property-card__media-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+.property-card__media-link:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: -3px;
+}
+/* Keep the badge above the link, but let clicks fall through to the link
+   so users can tap the badge area without it absorbing the click. */
+.property-card__badge {
+  z-index: 2;
+  pointer-events: none;
+}
+
 .property-card__badge {
   position: absolute;
   top: var(--space-4);
