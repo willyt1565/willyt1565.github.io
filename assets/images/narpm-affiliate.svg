@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 200" role="img" aria-labelledby="narpmTitle narpmDesc">
+  <title id="narpmTitle">NARPM Affiliate Member</title>
+  <desc id="narpmDesc">National Association of Residential Property Managers — Affiliate Member badge</desc>
+
+  <!-- House icon: blue left half, red right half, with chimney -->
+  <g>
+    <!-- Blue left side of roof -->
+    <path d="M110 18 L18 92 L40 92 L110 36 Z" fill="#1F4E9D"/>
+    <!-- Red right side of roof -->
+    <path d="M110 18 L202 92 L180 92 L110 36 Z" fill="#C8102E"/>
+    <!-- Red chimney -->
+    <rect x="158" y="34" width="14" height="26" fill="#C8102E"/>
+    <!-- Red house body (right portion) -->
+    <path d="M110 36 L180 92 L180 110 L110 110 Z" fill="#C8102E"/>
+    <!-- Blue house body (left portion) -->
+    <path d="M110 36 L40 92 L40 110 L110 110 Z" fill="#1F4E9D"/>
+  </g>
+
+  <!-- TM mark -->
+  <text x="196" y="30" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1F4E9D">TM</text>
+
+  <!-- NARPM wordmark -->
+  <text x="110" y="156" text-anchor="middle"
+        font-family="Arial Black, Arial, Helvetica, sans-serif"
+        font-size="40" font-weight="900" fill="#C8102E"
+        letter-spacing="1">NARPM</text>
+
+  <!-- Affiliate Member tagline -->
+  <text x="110" y="186" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-style="italic" font-size="18" fill="#222">Affiliate Member</text>
+</svg>

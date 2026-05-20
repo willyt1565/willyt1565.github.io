@@ -1498,6 +1498,22 @@ p:last-child { margin-bottom: 0; }
   flex-wrap: wrap;
 }
 .footer__logos img { height: 44px; width: auto; opacity: 0.85; }
+.footer__logos .footer__narpm-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.footer__logos .footer__narpm-badge:hover,
+.footer__logos .footer__narpm-badge:focus-visible {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+.footer__logos .footer__narpm-badge img { height: 64px; opacity: 1; }
 .footer__logos .placeholder-logo {
   display: inline-flex;
   align-items: center;
