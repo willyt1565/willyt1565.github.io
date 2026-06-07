@@ -1,0 +1,124 @@
+/* =============================================================================
+   NEWERA PROPERTY MANAGEMENT — SCROLL ANIMATIONS
+   -----------------------------------------------------------------------------
+   A refined, professional motion layer that runs on scroll. Built on the
+   existing design tokens in styles.css (colors, easing, durations).
+
+   Principles:
+     • Progressive enhancement — every effect is gated behind `html.js-anim`,
+       which is only added once scroll-effects.js confirms support. With JS off
+       (or on older browsers) all content renders normally, fully visible.
+     • Accessible — when the OS requests reduced motion, every transition is
+       neutralised and elements appear instantly in their final state.
+     • Subtle — short distances, soft easing, gentle stagger. Premium, not flashy.
+   ============================================================================= */
+
+
+/* -----------------------------------------------------------------------------
+   1. REVEAL ON SCROLL
+   Elements tagged (by JS or markup) with [data-reveal] start hidden and ease
+   into place when they enter the viewport. Direction is set via the value:
+   "up" (default), "left", "right", "scale", "fade".
+   --------------------------------------------------------------------------- */
+html.js-anim [data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.75s var(--ease-out),
+    transform 0.75s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+html.js-anim [data-reveal="left"]  { transform: translateX(-36px); }
+html.js-anim [data-reveal="right"] { transform: translateX(36px); }
+html.js-anim [data-reveal="scale"] { transform: scale(0.94); }
+html.js-anim [data-reveal="fade"]  { transform: none; }
+
+html.js-anim [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Once revealed, release the compositor hint to keep paints cheap. */
+html.js-anim [data-reveal].is-visible {
+  will-change: auto;
+}
+
+
+/* -----------------------------------------------------------------------------
+   2. SCROLL PROGRESS BAR
+   A slim brand-gradient bar pinned to the very top edge of the viewport that
+   fills as the reader moves down the page. JS drives scaleX via a CSS variable.
+   --------------------------------------------------------------------------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: var(--z-toast);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--scroll-progress, 0));
+  background: linear-gradient(90deg, var(--color-navy) 0%, var(--color-teal) 100%);
+  pointer-events: none;
+  /* Smooths out the per-frame scale updates without lagging the scroll. */
+  transition: transform 80ms linear;
+}
+
+
+/* -----------------------------------------------------------------------------
+   3. HERO PARALLAX
+   The hero background drifts slightly slower than the page. We over-size it so
+   the vertical drift never exposes an empty edge. JS writes --hero-shift (px).
+   --------------------------------------------------------------------------- */
+html.js-anim .hero__bg {
+  top: -8%;
+  height: 116%;
+  transform: translate3d(0, var(--hero-shift, 0), 0);
+  will-change: transform;
+}
+
+
+/* -----------------------------------------------------------------------------
+   4. ANIMATED STAT COUNTERS
+   The number itself is swapped by JS; this just guards against layout shift
+   while digits tick up by reserving consistent figure widths.
+   --------------------------------------------------------------------------- */
+html.js-anim .is-counting {
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* -----------------------------------------------------------------------------
+   5. HEADER ENTRANCE ON SCROLL-UP (subtle polish)
+   Pairs with the existing `.is-scrolled` state — nudges the elevation a touch
+   so the sticky header feels intentional rather than abrupt.
+   --------------------------------------------------------------------------- */
+html.js-anim .site-header {
+  transition: box-shadow var(--dur-base) var(--ease-out),
+              background-color var(--dur-base) var(--ease-out);
+}
+
+
+/* -----------------------------------------------------------------------------
+   6. REDUCED MOTION + PRINT
+   Honour the user's OS preference: show everything instantly, no movement.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html.js-anim [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .scroll-progress { display: none; }
+  html.js-anim .hero__bg {
+    top: 0;
+    height: 100%;
+    transform: none !important;
+  }
+}
+
+@media print {
+  html.js-anim [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .scroll-progress { display: none !important; }
+}
