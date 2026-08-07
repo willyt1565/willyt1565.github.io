@@ -1990,6 +1990,76 @@ p:last-child { margin-bottom: 0; }
   color: var(--color-navy);
 }
 
+/* --- ADD-ON SERVICES BAND ("Beyond Management") ---------------------------
+   Deliberately styled DIFFERENTLY from .service-detail blocks. The four core
+   services use full-width alternating white/offwhite detail blocks numbered
+   Service 01–04. This band is navy with a compact card grid so it reads as a
+   distinct add-on offering rather than a fifth pillar — which keeps the
+   "four pillars" positioning intact across meta descriptions, nav, and footer.
+   -------------------------------------------------------------------------- */
+.addon-band { background: var(--color-navy); color: var(--color-white); }
+/* Global `h1, h2, h3` sets colour: var(--color-navy). Without this override the
+   section heading renders navy-on-navy and is invisible. .section--navy carries
+   the same override for the same reason. */
+.addon-band h2, .addon-band h3 { color: var(--color-white); }
+.addon-band .eyebrow { color: var(--color-gold); }
+/* Header is eyebrow + h2 only (no supporting paragraph), so the default
+   .section__header bottom margin leaves too big a gap before the card. */
+.addon-band .section__header { margin-bottom: var(--space-7); }
+
+/* Single centred card. Capped and centred rather than stretched full-width —
+   one card spanning the whole container reads as a mistake. */
+.addon-card {
+  max-width: 620px;
+  margin: 0 auto var(--space-8);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: background var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out);
+}
+.addon-card:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(205, 164, 52, 0.55);
+}
+.addon-card__icon {
+  width: 44px; height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  background: rgba(205, 164, 52, 0.14);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-4);
+}
+.addon-card__icon svg { width: 22px; height: 22px; }
+.addon-card h3 {
+  font-family: var(--font-subhead);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+}
+.addon-card p {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 0;
+}
+
+.addon-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .addon-band__actions { justify-content: flex-start; }
+}
+
 /* =============================================================================
    ACCORDION (FAQ & Expandable Sections)
    ============================================================================= */

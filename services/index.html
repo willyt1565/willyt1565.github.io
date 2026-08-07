@@ -6,9 +6,10 @@
        -----------------------------------------------------------------------
        Structure: Page banner → sticky anchor nav → 4 service-detail sections
                   (alternating backgrounds, each ~300 words + feature callout
-                  + 3-4 step "How It Works") → pricing placeholder → final CTA
+                  + 3-4 step "How It Works") → add-on services band
+                  → pricing placeholder → final CTA
        H1:        "Everything Your Investment Needs"
-       Anchors:   #leasing, #reporting, #maintenance, #inspections
+       Anchors:   #leasing, #reporting, #maintenance, #inspections, #find-property
        ======================================================================= -->
 
   <meta charset="UTF-8">
@@ -16,14 +17,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>Property Management Services in Houston & San Antonio | Newera</title>
-  <meta name="description" content="Full-service property management in Houston and San Antonio: marketing &amp; leasing, rent collection &amp; reporting, maintenance &amp; vendor management, and inspections. Transparent, photo-documented, investor-focused.">
+  <meta name="description" content="Full-service property management in Houston and San Antonio: marketing &amp; leasing, rent collection &amp; reporting, maintenance &amp; vendor management, and inspections — plus help locating your next investment property. Transparent, photo-documented, investor-focused.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.newerapm.com/services">
   <meta name="theme-color" content="#1E3A8A">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Property Management Services Houston & San Antonio | Newera">
-  <meta property="og:description" content="Four pillars of investor-focused property management in Houston and San Antonio: leasing, rent collection, maintenance, and inspections.">
+  <meta property="og:description" content="Four pillars of investor-focused property management in Houston and San Antonio: leasing, rent collection, maintenance, and inspections — plus help finding your next investment property.">
   <meta property="og:url" content="https://www.newerapm.com/services">
   <meta property="og:image" content="https://www.newerapm.com/assets/brand/og-image.jpg">
 
@@ -41,7 +42,7 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/scroll-animations.css">
 
-  <!-- Structured data: Service x 4 + BreadcrumbList -->
+  <!-- Structured data: Service x 4 (core) + Service x 1 (add-on) + BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,6 +81,13 @@
         "provider": { "@id": "https://www.newerapm.com/#business" },
         "areaServed": ["Houston, TX", "San Antonio, TX"],
         "url": "https://www.newerapm.com/services.html#inspections"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Investment Property Search & Buyer Representation",
+        "provider": { "@id": "https://www.newerapm.com/#business" },
+        "areaServed": ["Houston, TX", "San Antonio, TX"],
+        "url": "https://www.newerapm.com/services.html#find-property"
       }
     ]
   }
@@ -219,6 +227,8 @@
             Four pillars of professional property management — from first listing to
             long-term asset protection. Every service is documented, every report is
             photo-backed, and every decision is made with your long-term returns in mind.
+            And when you're ready to grow the portfolio,
+            <a href="#find-property">we can help you find the next one</a>.
           </p>
         </div>
       </div>
@@ -234,6 +244,7 @@
         <a href="#reporting">Rent Collection &amp; Reporting</a>
         <a href="#maintenance">Maintenance</a>
         <a href="#inspections">Inspections</a>
+        <a href="#find-property">Find a Property</a>
         <a href="#pricing" style="margin-left: auto;">Pricing</a>
       </div>
     </div>
@@ -631,6 +642,66 @@
             <h4>Annual Property Assessment</h4>
             <p>Year-end report with current condition, recommended improvements, and capital expense forecast for next year.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         ADD-ON SERVICE — "Find a Property"
+
+         WHY THIS IS NOT "SERVICE 05":
+         The four core services are numbered Service 01-04 and that "four
+         pillars" framing is repeated in this page's meta description, the
+         header nav dropdown, the footer service list, and the homepage
+         service cards. Adding a fifth pillar would require renumbering and
+         rewriting copy in six files, and would dilute the management-first
+         positioning. This band is styled differently on purpose so it reads
+         as an add-on offering.
+
+         PRIMARY PLACEMENT IS THE HOMEPAGE. This is the condensed version --
+         it exists here because the anchor nav, page schema, and meta
+         description all reference #find-property. Copy is intentionally
+         worded differently from the homepage section to avoid duplicate
+         content. Edit both if the offering changes.
+
+         ENTITY / BRANDING SWAP-IN:
+         Written as a NEWERA service (option "A" -- Newera offers this
+         directly to its management clients). If leadership decides this
+         should point to High Hopes instead, change the body copy and the
+         CTA href here AND in the homepage section.
+
+         Brokerage disclosure lives in the site-wide footer (Information
+         About Brokerage Services + TREC Consumer Protection Notice), which
+         renders on every page including this one.
+         =================================================================== -->
+    <section class="section addon-band" id="find-property" aria-labelledby="addon-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="eyebrow">Beyond Management</span>
+          <h2 id="addon-title">We'll Help You Find Your Next Property</h2>
+        </div>
+
+        <article class="addon-card">
+          <span class="addon-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10.5" cy="10.5" r="6.5"/>
+              <path d="m16 16 5 5"/>
+              <path d="M10.5 7v7M7 10.5h7"/>
+            </svg>
+          </span>
+          <h3>Locating Your Next Investment</h3>
+          <p>
+            Tell us your budget, your target return, and the areas you're
+            interested in. We'll bring you on-market listings, pocket deals, and
+            off-market opportunities that actually fit -- each with an honest
+            rent projection based on comparable homes we already manage.
+          </p>
+        </article>
+
+        <div class="addon-band__actions">
+          <a href="/contact?form=investor" class="btn btn--inverse">Help Me Find a Property</a>
+          <a href="tel:+18325582911" class="btn btn--on-dark">Or call (832) 558-2911</a>
         </div>
       </div>
     </section>

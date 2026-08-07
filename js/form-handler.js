@@ -111,10 +111,19 @@
       consultation: "I'd like to schedule a free consultation to discuss property management services.",
       'rental-analysis': "I'm interested in a free rental analysis for my property.",
       'rental-alert': "I'd like to be notified when new rental properties become available.",
+      // Added for the "Find a Property" section (homepage + /services#find-property).
+      investor: "I'd like help finding my next investment property.",
     };
     const msgInput = document.getElementById('message');
     if (msgInput && messages[formType] && !msgInput.value) msgInput.value = messages[formType];
+
+    // Preselect the "I am a…" dropdown to match where the visitor came from.
+    // Anything not listed here falls back to 'owner', except rental-alert,
+    // which is a resident-side flow and should stay unset.
+    const inquiryByForm = { investor: 'investor' };
     const typeSelect = document.getElementById('inquiry-type');
-    if (typeSelect && formType !== 'rental-alert') typeSelect.value = 'owner';
+    if (typeSelect && formType !== 'rental-alert') {
+      typeSelect.value = inquiryByForm[formType] || 'owner';
+    }
   }
 })();

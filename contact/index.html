@@ -456,6 +456,8 @@
                   <select id="inquiry-type" name="inquiryType" class="nf-field__control" required>
                     <option value="" disabled selected hidden></option>
                     <option value="owner">Property Owner</option>
+                    <!-- The "Find a Property" CTA links to /contact?form=investor,
+                         which preselects this option via /js/form-handler.js. -->
                     <option value="investor">Prospective Investor</option>
                     <option value="resident">Current Resident</option>
                     <option value="other">Other</option>
