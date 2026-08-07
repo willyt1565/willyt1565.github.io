@@ -111,8 +111,8 @@
       consultation: "I'd like to schedule a free consultation to discuss property management services.",
       'rental-analysis': "I'm interested in a free rental analysis for my property.",
       'rental-alert': "I'd like to be notified when new rental properties become available.",
-      // Added for the "Find a Property" section (homepage + /services#find-property).
-      investor: "I'd like help finding my next investment property.",
+      // Added for the brokerage section (homepage + /services#brokerage).
+      investor: "I'd like to talk about buying or selling a property.",
     };
     const msgInput = document.getElementById('message');
     if (msgInput && messages[formType] && !msgInput.value) msgInput.value = messages[formType];
