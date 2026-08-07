@@ -1997,7 +1997,12 @@ p:last-child { margin-bottom: 0; }
    distinct add-on offering rather than a fifth pillar — which keeps the
    "four pillars" positioning intact across meta descriptions, nav, and footer.
    -------------------------------------------------------------------------- */
-.addon-band { background: var(--color-navy); color: var(--color-white); }
+.addon-band {
+  background: var(--color-navy);
+  color: var(--color-white);
+  scroll-margin-top: 96px;   /* matches .service-detail — keeps the heading clear
+                                of the sticky header when the anchor nav jumps here */
+}
 /* Global `h1, h2, h3` sets colour: var(--color-navy). Without this override the
    section heading renders navy-on-navy and is invisible. .section--navy carries
    the same override for the same reason. */
@@ -2007,11 +2012,19 @@ p:last-child { margin-bottom: 0; }
    .section__header bottom margin leaves too big a gap before the card. */
 .addon-band .section__header { margin-bottom: var(--space-7); }
 
-/* Single centred card. Capped and centred rather than stretched full-width —
-   one card spanning the whole container reads as a mistake. */
-.addon-card {
-  max-width: 620px;
+/* Two cards side by side, capped and centred so they don't stretch the full
+   container width on large screens. Collapses to one column under 760px. */
+.addon-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  max-width: 900px;
   margin: 0 auto var(--space-8);
+}
+@media (min-width: 760px) {
+  .addon-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.addon-card {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-lg);
