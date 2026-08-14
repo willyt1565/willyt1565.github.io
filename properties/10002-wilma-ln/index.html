@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>10002 Wilma Ln, Beach City TX 77523 — Coming Soon · 5 BR / 3 BA Farmhouse Rental | Newera</title>
-  <meta name="description" content="Coming soon: 2024-built farmhouse-style rental at 10002 Wilma Ln in Beach City, TX. 5 bed, 3 bath, 2,166 sqft on a corner lot across from McCollum Park with Trinity Bay views. $2,700/mo. Wraparound porch, fenced yard, Barbers Hill ISD. Join the early-interest list with Newera Property Management.">
+  <title>10002 Wilma Ln, Beach City TX 77523 — Property Sold · 5 BR / 3 BA Farmhouse | Newera</title>
+  <meta name="description" content="Property sold — this 2024-built farmhouse-style home at 10002 Wilma Ln in Beach City, TX is no longer available. 5 bed, 3 bath, 2,166 sqft on a corner lot across from McCollum Park with Trinity Bay views. Browse current listings or join rental alerts with Newera Property Management.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.newerapm.com/properties/10002-wilma-ln">
   <meta name="theme-color" content="#1E3A8A">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="10002 Wilma Ln, Beach City TX — Coming Soon · 5 BR Farmhouse Rental | Newera">
-  <meta property="og:description" content="Coming soon: 2024-built farmhouse-style rental in Beach City, TX. 5 bed / 3 bath / 2,166 sqft on a corner lot across from McCollum Park with Trinity Bay views. $2,700/month.">
+  <meta property="og:title" content="10002 Wilma Ln, Beach City TX — Property Sold · 5 BR Farmhouse | Newera">
+  <meta property="og:description" content="Property sold — this 2024-built farmhouse-style home in Beach City, TX is no longer available. See our current listings at Newera Property Management.">
   <meta property="og:url" content="https://www.newerapm.com/properties/10002-wilma-ln">
   <meta property="og:image" content="https://www.newerapm.com/assets/images/properties/10002-wilma-ln/01-front-twilight.jpg">
 
@@ -69,7 +69,7 @@
       "@type": "Offer",
       "price": 2700,
       "priceCurrency": "USD",
-      "availability": "https://schema.org/PreOrder"
+      "availability": "https://schema.org/SoldOut"
     }
   }
   </script>
@@ -159,11 +159,35 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
-    .listing-headline__badge--coming-soon {
-      background: var(--color-gold, #C8A04C);
-      color: var(--color-navy, #1E3A8A);
+    /* Status: Property Sold — brand navy, signalling a closed transaction. */
+    .listing-headline__badge--sold {
+      background: var(--color-navy, #1E3A8A);
+      color: #fff;
     }
     .listing-address { color: var(--color-slate); margin-bottom: var(--space-5); font-size: var(--fs-md); }
+
+    /* Unavailable-listing notice — sits under the headline so the status is
+       unmissable even if someone lands here from an old link or search result. */
+    .listing-status-notice {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: var(--space-4);
+      margin-bottom: var(--space-5);
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-navy);
+      border-radius: var(--radius-md);
+      color: var(--color-slate);
+      font-size: var(--fs-sm);
+      line-height: 1.55;
+    }
+    .listing-status-notice svg { flex-shrink: 0; margin-top: 2px; color: var(--color-navy); }
+    .listing-status-notice strong { color: var(--color-ink); }
+    .listing-status-notice a { font-weight: 600; }
+
+    /* Historical rent — struck through so it never reads as an asking price. */
+    .listing-sidebar__price--past { text-decoration: line-through; text-decoration-thickness: 1px; opacity: .7; }
 
     /* Tag chips row — at-a-glance amenity pills under the headline */
     .listing-tags {
@@ -357,7 +381,7 @@
       color: #fff; font-size: var(--fs-sm); opacity: 0.8;
     }
 
-    /* INQUIRY MODAL — pop-up forms for "Notify Me" / "Request a Showing" CTAs */
+    /* INQUIRY MODAL — pop-up form for the "Alert Me to Similar Homes" CTA */
     .inquiry-modal {
       position: fixed; inset: 0;
       display: none;
@@ -662,9 +686,14 @@
       <div class="container">
         <div class="listing-headline">
           <h1>10002 Wilma Ln</h1>
-          <span class="listing-headline__badge listing-headline__badge--coming-soon">Coming Soon</span>
+          <span class="listing-headline__badge listing-headline__badge--sold">Property Sold</span>
         </div>
         <p class="listing-address">Beach City, TX 77523 · Walkers Parkview · Across from McCollum Park · Trinity Bay views · Chambers County</p>
+
+        <p class="listing-status-notice">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span><strong>This property has been sold</strong> and is no longer available to rent. The details below are kept online for reference. <a href="/properties">Browse our available properties</a> or <a href="/contact?form=rental-alert">join our rental alert list</a> to hear about similar homes first.</span>
+        </p>
 
         <ul class="listing-tags" aria-label="Property highlights">
           <li class="listing-tags__chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>New construction (2024)</li>
@@ -707,11 +736,11 @@
             </div>
 
             <div class="listing-description">
-              <p>Launching soon — fall in love with this 2024-built farmhouse-style home in the heart of Beach City. Sit on the wraparound covered front porch and take in views of McCollum Park and Trinity Bay just across the way. The shaded park features walking paths, a playground, picnic areas, a kayak/wade-fishing ramp, and a covered pavilion — with a planned expansion adding a boat ramp and sports fields.</p>
+              <p>This 2024-built farmhouse-style home sits in the heart of Beach City. Sit on the wraparound covered front porch and take in views of McCollum Park and Trinity Bay just across the way. The shaded park features walking paths, a playground, picnic areas, a kayak/wade-fishing ramp, and a covered pavilion — with a planned expansion adding a boat ramp and sports fields.</p>
 
               <p>Inside, an open-concept living, dining, and kitchen anchors the first floor. The kitchen is the show-stopper: quartz countertops, gray shaker cabinets, stainless appliances with a gas range and chimney hood, oversized island with breakfast-bar seating, and a designer chandelier. Engineered hardwood flows through the main living areas, with crown molding and recessed lighting throughout.</p>
 
-              <p>Five total bedrooms across two stories. The first floor includes the primary suite with en-suite bath plus a second bedroom and full bath. Upstairs you'll find three more bedrooms — one of which works perfectly as an office or game room — plus a third full bathroom. Out back, a fully fenced yard with a double gate leaves room to add a shop or detached garage. New construction means low-emissivity windows, efficient HVAC, and zero deferred maintenance. Get on the early-interest list to be notified the moment showings open.</p>
+              <p>Five total bedrooms across two stories. The first floor includes the primary suite with en-suite bath plus a second bedroom and full bath. Upstairs you'll find three more bedrooms — one of which works perfectly as an office or game room — plus a third full bathroom. Out back, a fully fenced yard with a double gate leaves room to add a shop or detached garage. New construction means low-emissivity windows, efficient HVAC, and zero deferred maintenance. This property has since sold; <a href="/contact?form=rental-alert">join our rental alert list</a> and we'll let you know when something comparable comes available.</p>
             </div>
 
             <div class="listing-features">
@@ -749,11 +778,11 @@
               <h2>Lease Terms</h2>
               <ul class="listing-features__grid">
                 <li>12-month lease</li>
-                <li>$2,700 / month</li>
+                <li>$2,700 / month (last advertised rent)</li>
                 <li>Pets considered (cats &amp; dogs); deposit per pet</li>
                 <li>No smoking</li>
                 <li>Tenant pays utilities</li>
-                <li>Available Coming Soon — early-interest list open</li>
+                <li>Property sold — no longer available to rent</li>
               </ul>
             </div>
 
@@ -803,8 +832,8 @@
                   <div class="listing-facts__row"><dt>Pets</dt><dd>Cats &amp; dogs considered · Deposit per pet</dd></div>
                   <div class="listing-facts__row"><dt>Lease Term</dt><dd>12 months</dd></div>
                   <div class="listing-facts__row"><dt>Utilities</dt><dd>Tenant pays</dd></div>
-                  <div class="listing-facts__row"><dt>Rent</dt><dd>$2,700 / month</dd></div>
-                  <div class="listing-facts__row"><dt>Status</dt><dd>Coming Soon</dd></div>
+                  <div class="listing-facts__row"><dt>Last Rent</dt><dd>$2,700 / month</dd></div>
+                  <div class="listing-facts__row"><dt>Status</dt><dd>Property Sold</dd></div>
                 </dl>
 
               </div>
@@ -819,10 +848,10 @@
           </div>
 
           <aside class="listing-sidebar" aria-label="Inquire about this listing">
-            <p class="listing-sidebar__price">$2,700<span> / month</span></p>
-            <p class="listing-sidebar__sub">Coming Soon · 12-month lease · Pet friendly · 5 BR / 3 BA</p>
-            <button type="button" class="btn btn--primary" data-modal-mode="notify" aria-haspopup="dialog" aria-controls="inquiry-modal">Notify Me When Available</button>
-            <button type="button" class="btn btn--secondary" data-modal-mode="showing" aria-haspopup="dialog" aria-controls="inquiry-modal">Request a Showing</button>
+            <p class="listing-sidebar__price listing-sidebar__price--past">$2,700<span> / month</span></p>
+            <p class="listing-sidebar__sub">Property Sold · No longer available</p>
+            <a class="btn btn--primary" href="/properties">Browse Available Properties</a>
+            <button type="button" class="btn btn--secondary" data-modal-mode="notify" aria-haspopup="dialog" aria-controls="inquiry-modal">Alert Me to Similar Homes</button>
             <p class="listing-sidebar__contact">
               Questions? Call <a href="tel:+18325582911">(832) 558-2911</a><br>
               or email <a href="mailto:info@newerapm.com">info@newerapm.com</a>
@@ -875,10 +904,10 @@
     <section class="final-cta" aria-labelledby="prop-cta-title">
       <div class="container">
         <div class="final-cta__content">
-          <h2 id="prop-cta-title">Be the first to know when 10002 Wilma goes live</h2>
-          <p>Join the early-interest list and we'll reach out the moment the listing opens for showings and applications. Our team typically responds within one business hour.</p>
+          <h2 id="prop-cta-title">Looking for something like 10002 Wilma Ln?</h2>
+          <p>This property has sold, but comparable homes come available across the Houston and Beach City area regularly. Tell us what you're after and we'll reach out the moment a match hits the market — our team typically responds within one business hour.</p>
           <div class="final-cta__ctas">
-            <button type="button" class="btn btn--inverse" data-modal-mode="notify" aria-haspopup="dialog" aria-controls="inquiry-modal">Notify Me When Available</button>
+            <button type="button" class="btn btn--inverse" data-modal-mode="notify" aria-haspopup="dialog" aria-controls="inquiry-modal">Alert Me to Similar Homes</button>
             <a href="tel:+18325582911" class="final-cta__phone">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/></svg>
               Or call (832) 558-2911
@@ -888,15 +917,15 @@
       </div>
     </section>
 
-    <!-- INQUIRY MODAL — Notify / Showing forms (sub-form of /contact, mailed to info@newerapm.com via Formspree) -->
+    <!-- INQUIRY MODAL — Rental alert form (sub-form of /contact, mailed to info@newerapm.com via Formspree) -->
     <div class="inquiry-modal" id="inquiry-modal" role="dialog" aria-modal="true" aria-labelledby="inquiry-title" aria-hidden="true">
       <div class="inquiry-modal__card" role="document">
         <button type="button" class="inquiry-modal__close" id="inquiry-close" aria-label="Close form">&times;</button>
 
         <div class="inquiry-modal__header">
-          <span class="inquiry-modal__eyebrow" id="inquiry-eyebrow">Coming Soon · 10002 Wilma Ln</span>
-          <h2 class="inquiry-modal__title" id="inquiry-title">Notify Me When Available</h2>
-          <p class="inquiry-modal__sub" id="inquiry-sub">Drop your details and we'll reach out the moment this listing opens for showings and applications.</p>
+          <span class="inquiry-modal__eyebrow" id="inquiry-eyebrow">Property Sold · 10002 Wilma Ln</span>
+          <h2 class="inquiry-modal__title" id="inquiry-title">Alert Me to Similar Homes</h2>
+          <p class="inquiry-modal__sub" id="inquiry-sub">This property has sold. Drop your details and we'll reach out when a comparable rental becomes available.</p>
         </div>
 
         <div class="inquiry-modal__body">
@@ -960,7 +989,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           </div>
           <h3 id="inquiry-success-title">Thanks — we've got your details</h3>
-          <p id="inquiry-success-msg">We'll reach out as soon as the listing goes live. Talk soon!</p>
+          <p id="inquiry-success-msg">We'll reach out when a comparable rental becomes available. Talk soon!</p>
           <button type="button" class="btn btn--secondary" id="inquiry-success-close">Close</button>
         </div>
 
@@ -1040,7 +1069,7 @@
         document.getElementById('gallery').scrollIntoView({behavior:'smooth', block:'start'});
       }); }
 
-      // ---- INQUIRY MODAL (Notify / Showing) ----
+      // ---- INQUIRY MODAL (Rental Alert) ----
       var modal = document.getElementById('inquiry-modal');
       if (modal) {
         var modalForm     = document.getElementById('inquiry-form');
@@ -1061,26 +1090,26 @@
 
         var modes = {
           notify: {
-            eyebrow: 'Coming Soon · 10002 Wilma Ln',
-            title:   'Notify Me When Available',
-            sub:     "Drop your details and we'll reach out the moment this listing opens for showings and applications.",
-            subject: '[Wilma Ln] Notify when available — early-interest list',
+            eyebrow: 'Property Sold · 10002 Wilma Ln',
+            title:   'Alert Me to Similar Homes',
+            sub:     "This property has sold. Drop your details and we'll reach out when a comparable rental becomes available.",
+            subject: '[Wilma Ln] Rental alert — similar properties',
             type:    'rental-alert',
-            message: "Hi! I'm interested in 10002 Wilma Ln in Beach City. Please add me to your early-interest list and notify me as soon as the listing goes live so I can apply or schedule a showing. Thanks!",
+            message: "Hi! I saw 10002 Wilma Ln in Beach City has sold. Please add me to your rental alert list and let me know when something comparable becomes available. Thanks!",
             submit:  'Add Me to the List',
             successTitle: "You're on the list",
-            successMsg:   "Thanks! We'll reach out as soon as 10002 Wilma Ln opens for showings and applications. Usually within one business hour during business days."
+            successMsg:   "Thanks! We'll reach out when a comparable rental hits the market. Usually within one business hour during business days."
           },
           showing: {
-            eyebrow: 'Coming Soon · 10002 Wilma Ln',
-            title:   'Request a Showing',
-            sub:     "Tell us when works for you and we'll coordinate a tour as soon as the listing opens.",
-            subject: '[Wilma Ln] Showing request',
-            type:    'showing',
-            message: "Hi! I'd like to request a showing at 10002 Wilma Ln in Beach City. Please reach out so we can coordinate a time that works.",
-            submit:  'Request Showing',
-            successTitle: "Showing request received",
-            successMsg:   "Thanks! Our team will reach out shortly to coordinate a time. Usually within one business hour during business days."
+            eyebrow: 'Property Sold · 10002 Wilma Ln',
+            title:   'Alert Me to Similar Homes',
+            sub:     "This property has sold and is not available for showings. Drop your details and we'll let you know when something comparable opens up.",
+            subject: '[Wilma Ln] Rental alert — similar properties',
+            type:    'rental-alert',
+            message: "Hi! I saw 10002 Wilma Ln in Beach City has sold. Please let me know when a comparable rental becomes available.",
+            submit:  'Add Me to the List',
+            successTitle: "You're on the list",
+            successMsg:   "Thanks! We'll reach out when a comparable rental hits the market. Usually within one business hour during business days."
           }
         };
 

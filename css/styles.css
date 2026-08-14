@@ -2290,6 +2290,67 @@ p:last-child { margin-bottom: 0; }
   background: #9ca3af;
 }
 
+/* =============================================================================
+   UNAVAILABLE LISTINGS — Property Occupied / Property Sold
+   -----------------------------------------------------------------------------
+   Used for REAL listings that are no longer on the market. Unlike the
+   placeholder "Coming Soon" cards above, these keep their photo and a working
+   "View Details" link — the card is de-emphasised, not deactivated. Scoped to
+   .property-card--unavailable so none of the :has(:disabled) rules apply.
+   ============================================================================= */
+
+.property-card__badge--occupied {
+  background: var(--color-slate);   /* neutral slate — leased, not available */
+  color: var(--color-white);
+}
+
+.property-card__badge--sold {
+  background: var(--color-navy);    /* brand navy — transaction closed */
+  color: var(--color-white);
+}
+
+.property-card--unavailable .property-card__media img {
+  filter: grayscale(65%);
+  opacity: 0.72;
+  transition: filter .25s ease, opacity .25s ease;
+}
+
+.property-card--unavailable:hover .property-card__media img,
+.property-card--unavailable:focus-within .property-card__media img {
+  filter: grayscale(25%);
+  opacity: 0.9;
+}
+
+.property-card--unavailable .property-card__rent,
+.property-card--unavailable .property-card__specs,
+.property-card--unavailable .property-card__meta {
+  opacity: 0.65;
+}
+
+/* Rent is struck through — the figure is historical, not an asking price. */
+.property-card--unavailable .property-card__rent {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+/* View Details stays clickable but drops to a quieter, secondary treatment. */
+.property-card--unavailable .property-card__cta {
+  background: transparent;
+  color: var(--color-slate);
+  border: 1px solid var(--color-border);
+}
+
+.property-card--unavailable .property-card__cta:hover,
+.property-card--unavailable .property-card__cta:focus-visible {
+  background: var(--color-offwhite);
+  color: var(--color-navy);
+  border-color: var(--color-slate-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .property-card--unavailable .property-card__media img { transition: none; }
+}
+
 /* (Removed: legacy "NEWERA" text watermark override on .page-banner.
     The canonical .page-banner::before above (lines ~1341) defines the
     navy gradient + radial accent used across every inner page hero.
