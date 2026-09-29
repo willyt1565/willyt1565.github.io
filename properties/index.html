@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Available Rental Properties in Houston & San Antonio TX | Newera</title>
-  <meta name="description" content="Browse Newera's current rental listings in Houston, San Antonio, and surrounding areas. Single-family homes and small multifamily units.">
+  <title>Available Properties for Rent & for Sale in Houston & San Antonio TX | Newera</title>
+  <meta name="description" content="Browse Newera's current listings in Houston, San Antonio, and surrounding areas — homes for rent and properties for sale.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.newerapm.com/properties">
   <meta name="theme-color" content="#1E3A8A">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Rental Properties Houston & San Antonio | Newera Property Management">
-  <meta property="og:description" content="Browse available rentals across Houston and San Antonio — single-family homes and small multifamily.">
+  <meta property="og:title" content="Properties for Rent & for Sale — Houston & San Antonio | Newera Property Management">
+  <meta property="og:description" content="Browse homes for rent and properties for sale across Houston and San Antonio.">
   <meta property="og:url" content="https://www.newerapm.com/properties">
   <meta property="og:image" content="https://www.newerapm.com/assets/brand/og-image.jpg">
 
@@ -140,49 +140,25 @@
             <a href="/">Home</a><span class="breadcrumbs__sep" aria-hidden="true">›</span>
             <span aria-current="page">Available Properties</span>
           </nav>
-          <span class="eyebrow page-banner__eyebrow">Now Leasing</span>
-          <h1 id="page-title">Available Rental Properties in Houston and San Antonio</h1>
-          <p>Browse single-family and small multifamily rentals across Houston and San Antonio. Contact us to schedule a showing or join our rental alert list to be notified the moment a new property hits the market.</p>
+          <span class="eyebrow page-banner__eyebrow">For Rent &amp; For Sale</span>
+          <h1 id="page-title">Available Properties in Houston and San Antonio</h1>
+          <p>Browse homes for rent and properties for sale across Houston and San Antonio. Contact us to schedule a showing or join our alert list to be notified the moment a new property hits the market.</p>
+          <nav class="properties-categories" aria-label="Property categories">
+            <a class="properties-categories__link" href="#for-rent">Properties for Rent</a>
+            <a class="properties-categories__link" href="#for-sale">Properties for Sale</a>
+          </nav>
         </div>
       </div>
     </section>
 
-    <!-- Filters bar — client-side filtering in Phase 4 JS -->
-    <div class="properties-filters" aria-label="Filter listings">
-      <div class="container properties-filters__inner">
-        <div class="properties-filter">
-          <label for="filter-beds">Bedrooms</label>
-          <select id="filter-beds">
-            <option value="">Any</option>
-            <option value="1">1+</option><option value="2">2+</option>
-            <option value="3">3+</option><option value="4">4+</option>
-          </select>
-        </div>
-        <div class="properties-filter">
-          <label for="filter-price-max">Max Rent</label>
-          <select id="filter-price-max">
-            <option value="">Any</option>
-            <option value="1500">$1,500</option><option value="2000">$2,000</option>
-            <option value="2500">$2,500</option><option value="3000">$3,000</option>
-            <option value="3500">$3,500+</option>
-          </select>
-        </div>
-        <div class="properties-filter">
-          <label for="filter-type">Type</label>
-          <select id="filter-type">
-            <option value="">All</option>
-            <option value="single-family">Single-Family</option>
-            <option value="multifamily">Duplex / Multi</option>
-          </select>
-        </div>
-        <button class="properties-filter__reset" type="button" id="filter-reset">Reset Filters</button>
-      </div>
-    </div>
-
-    <section class="section" aria-labelledby="listings-heading">
+    <!-- ===================== PROPERTIES FOR RENT ===================== -->
+    <section class="section properties-category" id="for-rent" aria-labelledby="rent-heading">
       <div class="container">
-        <h2 class="sr-only" id="listings-heading">Current Listings</h2>
-        <p class="properties-count" id="properties-count" aria-live="polite">Showing all available properties</p>
+        <div class="properties-category__header">
+          <span class="eyebrow">For Rent</span>
+          <h2 id="rent-heading">Properties for Rent</h2>
+          <p class="properties-count" id="properties-count" aria-live="polite">Single-family and small multifamily rentals managed by Newera.</p>
+        </div>
 
         <!-- JS (Phase 4/5) replaces these with live Buildium data.
              Placeholder cards give the page substance pre-API. -->
@@ -209,15 +185,15 @@
             </div>
           </article>
 
-          <!-- LIVE LISTING — 4106 Robertson St, Houston TX 77009 -->
-          <article class="property-card" data-beds="2" data-rent="1850" data-type="single-family">
+          <!-- OCCUPIED — 4106 Robertson St, Houston TX 77009 -->
+          <article class="property-card property-card--unavailable" data-beds="2" data-rent="1850" data-type="single-family" data-status="occupied">
             <div class="property-card__media">
-              <a class="property-card__media-link" href="/properties/4106-robertson-st" aria-label="View details for 4106 Robertson St, Houston TX">
+              <a class="property-card__media-link" href="/properties/4106-robertson-st" aria-label="View details for 4106 Robertson St, Houston TX — property occupied">
                 <img src="/assets/images/properties/4106-robertson-st/01-front.jpg"
-                     alt="Front exterior of 2-bedroom single-family rental at 4106 Robertson St, Houston TX"
+                     alt="Front exterior of 2-bedroom single-family home at 4106 Robertson St, Houston TX"
                      loading="lazy" width="800" height="500">
               </a>
-              <span class="property-card__badge property-card__badge--now-leasing">Now Leasing</span>
+              <span class="property-card__badge property-card__badge--occupied">Property Occupied</span>
             </div>
             <div class="property-card__body">
               <p class="property-card__address">4106 Robertson St<br>Houston, TX 77009</p>
@@ -317,6 +293,28 @@
           <h3>No properties match your filters</h3>
           <p>Try broadening your search, or join our rental alert list to be notified when new listings are added.</p>
           <a href="/contact?form=rental-alert" class="btn btn--primary">Join Rental Alerts</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROPERTIES FOR SALE ===================== -->
+    <section class="section section--offwhite properties-category" id="for-sale" aria-labelledby="sale-heading">
+      <div class="container">
+        <div class="properties-category__header">
+          <span class="eyebrow">For Sale</span>
+          <h2 id="sale-heading">Properties for Sale</h2>
+          <p>Homes available to purchase in Houston and San Antonio. Contact us to schedule a private showing or ask about any listing.</p>
+        </div>
+
+        <!-- Add for-sale property cards inside this grid (same .property-card markup as rentals). -->
+        <div class="properties-grid properties-grid--full" id="for-sale-properties">
+        </div>
+
+        <!-- Shown while there are no for-sale cards; delete this block once listings are added. -->
+        <div class="properties-empty" id="for-sale-empty">
+          <h3>New for-sale listings coming soon</h3>
+          <p>We're preparing our next homes for sale. Reach out and we'll share details as soon as they're available.</p>
+          <a href="/contact" class="btn btn--primary">Contact Us</a>
         </div>
       </div>
     </section>

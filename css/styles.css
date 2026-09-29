@@ -2356,3 +2356,43 @@ p:last-child { margin-bottom: 0; }
     navy gradient + radial accent used across every inner page hero.
     The placeholder watermark was from the early scaffold before the
     brand logo existed — no longer needed.) */
+
+
+/* =============================================================================
+   PROPERTIES PAGE — For Rent / For Sale categories
+   ============================================================================= */
+.properties-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+.properties-categories__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: var(--font-subhead);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+}
+.properties-categories__link:hover,
+.properties-categories__link:focus-visible { background: var(--color-white); border-color: var(--color-white); color: var(--color-navy); }
+
+.page-banner .properties-categories { justify-content: center; }
+.properties-category { scroll-margin-top: 90px; }
+.properties-category__header {
+  margin-bottom: var(--space-7);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+.properties-category__header .eyebrow { margin-bottom: var(--space-2); }
+.properties-category__header h2 { margin-bottom: var(--space-3); }
+.properties-category__header p { color: var(--color-slate); margin-bottom: 0; }
+.properties-category__header .properties-count { margin: 0; }
+#for-sale-properties:empty { display: none; }
