@@ -2405,3 +2405,41 @@ p:last-child { margin-bottom: 0; }
 .properties-category__header p { color: var(--color-slate); margin-bottom: 0; }
 .properties-category__header .properties-count { margin: 0; }
 #for-sale-properties:empty { display: none; }
+
+/* =============================================================================
+   PROPERTY CARDS — hover slideshow (js/card-slideshow.js)
+   ============================================================================= */
+.card-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity .45s ease, transform var(--dur-slow) var(--ease-out);
+  pointer-events: none;
+}
+.card-slide.is-in { opacity: 1; }
+.property-card:hover .card-slide { transform: scale(1.05); }
+.property-card--unavailable .card-slide { filter: grayscale(25%); }
+.property-card--unavailable .card-slide.is-in { opacity: .9; }
+
+.card-slides-dots {
+  position: absolute;
+  left: 0; right: 0; bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.property-card__media.is-sliding .card-slides-dots { opacity: 1; }
+.card-slides-dots span {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .55);
+  box-shadow: 0 0 3px rgba(0, 0, 0, .35);
+  transition: background .2s ease, transform .2s ease;
+}
+.card-slides-dots span.is-active { background: #fff; transform: scale(1.25); }
