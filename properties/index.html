@@ -313,14 +313,31 @@
 
         <!-- Add for-sale property cards inside this grid (same .property-card markup as rentals). -->
         <div class="properties-grid properties-grid--full" id="for-sale-properties">
+
+          <!-- FOR SALE — 7911 Carolwood Dr, Houston TX 77028 -->
+          <article class="property-card" data-beds="3" data-price="220000" data-type="single-family" data-status="for-sale">
+            <div class="property-card__media">
+              <a class="property-card__media-link" href="/properties/7911-carolwood-dr" aria-label="View details for 7911 Carolwood Dr, Houston TX — for sale">
+                <img src="/assets/images/properties/7911-carolwood-dr/01-front.jpg" data-slides="/assets/images/properties/7911-carolwood-dr/06-kitchen-dining.jpg,/assets/images/properties/7911-carolwood-dr/04-living-room.jpg,/assets/images/properties/7911-carolwood-dr/09-bedroom-1.jpg,/assets/images/properties/7911-carolwood-dr/12-bathroom.jpg,/assets/images/properties/7911-carolwood-dr/15-backyard.jpg"
+                     alt="Front exterior of 3-bedroom single-story home for sale at 7911 Carolwood Dr, Houston TX"
+                     loading="lazy" width="800" height="500">
+              </a>
+              <span class="property-card__badge property-card__badge--for-sale">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__address">7911 Carolwood Dr<br>Houston, TX 77028</p>
+              <p class="property-card__rent">$220,000</p>
+              <div class="property-card__specs">
+                <span><strong>3</strong> bd</span>
+                <span><strong>1</strong> ba</span>
+                <span><strong>1,411</strong> sqft</span>
+              </div>
+              <p class="property-card__meta">Single-Family · Baker Place · Owner Financing Available</p>
+              <a class="btn btn--primary property-card__cta" href="/properties/7911-carolwood-dr">View Details</a>
+            </div>
+          </article>
         </div>
 
-        <!-- Shown while there are no for-sale cards; delete this block once listings are added. -->
-        <div class="properties-empty" id="for-sale-empty">
-          <h3>New for-sale listings coming soon</h3>
-          <p>We're preparing our next homes for sale. Reach out and we'll share details as soon as they're available.</p>
-          <a href="/contact" class="btn btn--primary">Contact Us</a>
-        </div>
       </div>
     </section>
 

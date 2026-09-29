@@ -1107,11 +1107,13 @@ p:last-child { margin-bottom: 0; }
   border-radius: var(--radius-pill);
 }
 .property-card__badge--coming-soon { background: var(--color-gold); }
-.property-card__badge--now-leasing {
+.property-card__badge--now-leasing,
+.property-card__badge--for-sale {
   background: #10B981;             /* emerald-500: clear "available now" signal */
   color: var(--color-white);
 }
-.property-card__badge--now-leasing::before {
+.property-card__badge--now-leasing::before,
+.property-card__badge--for-sale::before {
   content: "";
   display: inline-block;
   width: 7px;
@@ -1129,7 +1131,8 @@ p:last-child { margin-bottom: 0; }
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .property-card__badge--now-leasing::before { animation: none; }
+  .property-card__badge--now-leasing::before,
+  .property-card__badge--for-sale::before { animation: none; }
 }
 
 .property-card__body {
