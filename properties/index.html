@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap">
 
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css?v=20260929b">
   <link rel="stylesheet" href="/css/scroll-animations.css">
 
   <script type="application/ld+json">
@@ -143,13 +143,17 @@
           <span class="eyebrow page-banner__eyebrow">For Rent &amp; For Sale</span>
           <h1 id="page-title">Available Properties in Houston and San Antonio</h1>
           <p>Browse homes for rent and properties for sale across Houston and San Antonio. Contact us to schedule a showing or join our alert list to be notified the moment a new property hits the market.</p>
-          <nav class="properties-categories" aria-label="Property categories">
-            <a class="properties-categories__link" href="#for-rent">Properties for Rent</a>
-            <a class="properties-categories__link" href="#for-sale">Properties for Sale</a>
-          </nav>
         </div>
       </div>
     </section>
+
+    <!-- Category jump buttons — white strip under the banner -->
+    <nav class="properties-categories" aria-label="Property categories">
+      <div class="container properties-categories__inner">
+        <a class="properties-categories__link" href="#for-rent">Properties for Rent <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></a>
+        <a class="properties-categories__link" href="#for-sale">Properties for Sale <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></a>
+      </div>
+    </nav>
 
     <!-- ===================== PROPERTIES FOR RENT ===================== -->
     <section class="section properties-category" id="for-rent" aria-labelledby="rent-heading">

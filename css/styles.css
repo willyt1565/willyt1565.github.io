@@ -2362,29 +2362,38 @@ p:last-child { margin-bottom: 0; }
    PROPERTIES PAGE — For Rent / For Sale categories
    ============================================================================= */
 .properties-categories {
+  background: var(--color-white);
+  padding-top: var(--space-7);
+}
+.properties-categories__inner {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
+  justify-content: center;
+  gap: var(--space-4);
 }
-.properties-categories__link {
+.properties-categories .properties-categories__link {
   display: inline-flex;
   align-items: center;
-  padding: 0.6rem 1.15rem;
-  border: 1px solid currentColor;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  background: #EAF1FC;
+  color: var(--color-navy);
+  border: 2px solid var(--color-navy);
   border-radius: 999px;
   font-family: var(--font-subhead);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: var(--fs-base);
+  font-weight: 700;
   text-decoration: none;
-  color: inherit;
-  transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+  box-shadow: var(--shadow-sm);
+  transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
 }
-.properties-categories__link:hover,
-.properties-categories__link:focus-visible { background: var(--color-white); border-color: var(--color-white); color: var(--color-navy); }
-
-.page-banner .properties-categories { justify-content: center; }
+.properties-categories .properties-categories__link:hover,
+.properties-categories .properties-categories__link:focus-visible {
+  background: var(--color-navy);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+.properties-categories + .properties-category { padding-top: var(--space-8); }
 .properties-category { scroll-margin-top: 90px; }
 .properties-category__header {
   margin-bottom: var(--space-7);
