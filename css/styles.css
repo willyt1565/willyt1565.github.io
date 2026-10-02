@@ -2446,3 +2446,30 @@ p:last-child { margin-bottom: 0; }
   transition: background .2s ease, transform .2s ease;
 }
 .card-slides-dots span.is-active { background: #fff; transform: scale(1.25); }
+
+/* ---------- Minimal footer ---------- */
+.ft { background: var(--color-white); border-top: 1px solid var(--color-border); padding: 40px 0 24px; font-size: 0.9rem; color: var(--color-slate-soft); }
+.ft a { color: var(--color-slate); text-decoration: none; transition: color .15s; }
+.ft a:hover, .ft a:focus-visible { color: var(--color-teal-deep); }
+.ft__top { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.ft__logo { height: 34px; width: auto; display: block; }
+.ft__tagline { margin: 6px 0 0; font-size: 0.8rem; color: var(--color-slate-soft); }
+.ft__nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-weight: 500; }
+.ft__social { display: flex; gap: 8px; }
+.ft__social a { width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--color-navy); background: var(--color-offwhite); border: 1px solid var(--color-border); }
+.ft__social a:hover { background: var(--color-navy); color: #fff; border-color: var(--color-navy); }
+.ft__social svg { width: 16px; height: 16px; }
+.ft__right { display: flex; align-items: center; gap: 18px; }
+.ft__phone { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--color-navy) !important; white-space: nowrap; }
+.ft__bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-border); font-size: 0.78rem; }
+.ft__legal { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.ft__legal a { color: var(--color-slate-soft); }
+.ft__badges { display: flex; align-items: center; gap: 14px; }
+.ft__badges img { height: 44px; width: auto; display: block; }
+.ft__badge { font-size: 0.68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--color-slate-soft); border: 1px solid var(--color-border); border-radius: 6px; padding: 6px 10px; }
+@media (max-width: 767px) {
+  .ft { padding-top: 32px; }
+  .ft__top { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .ft__nav { gap: 10px 20px; }
+  .ft__bottom { flex-direction: column; align-items: flex-start; }
+}
