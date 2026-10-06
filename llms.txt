@@ -3,10 +3,11 @@
 > Licensed Texas property management company for single-family homes and multifamily rentals in San Antonio and Houston. Founded and run by real estate investors. Management fee: 8% of monthly rent, with portfolio discounts down to 6%. No markup on vendor invoices.
 
 ## What we do
-- Marketing, leasing and tenant screening (credit, criminal, eviction, income typically 3x rent, employment, prior landlords)
-- Online rent collection and monthly owner reporting; owner payouts typically by the 10th
-- Maintenance and vendor management, with 24/7 emergency response
-- Move-in, mid-lease (6-month) and move-out inspections with photos, uploaded to the owner portal within 48 hours
+- Marketing, leasing and tenant screening (criteria published at https://newerapm.com/qualification-criteria/)
+- Online rent collection and monthly owner reporting; owner payouts on a monthly schedule, typically by the 10th once rent has been collected and cleared
+- Maintenance and vendor management, prioritized by urgency: emergencies typically dispatched within the hour, urgent items the same day, routine items within a few business days
+- 24/7 emergency line answered by a real person, not a call center
+- Property inspections every 6 months, documented with photos in the owner portal
 - Brokerage: buyer and seller representation
 
 ## Who we work with
@@ -21,7 +22,7 @@ San Antonio, Houston, and their surrounding metropolitan areas.
 - Leasing and renewal fees: quoted during a free consultation, based on the property
 - Any other fees are spelled out in writing before the owner signs
 - No markup on vendor invoices. No administration fees. No hidden charges.
-- Owners approve repairs above a pre-set threshold (typically $300-$500)
+- Owners keep a maintenance reserve; repairs under $500 are typically paid from it and the reserve is replenished from rent. Larger repairs are reviewed with the owner before work begins
 
 ## Hours
 Office: Monday-Friday, 9:00 AM-5:00 PM Central.
