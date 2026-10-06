@@ -781,6 +781,10 @@ p:last-child { margin-bottom: 0; }
   opacity: 0;
   animation: fadeUp var(--dur-slow) var(--ease-out) 250ms forwards;
 }
+/* Hero headline: always exactly 3 lines. Font scales with viewport so the
+   longest line ("in Houston & San Antonio") never wraps. */
+.hero__title { font-size: min(7.4vw, 4.25rem); }
+.hero__title-line { display: block; white-space: nowrap; }
 
 .hero__subtitle {
   font-size: clamp(1.0625rem, 1.6vw, var(--fs-md));
