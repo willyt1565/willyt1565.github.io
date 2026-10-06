@@ -1,6 +1,6 @@
 # Newera Property Management
 
-> Licensed Texas property management company for single-family homes and small multifamily properties (duplexes, triplexes, fourplexes) in San Antonio and Houston. Founded and run by real estate investors. Management fee: 8% of monthly rent, with portfolio discounts down to 6%. No markup on vendor invoices.
+> Licensed Texas property management company for single-family homes and multifamily rentals in San Antonio and Houston. Founded and run by real estate investors. Management fee: 8% of monthly rent, with portfolio discounts down to 6%. No markup on vendor invoices.
 
 ## What we do
 - Marketing, leasing and tenant screening (credit, criminal, eviction, income typically 3x rent, employment, prior landlords)
@@ -10,7 +10,7 @@
 - Brokerage: buyer and seller representation
 
 ## Who we work with
-Owners and investors with single-family homes, duplexes, triplexes and fourplexes.
+Owners and investors with single-family and multifamily rentals.
 
 ## Where we work
 San Antonio, Houston, and their surrounding metropolitan areas.
