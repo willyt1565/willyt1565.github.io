@@ -31,7 +31,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://*.buildium.com data:; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://maps.googleapis.com https://www.googletagmanager.com https://www.google.com https://www.gstatic.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://*.googleusercontent.com https://maps.gstatic.com https://images.unsplash.com https://*.buildium.com data:; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://maps.googleapis.com https://places.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com"
 
 # Cache static assets aggressively
 [[headers]]
