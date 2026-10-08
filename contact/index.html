@@ -464,7 +464,6 @@
                          which preselects this option via /js/form-handler.js. -->
                     <option value="investor">Prospective Investor</option>
                     <option value="resident">Current Resident</option>
-                    <option value="vendor">Vendor / Partnership</option>
                     <option value="other">Other</option>
                   </select>
                   <label for="inquiry-type" class="nf-field__label">I am a&hellip;<span class="nf-field__required" aria-hidden="true">*</span></label>
@@ -522,8 +521,6 @@
                   sel.setAttribute('data-has-value', sel.value ? 'true' : 'false');
                 };
                 sel.addEventListener('change', sync);
-                // /contact?form=vendor preselects the Vendor / Partnership option
-                if (new URLSearchParams(window.location.search).get('form') === 'vendor') sel.value = 'vendor';
                 sync();   // initial state
               })();
             </script>
