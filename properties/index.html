@@ -245,6 +245,9 @@
       .inquiry-modal { padding: 0; align-items: stretch; }
       .inquiry-modal__card { max-width: none; max-height: 100vh; border-radius: 0; }
     }
+    .inquiry-form__skip { display: block; width: 100%; margin-top: var(--space-3); padding: var(--space-2); background: none; border: 0; color: var(--color-slate); font: inherit; font-size: var(--fs-sm); text-decoration: underline; cursor: pointer; }
+    .inquiry-form__skip:hover { color: var(--color-ink); }
+    .inquiry-form__skip[hidden] { display: none; }
     .property-card--highlight { outline: 3px solid var(--color-teal); outline-offset: 4px; transition: outline-color .4s; }
   </style>
 </head>
@@ -659,6 +662,7 @@
             </p>
 
             <button type="submit" class="btn btn--primary inquiry-form__submit" id="inquiry-submit">Send</button>
+            <button type="button" class="inquiry-form__skip" id="inquiry-skip" hidden>Skip and view property details &rarr;</button>
           </form>
         </div>
 
@@ -810,10 +814,18 @@
           }, 60);
         }
 
+        // Set when the form was opened by clicking an occupied/sold card on this
+        // page: closing the form then continues to that home's detail page.
+        var pendingHref = null;
+        var skipBtn = document.getElementById('inquiry-skip');
+        skipBtn.addEventListener('click', function(){ closeModal(); });
+
         function closeModal() {
           modal.classList.remove('is-open');
           modal.setAttribute('aria-hidden', 'true');
           document.body.style.overflow = '';
+          skipBtn.hidden = true;
+          if (pendingHref) { var go = pendingHref; pendingHref = null; window.location.href = go; return; }
           if (lastFocused && typeof lastFocused.focus === 'function') {
             try { lastFocused.focus(); } catch(_) {}
           }
@@ -903,6 +915,22 @@
           });
         });
       
+        // Clicking an occupied/sold card here: show the form first; closing it
+        // (or finishing it) continues to the property's details and photos.
+        Array.prototype.forEach.call(document.querySelectorAll('.property-card--unavailable[id^="prop-"]'), function(card){
+          var slug = card.id.slice(5);
+          if (!PROPS[slug]) return;
+          Array.prototype.forEach.call(card.querySelectorAll('a[href^="/properties/' + slug + '"]'), function(link){
+            link.addEventListener('click', function(e){
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; // let "open in new tab" work
+              e.preventDefault();
+              openModal(slug);
+              pendingHref = link.getAttribute('href');
+              skipBtn.hidden = false;
+            });
+          });
+        });
+
         // Arriving from the homepage: /properties/?notify=<slug>#prop-<slug>
         var notifySlug = new URLSearchParams(window.location.search).get('notify');
         if (notifySlug && PROPS[notifySlug]) {
