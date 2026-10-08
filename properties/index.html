@@ -42,6 +42,211 @@
   <script defer src="/js/analytics.js"></script>
   <script defer src="/js/scroll-effects.js"></script>
   <script defer src="/js/card-slideshow.js"></script>
+  <style>
+    /* INQUIRY MODAL — pop-up form for the "Notify Me If It Reopens" CTA */
+    .inquiry-modal {
+      position: fixed; inset: 0;
+      display: none;
+      align-items: center; justify-content: center;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1100;
+      padding: 1.5rem;
+    }
+    .inquiry-modal.is-open { display: flex; }
+    .inquiry-modal__card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 540px;
+      max-height: calc(100vh - 3rem);
+      overflow-y: auto;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      animation: inquiryRise .28s ease;
+      position: relative;
+    }
+    @keyframes inquiryRise {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .inquiry-modal__header {
+      padding: var(--space-6) var(--space-6) 0;
+    }
+    .inquiry-modal__eyebrow {
+      display: inline-block;
+      font-size: var(--fs-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-teal);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .inquiry-modal__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+      color: var(--color-navy);
+      margin: 0 0 0.5rem;
+      line-height: 1.2;
+    }
+    .inquiry-modal__sub {
+      color: var(--color-slate);
+      font-size: var(--fs-sm);
+      line-height: var(--lh-relaxed);
+      margin: 0;
+    }
+    .inquiry-modal__close {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: transparent;
+      border: none;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--color-slate);
+      z-index: 2;
+    }
+    .inquiry-modal__close:hover {
+      background: var(--color-offwhite);
+      color: var(--color-navy);
+    }
+    .inquiry-modal__body { padding: var(--space-5) var(--space-6) var(--space-6); }
+
+    .inquiry-form { display: grid; gap: var(--space-3); }
+    .inquiry-form__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+    @media (max-width: 480px) { .inquiry-form__row { grid-template-columns: 1fr; } }
+    .inquiry-form label {
+      display: block;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--color-navy);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+    }
+    .inquiry-form input,
+    .inquiry-form select,
+    .inquiry-form textarea {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: var(--fs-sm);
+      color: var(--color-navy);
+      background: #fff;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .inquiry-form input:focus,
+    .inquiry-form select:focus,
+    .inquiry-form textarea:focus {
+      outline: none;
+      border-color: var(--color-teal);
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+    }
+    .inquiry-form textarea { resize: vertical; min-height: 84px; }
+    .inquiry-form input[aria-invalid="true"],
+    .inquiry-form textarea[aria-invalid="true"] {
+      border-color: #B91C1C;
+    }
+    .inquiry-form__radio-group {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .inquiry-form__radio {
+      position: relative;
+      flex: 1 1 calc(33% - 0.5rem);
+      min-width: 90px;
+      margin: 0;
+    }
+    .inquiry-form__radio input {
+      position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none;
+    }
+    .inquiry-form__radio span {
+      display: block;
+      text-align: center;
+      padding: 0.55rem 0.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--color-slate);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: all .15s ease;
+    }
+    .inquiry-form__radio span:hover { border-color: var(--color-navy); color: var(--color-navy); }
+    .inquiry-form__radio input:checked + span {
+      background: var(--color-navy);
+      color: #fff;
+      border-color: var(--color-navy);
+    }
+    .inquiry-form__radio input:focus-visible + span {
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
+    }
+    .inquiry-form__error {
+      display: none;
+      font-size: var(--fs-xs);
+      color: #B91C1C;
+      margin-top: 0.3rem;
+    }
+    .inquiry-form__error.is-shown { display: block; }
+    .inquiry-form__consent {
+      font-size: var(--fs-xs);
+      color: var(--color-slate-soft);
+      margin: 0.25rem 0 0;
+      line-height: var(--lh-relaxed);
+    }
+    .inquiry-form__consent a { color: var(--color-navy); text-decoration: underline; }
+    .inquiry-form__submit { margin-top: 0.5rem; width: 100%; }
+
+    /* Showing-only field — hidden by default, shown when modal is in showing mode */
+    .inquiry-form__field--showing { display: none; }
+    .inquiry-modal[data-mode="showing"] .inquiry-form__field--showing { display: block; }
+
+    /* Success state */
+    .inquiry-modal__success {
+      display: none;
+      padding: var(--space-7) var(--space-6);
+      text-align: center;
+    }
+    .inquiry-modal[data-state="success"] .inquiry-modal__body,
+    .inquiry-modal[data-state="success"] .inquiry-modal__header { display: none; }
+    .inquiry-modal[data-state="success"] .inquiry-modal__success { display: block; }
+    .inquiry-modal__success-icon {
+      width: 60px; height: 60px;
+      margin: 0 auto var(--space-3);
+      border-radius: 50%;
+      background: rgba(20, 184, 166, 0.12);
+      color: var(--color-teal);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .inquiry-modal__success-icon svg { width: 32px; height: 32px; }
+    .inquiry-modal__success h3 {
+      font-family: var(--font-display);
+      color: var(--color-navy);
+      font-size: var(--fs-lg);
+      margin: 0 0 0.5rem;
+    }
+    .inquiry-modal__success p {
+      color: var(--color-slate);
+      font-size: var(--fs-sm);
+      margin: 0 0 var(--space-4);
+      line-height: var(--lh-relaxed);
+    }
+
+    @media (max-width: 480px) {
+      .inquiry-modal { padding: 0; align-items: stretch; }
+      .inquiry-modal__card { max-width: none; max-height: 100vh; border-radius: 0; }
+    }
+    .property-card--highlight { outline: 3px solid var(--color-teal); outline-offset: 4px; transition: outline-color .4s; }
+  </style>
 </head>
 
 <body>
@@ -174,7 +379,7 @@
         <div class="properties-grid properties-grid--full" id="all-properties" aria-busy="true">
 
           <!-- OCCUPIED — 8515 Echo Creek Lane, San Antonio TX 78240 -->
-          <article class="property-card property-card--unavailable" data-beds="3" data-rent="1750" data-type="single-family" data-status="occupied">
+          <article id="prop-8515-echo-creek-lane" class="property-card property-card--unavailable" data-beds="3" data-rent="1750" data-type="single-family" data-status="occupied">
             <div class="property-card__media">
               <a class="property-card__media-link" href="/properties/8515-echo-creek-lane" aria-label="View details for 8515 Echo Creek Lane, San Antonio TX — property occupied">
                 <img src="/assets/images/properties/8515-echo-creek-lane/01.jpg" data-slides="/assets/images/properties/8515-echo-creek-lane/31.jpg,/assets/images/properties/8515-echo-creek-lane/58.jpg,/assets/images/properties/8515-echo-creek-lane/34.jpg,/assets/images/properties/8515-echo-creek-lane/27.jpg,/assets/images/properties/8515-echo-creek-lane/03.jpg" alt="Front exterior of 3-bedroom townhome at 8515 Echo Creek Lane, San Antonio TX" loading="lazy" width="800" height="500">
@@ -195,7 +400,7 @@
           </article>
 
           <!-- OCCUPIED — 4106 Robertson St, Houston TX 77009 -->
-          <article class="property-card property-card--unavailable" data-beds="2" data-rent="1850" data-type="single-family" data-status="occupied">
+          <article id="prop-4106-robertson-st" class="property-card property-card--unavailable" data-beds="2" data-rent="1850" data-type="single-family" data-status="occupied">
             <div class="property-card__media">
               <a class="property-card__media-link" href="/properties/4106-robertson-st" aria-label="View details for 4106 Robertson St, Houston TX — property occupied">
                 <img src="/assets/images/properties/4106-robertson-st/01-front.jpg" data-slides="/assets/images/properties/4106-robertson-st/04-interior-1.jpg,/assets/images/properties/4106-robertson-st/07-kitchen-1.jpg,/assets/images/properties/4106-robertson-st/08-kitchen-2.jpg,/assets/images/properties/4106-robertson-st/10-bathroom-1.jpg,/assets/images/properties/4106-robertson-st/02-back-side.jpg"
@@ -319,7 +524,7 @@
           </article>
 
           <!-- SOLD — 10002 Wilma Ln, Beach City TX 77523 -->
-          <article class="property-card property-card--unavailable" data-beds="5" data-type="single-family" data-status="sold">
+          <article id="prop-10002-wilma-ln" class="property-card property-card--unavailable" data-beds="5" data-type="single-family" data-status="sold">
             <div class="property-card__media">
               <a class="property-card__media-link" href="/properties/10002-wilma-ln" aria-label="View details for 10002 Wilma Ln, Beach City TX — property sold">
                 <img src="/assets/images/properties/10002-wilma-ln/01-front-twilight.jpg" data-slides="/assets/images/properties/10002-wilma-ln/02-front-day.jpg,/assets/images/properties/10002-wilma-ln/05-porch.jpg,/assets/images/properties/10002-wilma-ln/06-living-1.jpg,/assets/images/properties/10002-wilma-ln/09-dining-1.jpg,/assets/images/properties/10002-wilma-ln/11-kitchen-1.jpg"
@@ -388,6 +593,86 @@
         </div>
       </div>
     </section>
+    <!-- INQUIRY MODAL — Waitlist form (sub-form of /contact, mailed to info@newerapm.com via Formspree) -->
+    <div class="inquiry-modal" id="inquiry-modal" role="dialog" aria-modal="true" aria-labelledby="inquiry-title" aria-hidden="true">
+      <div class="inquiry-modal__card" role="document">
+        <button type="button" class="inquiry-modal__close" id="inquiry-close" aria-label="Close form">&times;</button>
+
+        <div class="inquiry-modal__header">
+          <span class="inquiry-modal__eyebrow" id="inquiry-eyebrow"></span>
+          <h2 class="inquiry-modal__title" id="inquiry-title">Notify Me If It Reopens</h2>
+          <p class="inquiry-modal__sub" id="inquiry-sub">Drop your details and we'll reach out if this home comes available again — or when a similar one does.</p>
+        </div>
+
+        <div class="inquiry-modal__body">
+          <form class="inquiry-form" id="inquiry-form" action="https://formspree.io/f/mlgajalw" method="POST" novalidate>
+
+            <!-- Hidden routing / context fields (mode-driven values set by JS) -->
+            <input type="hidden" name="_subject" id="inquiry-subject" value="">
+            <input type="hidden" name="inquiryType" id="inquiry-type" value="">
+            <input type="hidden" name="propertyAddress" id="inquiry-address" value="">
+            <input type="hidden" name="propertySlug" id="inquiry-slug" value="">
+            <input type="hidden" name="_replyto" id="inquiry-replyto" value="">
+            <!-- Honeypot for spam bots -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
+            <div>
+              <label for="inquiry-name">Full Name *</label>
+              <input type="text" id="inquiry-name" name="fullName" required autocomplete="name">
+              <span class="inquiry-form__error" data-error-for="inquiry-name">Please enter your name.</span>
+            </div>
+
+            <div class="inquiry-form__row">
+              <div>
+                <label for="inquiry-email">Email *</label>
+                <input type="email" id="inquiry-email" name="email" required autocomplete="email">
+                <span class="inquiry-form__error" data-error-for="inquiry-email">Please enter a valid email.</span>
+              </div>
+              <div>
+                <label for="inquiry-phone">Phone *</label>
+                <input type="tel" id="inquiry-phone" name="phone" required autocomplete="tel">
+                <span class="inquiry-form__error" data-error-for="inquiry-phone">Please enter your phone number.</span>
+              </div>
+            </div>
+
+            <div>
+              <label id="inquiry-contact-label">Preferred Contact Method</label>
+              <div class="inquiry-form__radio-group" role="radiogroup" aria-labelledby="inquiry-contact-label">
+                <label class="inquiry-form__radio"><input type="radio" name="preferredContact" value="Email" checked><span>Email</span></label>
+                <label class="inquiry-form__radio"><input type="radio" name="preferredContact" value="Phone call"><span>Phone</span></label>
+                <label class="inquiry-form__radio"><input type="radio" name="preferredContact" value="Text message"><span>Text</span></label>
+              </div>
+            </div>
+
+            <div class="inquiry-form__field--showing">
+              <label for="inquiry-when">Preferred Showing Window</label>
+              <input type="text" id="inquiry-when" name="preferredShowingTime" placeholder="e.g. Saturday afternoon, weekday evenings" autocomplete="off">
+            </div>
+
+            <div>
+              <label for="inquiry-message">Message</label>
+              <textarea id="inquiry-message" name="message" rows="3"></textarea>
+            </div>
+
+            <p class="inquiry-form__consent">
+              By submitting, you agree we may contact you about this listing. We won't share your details — see our <a href="/privacy">Privacy Policy</a>.
+            </p>
+
+            <button type="submit" class="btn btn--primary inquiry-form__submit" id="inquiry-submit">Send</button>
+          </form>
+        </div>
+
+        <div class="inquiry-modal__success" aria-live="polite">
+          <div class="inquiry-modal__success-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h3 id="inquiry-success-title">You're on the list</h3>
+          <p id="inquiry-success-msg">Thanks! We'll reach out if this home reopens or when a comparable rental hits the market.</p>
+          <button type="button" class="btn btn--secondary" id="inquiry-success-close">Close</button>
+        </div>
+
+      </div>
+    </div>
   </main>
 
   <footer class="ft" role="contentinfo">
@@ -442,6 +727,194 @@
       if(h){var s=function(){h.classList.toggle('is-scrolled',window.scrollY>8)};window.addEventListener('scroll',s,{passive:true});s()}
       var t=document.getElementById('nav-toggle'),d=document.getElementById('mobile-nav');
       if(t&&d){t.addEventListener('click',function(){var e=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',String(!e));t.setAttribute('aria-label',e?'Open menu':'Close menu');d.setAttribute('aria-hidden',String(e));document.body.classList.toggle('has-open-menu',!e)})}
+    })();
+  </script>
+  <script>
+    /* Notify / rental-alert modal for unavailable listings.
+       Opened automatically when arriving with ?notify=<slug> (from homepage cards). */
+    (function(){
+      var modal = document.getElementById('inquiry-modal');
+      if (modal) {
+        var modalForm     = document.getElementById('inquiry-form');
+        var modalEyebrow  = document.getElementById('inquiry-eyebrow');
+        var modalTitle    = document.getElementById('inquiry-title');
+        var modalSub      = document.getElementById('inquiry-sub');
+        var modalSubject  = document.getElementById('inquiry-subject');
+        var modalType     = document.getElementById('inquiry-type');
+        var modalReplyto  = document.getElementById('inquiry-replyto');
+        var modalMessage  = document.getElementById('inquiry-message');
+        var modalSubmit   = document.getElementById('inquiry-submit');
+        var modalClose    = document.getElementById('inquiry-close');
+        var successTitle  = document.getElementById('inquiry-success-title');
+        var successMsg    = document.getElementById('inquiry-success-msg');
+        var successClose  = document.getElementById('inquiry-success-close');
+        var emailInput    = document.getElementById('inquiry-email');
+        var lastFocused   = null;
+
+        var PROPS = {
+          '8515-echo-creek-lane': { name: '8515 Echo Creek Lane', tag: 'Echo Creek Ln', address: '8515 Echo Creek Lane, San Antonio TX 78240', status: 'occupied' },
+          '4106-robertson-st':    { name: '4106 Robertson St',    tag: 'Robertson St',  address: '4106 Robertson St, Houston TX 77009',     status: 'occupied' },
+          '10002-wilma-ln':       { name: '10002 Wilma Ln',       tag: 'Wilma Ln',      address: '10002 Wilma Ln, Beach City TX 77523',     status: 'sold' }
+        };
+        function cfgFor(slug) {
+          var p = PROPS[slug];
+          if (!p) return null;
+          if (p.status === 'sold') return {
+            eyebrow: 'Property Sold · ' + p.name,
+            title:   'Alert Me to Similar Homes',
+            sub:     "This property has sold. Drop your details and we'll reach out when a comparable rental becomes available.",
+            subject: '[' + p.tag + '] Rental alert — similar properties',
+            type:    'rental-alert',
+            message: 'Hi! I saw ' + p.name + ' has sold. Please add me to your rental alert list and let me know when something comparable becomes available. Thanks!',
+            submit:  'Add Me to the List',
+            successTitle: "You're on the list",
+            successMsg:   "Thanks! We'll reach out when a comparable rental hits the market."
+          };
+          return {
+            eyebrow: 'Property Occupied · ' + p.name,
+            title:   'Notify Me If It Reopens',
+            sub:     "This home is currently occupied. Leave your details and we'll reach out if it comes available again — or when a similar rental does.",
+            subject: '[' + p.tag + '] Waitlist — notify when available',
+            type:    'waitlist',
+            message: 'Hi! I know ' + p.name + ' is currently occupied. Please add me to the list and let me know if it reopens, or if something similar becomes available. Thanks!',
+            submit:  'Add Me to the List',
+            successTitle: "You're on the list",
+            successMsg:   "Thanks! We'll reach out if this home reopens or when a comparable rental hits the market."
+          };
+        }
+
+        function openModal(slug) {
+          var cfg = cfgFor(slug);
+          if (!cfg) return;
+          modalEyebrow.textContent = cfg.eyebrow;
+          modalTitle.textContent   = cfg.title;
+          modalSub.textContent     = cfg.sub;
+          modalSubject.value       = cfg.subject;
+          modalType.value          = cfg.type;
+          modalMessage.value       = cfg.message;
+          modalSubmit.textContent  = cfg.submit;
+          successTitle.textContent = cfg.successTitle;
+          successMsg.textContent   = cfg.successMsg;
+          document.getElementById('inquiry-address').value = PROPS[slug].address;
+          document.getElementById('inquiry-slug').value    = slug;
+          modal.setAttribute('data-mode', 'notify');
+          modal.setAttribute('data-state', 'form');
+          modal.classList.add('is-open');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+          lastFocused = document.activeElement;
+          ['inquiry-name','inquiry-email','inquiry-phone'].forEach(function(id){ markErr(id, false); });
+          setTimeout(function(){
+            var first = document.getElementById('inquiry-name');
+            if (first) first.focus();
+          }, 60);
+        }
+
+        function closeModal() {
+          modal.classList.remove('is-open');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+          if (lastFocused && typeof lastFocused.focus === 'function') {
+            try { lastFocused.focus(); } catch(_) {}
+          }
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        if (successClose) successClose.addEventListener('click', closeModal);
+
+        // Click outside card closes modal
+        modal.addEventListener('click', function(e){
+          if (e.target === modal) closeModal();
+        });
+
+        // ESC key closes modal
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+
+        // Focus trap inside the modal
+        modal.addEventListener('keydown', function(e){
+          if (e.key !== 'Tab' || !modal.classList.contains('is-open')) return;
+          var focusables = modal.querySelectorAll('button, [href], input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])');
+          if (!focusables.length) return;
+          var first = focusables[0];
+          var last  = focusables[focusables.length - 1];
+          if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+          else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+        });
+
+        // ---- Validation ----
+        function markErr(id, on) {
+          var input = document.getElementById(id);
+          var err   = document.querySelector('[data-error-for="' + id + '"]');
+          if (input) input.setAttribute('aria-invalid', on ? 'true' : 'false');
+          if (err) err.classList.toggle('is-shown', !!on);
+        }
+        function validate() {
+          var ok = true;
+          var name  = document.getElementById('inquiry-name');
+          var email = document.getElementById('inquiry-email');
+          var phone = document.getElementById('inquiry-phone');
+          if (!name.value.trim()) { markErr('inquiry-name', true); ok = false; } else markErr('inquiry-name', false);
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { markErr('inquiry-email', true); ok = false; } else markErr('inquiry-email', false);
+          if (!phone.value.trim() || phone.value.replace(/\D/g,'').length < 7) { markErr('inquiry-phone', true); ok = false; } else markErr('inquiry-phone', false);
+          return ok;
+        }
+
+        // Live-clear errors as user types
+        ['inquiry-name','inquiry-email','inquiry-phone'].forEach(function(id){
+          var el = document.getElementById(id);
+          if (el) el.addEventListener('input', function(){ markErr(id, false); });
+        });
+
+        // ---- Submit ----
+        modalForm.addEventListener('submit', function(e){
+          e.preventDefault();
+          if (!validate()) {
+            // Focus first invalid field
+            var firstInvalid = modalForm.querySelector('[aria-invalid="true"]');
+            if (firstInvalid) firstInvalid.focus();
+            return;
+          }
+          modalReplyto.value = emailInput.value.trim();
+          var originalText = modalSubmit.textContent;
+          modalSubmit.disabled = true;
+          modalSubmit.textContent = 'Sending…';
+
+          var data = new FormData(modalForm);
+          fetch(modalForm.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          })
+          .then(function(res){
+            if (!res.ok) throw new Error('submit failed: ' + res.status);
+            modal.setAttribute('data-state', 'success');
+            // Move focus into success block
+            setTimeout(function(){ if (successClose) successClose.focus(); }, 50);
+            modalForm.reset();
+          })
+          .catch(function(){
+            window.alert("Sorry — something went wrong sending your request. Please email info@newerapm.com or call (832) 558-2911.");
+          })
+          .then(function(){
+            modalSubmit.disabled = false;
+            modalSubmit.textContent = originalText;
+          });
+        });
+      
+        // Arriving from the homepage: /properties/?notify=<slug>#prop-<slug>
+        var notifySlug = new URLSearchParams(window.location.search).get('notify');
+        if (notifySlug && PROPS[notifySlug]) {
+          var card = document.getElementById('prop-' + notifySlug);
+          if (card) {
+            card.scrollIntoView({ block: 'center' });
+            card.classList.add('property-card--highlight');
+            setTimeout(function(){ card.classList.remove('property-card--highlight'); }, 4000);
+          }
+          setTimeout(function(){ openModal(notifySlug); }, 500);
+        }
+      }
     })();
   </script>
 </body>

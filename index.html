@@ -127,6 +127,19 @@
   <script defer src="/js/analytics.js"></script>
   <script defer src="/js/scroll-effects.js"></script>
   <script defer src="/js/card-slideshow.js"></script>
+  <style>
+    /* Unavailable-listing popup (homepage Featured Listings) */
+    .na-pop { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: var(--space-5); background: rgba(15, 23, 42, 0.55); }
+    .na-pop.is-open { display: flex; }
+    .na-pop__card { position: relative; width: 100%; max-width: 440px; background: var(--color-white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: var(--space-7) var(--space-6) var(--space-6); text-align: center; }
+    .na-pop__close { position: absolute; top: 10px; right: 12px; width: 36px; height: 36px; border: 0; background: transparent; font-size: 1.6rem; line-height: 1; color: var(--color-slate); cursor: pointer; border-radius: 50%; }
+    .na-pop__close:hover { background: rgba(15, 23, 42, 0.06); }
+    .na-pop__eyebrow { display: inline-block; font-size: var(--fs-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-slate); margin-bottom: var(--space-2); }
+    .na-pop__title { font-size: 1.4rem; margin-bottom: var(--space-3); }
+    .na-pop__text { color: var(--color-slate); margin-bottom: var(--space-6); }
+    .na-pop__actions { display: flex; flex-direction: column; gap: var(--space-3); }
+    .na-pop__actions .btn { width: 100%; justify-content: center; }
+  </style>
 </head>
 
 <body>
@@ -658,7 +671,7 @@
           <!-- OCCUPIED — 8515 Echo Creek Lane, San Antonio TX 78240 -->
           <article class="property-card property-card--unavailable" data-beds="3" data-rent="1750" data-type="single-family" data-status="occupied">
             <div class="property-card__media">
-              <a class="property-card__media-link" href="/properties/8515-echo-creek-lane" aria-label="View details for 8515 Echo Creek Lane, San Antonio TX — property occupied">
+              <a class="property-card__media-link" href="/properties/?notify=8515-echo-creek-lane#prop-8515-echo-creek-lane" data-unavailable="8515-echo-creek-lane" data-status-label="Property Occupied" aria-label="8515 Echo Creek Lane, San Antonio TX — property occupied. Not available; get notified about similar homes">
                 <img src="/assets/images/properties/8515-echo-creek-lane/01.jpg" data-slides="/assets/images/properties/8515-echo-creek-lane/31.jpg,/assets/images/properties/8515-echo-creek-lane/58.jpg,/assets/images/properties/8515-echo-creek-lane/34.jpg,/assets/images/properties/8515-echo-creek-lane/27.jpg,/assets/images/properties/8515-echo-creek-lane/03.jpg"
                      alt="Front exterior of 3-bedroom townhome at 8515 Echo Creek Lane, San Antonio TX" loading="lazy" width="800" height="500">
               </a>
@@ -673,14 +686,14 @@
                 <span><strong>1,527</strong> sqft</span>
               </div>
               <p class="property-card__meta">Townhome · Echo Creek · Gated Community</p>
-              <a class="btn btn--primary property-card__cta" href="/properties/8515-echo-creek-lane">View Details</a>
+              <a class="btn btn--primary property-card__cta" href="/properties/?notify=8515-echo-creek-lane#prop-8515-echo-creek-lane" data-unavailable="8515-echo-creek-lane" data-status-label="Property Occupied">Get Notified</a>
             </div>
           </article>
 
           <!-- OCCUPIED — 4106 Robertson St, Houston TX 77009 -->
           <article class="property-card property-card--unavailable" data-beds="2" data-rent="1850" data-type="single-family" data-status="occupied">
             <div class="property-card__media">
-              <a class="property-card__media-link" href="/properties/4106-robertson-st" aria-label="View details for 4106 Robertson St, Houston TX — property occupied">
+              <a class="property-card__media-link" href="/properties/?notify=4106-robertson-st#prop-4106-robertson-st" data-unavailable="4106-robertson-st" data-status-label="Property Occupied" aria-label="4106 Robertson St, Houston TX — property occupied. Not available; get notified about similar homes">
                 <img src="/assets/images/properties/4106-robertson-st/01-front.jpg" data-slides="/assets/images/properties/4106-robertson-st/04-interior-1.jpg,/assets/images/properties/4106-robertson-st/07-kitchen-1.jpg,/assets/images/properties/4106-robertson-st/08-kitchen-2.jpg,/assets/images/properties/4106-robertson-st/10-bathroom-1.jpg,/assets/images/properties/4106-robertson-st/02-back-side.jpg"
                      alt="Front exterior of 2-bedroom single-family home at 4106 Robertson St, Houston TX"
                      loading="lazy" width="800" height="500">
@@ -696,14 +709,14 @@
                 <span><strong>1,176</strong> sqft</span>
               </div>
               <p class="property-card__meta">Single-Family · Northside / Ryon · Pet Friendly</p>
-              <a class="btn btn--primary property-card__cta" href="/properties/4106-robertson-st">View Details</a>
+              <a class="btn btn--primary property-card__cta" href="/properties/?notify=4106-robertson-st#prop-4106-robertson-st" data-unavailable="4106-robertson-st" data-status-label="Property Occupied">Get Notified</a>
             </div>
           </article>
 
           <!-- SOLD — 10002 Wilma Ln, Beach City TX 77523 -->
           <article class="property-card property-card--unavailable" data-beds="5" data-rent="2700" data-type="single-family" data-status="sold">
             <div class="property-card__media">
-              <a class="property-card__media-link" href="/properties/10002-wilma-ln" aria-label="View details for 10002 Wilma Ln, Beach City TX — property sold">
+              <a class="property-card__media-link" href="/properties/?notify=10002-wilma-ln#prop-10002-wilma-ln" data-unavailable="10002-wilma-ln" data-status-label="Property Sold" aria-label="10002 Wilma Ln, Beach City TX — property sold. Not available; get notified about similar homes">
                 <img src="/assets/images/properties/10002-wilma-ln/01-front-twilight.jpg" data-slides="/assets/images/properties/10002-wilma-ln/02-front-day.jpg,/assets/images/properties/10002-wilma-ln/05-porch.jpg,/assets/images/properties/10002-wilma-ln/06-living-1.jpg,/assets/images/properties/10002-wilma-ln/09-dining-1.jpg,/assets/images/properties/10002-wilma-ln/11-kitchen-1.jpg"
                      alt="Twilight front exterior of 5-bedroom new-construction farmhouse at 10002 Wilma Ln, Beach City TX"
                      loading="lazy" width="800" height="500">
@@ -719,7 +732,7 @@
                 <span><strong>2,166</strong> sqft</span>
               </div>
               <p class="property-card__meta">Single-Family · 2024 New Construction · Barbers Hill ISD</p>
-              <a class="btn btn--primary property-card__cta" href="/properties/10002-wilma-ln">View Details</a>
+              <a class="btn btn--primary property-card__cta" href="/properties/?notify=10002-wilma-ln#prop-10002-wilma-ln" data-unavailable="10002-wilma-ln" data-status-label="Property Sold">Get Notified</a>
             </div>
           </article>
         </div>
@@ -994,6 +1007,19 @@
       </div>
     </section>
 
+
+    <!-- Popup for unavailable (occupied / sold) homepage listings -->
+    <div class="na-pop" id="na-pop" role="dialog" aria-modal="true" aria-labelledby="na-pop-title" aria-hidden="true">
+      <div class="na-pop__card" role="document">
+        <button type="button" class="na-pop__close" id="na-pop-close" aria-label="Close">&times;</button>
+        <span class="na-pop__eyebrow" id="na-pop-eyebrow">Not Available</span>
+        <h2 class="na-pop__title" id="na-pop-title">This home isn't available right now</h2>
+        <p class="na-pop__text">Browse our available properties or join our rental alert list to hear about similar homes first.</p>
+        <div class="na-pop__actions">
+          <a class="btn btn--primary" id="na-pop-browse" href="/properties/">Browse Available Properties</a>
+        </div>
+      </div>
+    </div>
   </main>
 
 
@@ -1082,5 +1108,40 @@
     })();
   </script>
 
+  <script>
+    /* Occupied / sold cards: show a popup instead of opening the listing.
+       "Browse Available Properties" goes to the Available Properties page,
+       scrolled to that home, where the "Notify Me If It Reopens" form opens. */
+    (function(){
+      var pop = document.getElementById('na-pop');
+      if (!pop) return;
+      var browse = document.getElementById('na-pop-browse');
+      var eyebrow = document.getElementById('na-pop-eyebrow');
+      var lastFocused = null;
+      function open(link){
+        var slug = link.getAttribute('data-unavailable');
+        var target = '/properties/?notify=' + encodeURIComponent(slug) + '#prop-' + slug;
+        browse.href = target;
+        eyebrow.textContent = link.getAttribute('data-status-label') || 'Not Available';
+        lastFocused = link;
+        pop.classList.add('is-open');
+        pop.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function(){ browse.focus(); }, 30);
+      }
+      function close(){
+        pop.classList.remove('is-open');
+        pop.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocused) { try { lastFocused.focus(); } catch(_){} }
+      }
+      Array.prototype.forEach.call(document.querySelectorAll('[data-unavailable]'), function(link){
+        link.addEventListener('click', function(e){ e.preventDefault(); open(link); });
+      });
+      document.getElementById('na-pop-close').addEventListener('click', close);
+      pop.addEventListener('click', function(e){ if (e.target === pop) close(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && pop.classList.contains('is-open')) close(); });
+    })();
+  </script>
 </body>
 </html>
