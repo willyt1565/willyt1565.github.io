@@ -2477,3 +2477,16 @@ p:last-child { margin-bottom: 0; }
   .ft__nav { gap: 10px 20px; }
   .ft__bottom { flex-direction: column; align-items: flex-start; }
 }
+
+/* --- Header fit (added with the Locations menu) ---------------------------
+   Keeps the logo from shrinking and tightens the desktop nav on
+   laptop widths (1024–1279px) so every menu item fits on one line. */
+.site-header__logo { flex: none; }
+.site-header__logo-img { width: 136px; height: auto; display: block; }
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .site-header__inner { gap: var(--space-3); }
+  .site-nav__list { gap: 0.65rem; }
+  .site-nav__link { font-size: 0.8125rem; }
+  .site-header__logo-img { width: 120px; }
+  .site-header__cta { padding-inline: 0.9rem; font-size: 0.8125rem; }
+}

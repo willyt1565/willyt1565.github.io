@@ -250,6 +250,7 @@
     .inquiry-form__skip[hidden] { display: none; }
     .property-card--highlight { outline: 3px solid var(--color-teal); outline-offset: 4px; transition: outline-color .4s; }
   </style>
+  <script defer src="/js/sheet-sync.js"></script>
 </head>
 
 <body>
@@ -275,6 +276,7 @@
               <li role="none"><a role="menuitem" href="/services#inspections">Inspections &amp; Property Oversight</a></li>
             </ul>
           </li>
+          <li class="site-nav__item site-nav__item--has-dropdown"><a href="#" class="site-nav__link" aria-haspopup="true">Locations</a><ul class="site-nav__dropdown" role="menu"><li role="none"><a role="menuitem" href="/houston-property-management/">Houston, TX</a></li><li role="none"><a role="menuitem" href="/san-antonio-property-management/">San Antonio, TX</a></li></ul></li>
           <li class="site-nav__item"><a href="/properties" class="site-nav__link" aria-current="page">Available Properties</a></li>
           <li class="site-nav__item site-nav__item--has-dropdown">
             <a href="#" class="site-nav__link" aria-haspopup="true">Owners</a>
@@ -306,6 +308,15 @@
         <li><a href="/">Home</a></li>
         <li><a href="/about">About Us</a></li>
         <li><a href="/services">Services</a></li>
+        <li>
+          <details>
+            <summary>Locations</summary>
+            <ul class="mobile-nav__sublist">
+              <li><a href="/houston-property-management/">Houston, TX</a></li>
+              <li><a href="/san-antonio-property-management/">San Antonio, TX</a></li>
+            </ul>
+          </details>
+        </li>
         <li><a href="/properties" aria-current="page">Available Properties</a></li>
         <li>
           <details>
@@ -689,6 +700,8 @@
         <nav class="ft__nav" aria-label="Footer">
           <a href="/about">About</a>
           <a href="/services">Services</a>
+          <a href="/houston-property-management/">Houston</a>
+          <a href="/san-antonio-property-management/">San Antonio</a>
           <a href="/properties">Properties</a>
           <a href="/faq">FAQ</a>
           <a href="/blog">Blog</a>

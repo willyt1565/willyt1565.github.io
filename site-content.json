@@ -16,6 +16,20 @@
       "zip": "77064",
       "full": "17350 State Hwy 249 Ste 220, Houston, TX 77064"
     },
+    "offices": {
+      "houston": {
+        "page": "/houston-property-management/",
+        "street": "17350 State Hwy 249 Ste 220", "city": "Houston", "state": "TX", "zip": "77064",
+        "phone": "(832) 558-2911", "phoneTel": "+18325582911",
+        "areas": ["Houston", "Katy", "Cypress", "Spring", "The Woodlands", "Tomball", "Sugar Land", "Pearland"]
+      },
+      "sanAntonio": {
+        "page": "/san-antonio-property-management/",
+        "street": "5835 Callaghan Rd Suite 204", "city": "San Antonio", "state": "TX", "zip": "78228",
+        "phone": "(210) 812-5880", "phoneTel": "+12108125880",
+        "areas": ["San Antonio", "Schertz", "Garden Ridge", "Bulverde", "Canyon Lake"]
+      }
+    },
     "hoursBusiness": "Mon–Fri 9 AM–5 PM Central",
     "hoursEmergency": "24/7 Emergency Line",
     "trecLicense": "#9016567-BB",

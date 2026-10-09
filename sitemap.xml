@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://newerapm.com/</loc><lastmod>2026-10-06</lastmod><priority>1.0</priority></url>
+  <url><loc>https://newerapm.com/</loc><lastmod>2026-10-09</lastmod><priority>1.0</priority></url>
   <url><loc>https://newerapm.com/services/</loc><lastmod>2026-10-06</lastmod><priority>0.9</priority></url>
-  <!-- Uncomment once the San Antonio page placeholders are filled in and noindex is removed:
-  <url><loc>https://newerapm.com/san-antonio-property-management/</loc><lastmod>2026-10-06</lastmod><priority>0.9</priority></url>
-  -->
+  <url><loc>https://newerapm.com/houston-property-management/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
+  <url><loc>https://newerapm.com/san-antonio-property-management/</loc><lastmod>2026-10-09</lastmod><priority>0.9</priority></url>
   <url><loc>https://newerapm.com/about/</loc><lastmod>2026-10-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://newerapm.com/faq/</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
-  <url><loc>https://newerapm.com/contact/</loc><lastmod>2026-10-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://newerapm.com/contact/</loc><lastmod>2026-10-09</lastmod><priority>0.7</priority></url>
   <url><loc>https://newerapm.com/properties/</loc><lastmod>2026-10-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://newerapm.com/properties/7911-carolwood-dr/</loc><lastmod>2026-10-06</lastmod><priority>0.6</priority></url>
   <url><loc>https://newerapm.com/properties/8515-echo-creek-lane/</loc><lastmod>2026-10-06</lastmod><priority>0.4</priority></url>

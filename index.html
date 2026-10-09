@@ -84,13 +84,22 @@
         },
         "areaServed": [
           { "@type": "City", "name": "Houston" },
-          { "@type": "City", "name": "San Antonio" },
-          { "@type": "City", "name": "Sugar Land" },
           { "@type": "City", "name": "Katy" },
-          { "@type": "City", "name": "Pearland" },
-          { "@type": "City", "name": "The Woodlands" },
+          { "@type": "City", "name": "Cypress" },
           { "@type": "City", "name": "Spring" },
-          { "@type": "City", "name": "Cypress" }
+          { "@type": "City", "name": "The Woodlands" },
+          { "@type": "City", "name": "Tomball" },
+          { "@type": "City", "name": "Sugar Land" },
+          { "@type": "City", "name": "Pearland" },
+          { "@type": "City", "name": "San Antonio" },
+          { "@type": "City", "name": "Schertz" },
+          { "@type": "City", "name": "Garden Ridge" },
+          { "@type": "City", "name": "Bulverde" },
+          { "@type": "City", "name": "Canyon Lake" }
+        ],
+        "department": [
+          { "@id": "https://newerapm.com/houston-property-management/#office" },
+          { "@id": "https://newerapm.com/san-antonio-property-management/#office" }
         ],
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
@@ -176,6 +185,7 @@
             </ul>
           </li>
 
+          <li class="site-nav__item site-nav__item--has-dropdown"><a href="#" class="site-nav__link" aria-haspopup="true">Locations</a><ul class="site-nav__dropdown" role="menu"><li role="none"><a role="menuitem" href="/houston-property-management/">Houston, TX</a></li><li role="none"><a role="menuitem" href="/san-antonio-property-management/">San Antonio, TX</a></li></ul></li>
           <li class="site-nav__item"><a href="/properties" class="site-nav__link">Available Properties</a></li>
 
           <li class="site-nav__item site-nav__item--has-dropdown">
@@ -223,6 +233,15 @@
         <li><a href="/" aria-current="page">Home</a></li>
         <li><a href="/about">About Us</a></li>
         <li><a href="/services">Services</a></li>
+        <li>
+          <details>
+            <summary>Locations</summary>
+            <ul class="mobile-nav__sublist">
+              <li><a href="/houston-property-management/">Houston, TX</a></li>
+              <li><a href="/san-antonio-property-management/">San Antonio, TX</a></li>
+            </ul>
+          </details>
+        </li>
         <li><a href="/properties">Available Properties</a></li>
         <li>
           <details>
@@ -466,6 +485,50 @@
 
         <div class="services__cta">
           <a href="/services" class="btn btn--secondary">See All Our Services</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         AREAS WE SERVE — links to the city landing pages (SEO/GEO hub).
+         Keep areas, addresses and phones in sync with the city pages.
+         =================================================================== -->
+    <section class="section section--offwhite" id="areas" aria-labelledby="areas-title">
+      <style>
+        .loc-grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 1000px; margin-inline: auto; }
+        .loc-card { background: var(--color-white, #fff); border: 1px solid var(--color-border); border-radius: var(--radius-lg, 14px); padding: var(--space-6); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: var(--space-3); }
+        .loc-card__title { margin: 0; }
+        .loc-card__title a { color: var(--color-ink); text-decoration: none; }
+        .loc-card__title a:hover { color: var(--color-primary, #1E3A8A); }
+        .loc-card__areas { list-style: none; padding: 0; margin: 0 0 var(--space-2); display: flex; flex-wrap: wrap; gap: 6px; }
+        .loc-card__areas li { font-size: var(--fs-sm); background: #EEF2FF; color: #1E3A8A; border-radius: 999px; padding: 4px 10px; }
+        .loc-card__areas .loc-card__more { background: transparent; color: var(--color-slate-soft); padding-left: 2px; }
+        .loc-card__row { margin: 0; display: flex; gap: .5rem; align-items: flex-start; font-size: var(--fs-sm); color: var(--color-slate); }
+        .loc-card__row svg { flex: none; margin-top: 3px; color: var(--color-primary, #1E3A8A); }
+        .loc-card__btn { margin-top: auto; align-self: flex-start; }
+      </style>
+      <div class="container">
+        <div class="section__header">
+          <span class="eyebrow">Areas We Serve</span>
+          <h2 id="areas-title">Local Teams in Houston and San Antonio</h2>
+          <p>Each market has its own office and a dedicated team member for showings, inspections and vendor visits.</p>
+        </div>
+        <div class="loc-grid">
+          <article class="loc-card">
+            <h3 class="loc-card__title"><a href="/houston-property-management/">Houston, TX</a></h3>
+            <ul class="loc-card__areas" aria-label="Houston-area communities we serve"><li>Houston</li><li>Katy</li><li>Cypress</li><li>Spring</li><li>The Woodlands</li><li>Tomball</li><li>Sugar Land</li><li>Pearland</li><li class="loc-card__more">&amp; surrounding areas</li></ul>
+            <p class="loc-card__row"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>17350 State Hwy 249 Ste 220, Houston, TX 77064</span></p>
+            <p class="loc-card__row"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/></svg><a href="tel:+18325582911">(832) 558-2911</a></p>
+            <a href="/houston-property-management/" class="btn btn--secondary loc-card__btn">Houston Property Management</a>
+          </article>
+          <article class="loc-card">
+            <h3 class="loc-card__title"><a href="/san-antonio-property-management/">San Antonio, TX</a></h3>
+            <ul class="loc-card__areas" aria-label="San Antonio-area communities we serve"><li>San Antonio</li><li>Schertz</li><li>Garden Ridge</li><li>Bulverde</li><li>Canyon Lake</li><li class="loc-card__more">&amp; surrounding areas</li></ul>
+            <p class="loc-card__row"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>5835 Callaghan Rd Suite 204, San Antonio, TX 78228</span></p>
+            <p class="loc-card__row"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/></svg><a href="tel:+12108125880">(210) 812-5880</a></p>
+            <a href="/san-antonio-property-management/" class="btn btn--secondary loc-card__btn">San Antonio Property Management</a>
+          </article>
         </div>
       </div>
     </section>
@@ -1037,6 +1100,8 @@
         <nav class="ft__nav" aria-label="Footer">
           <a href="/about">About</a>
           <a href="/services">Services</a>
+          <a href="/houston-property-management/">Houston</a>
+          <a href="/san-antonio-property-management/">San Antonio</a>
           <a href="/properties">Properties</a>
           <a href="/faq">FAQ</a>
           <a href="/blog">Blog</a>
