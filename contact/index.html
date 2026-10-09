@@ -331,6 +331,11 @@
                 .nf-row { grid-template-columns: 1fr; gap: 0; }
               }
 
+              /* SMS opt-in checkbox (unchecked by default) */
+              .nf-sms { display: flex; gap: .6rem; align-items: flex-start; margin: 1rem 0 0; font-size: 0.82rem; line-height: 1.5; color: #64748B; cursor: pointer; }
+              .nf-sms input { flex: none; width: 18px; height: 18px; margin-top: 2px; accent-color: var(--color-teal); cursor: pointer; }
+              .nf-sms a { color: var(--color-teal); text-decoration: underline; text-underline-offset: 2px; }
+
               /* Consent / fine print */
               .nf-consent {
                 font-size: 0.82rem;
@@ -491,6 +496,11 @@
                   <label for="message" class="nf-field__label">How can we help?<span class="nf-field__required" aria-hidden="true">*</span></label>
                   <span class="nf-field__error" id="message-error" aria-live="polite"></span>
                 </div>
+
+                <label class="nf-sms" for="sms-consent">
+                  <input type="checkbox" id="sms-consent" name="smsConsent" value="Yes">
+                  <span>I agree to receive texts from Newera Property Management about my inquiry and services. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Optional. See <a href="/privacy">Privacy</a> &amp; <a href="/terms">Terms</a>.</span>
+                </label>
 
                 <p class="nf-consent">By submitting, you agree to our <a href="/privacy">Privacy Policy</a>. We'll respond within one business day.</p>
 
