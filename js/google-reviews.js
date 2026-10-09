@@ -20,7 +20,23 @@
     minRating: 4,           // only show reviews with this many stars or more
     maxReviews: 5,
     writeReviewUrl: 'https://g.page/r/CY1oBwAibIPWEBM/review', // Google "Ask for reviews" link
-    profileUrl: 'https://share.google/q1V0jyPUU8SKCFUMM' // Google Business Profile link ("See all reviews" button)
+    profileUrl: 'https://share.google/q1V0jyPUU8SKCFUMM', // Google Business Profile link ("See all reviews" button)
+
+    // MANUAL REVIEWS — used while there is no API key.
+    // To add a new Google review: copy one block below, paste it at the top
+    // of the list, and update rating + count to match Google.
+    manual: {
+      rating: 5.0,   // overall Google rating
+      count: 1,      // total number of Google reviews
+      reviews: [
+        {
+          name: 'Sean M.',
+          date: 'October 2026',
+          rating: 5,
+          text: 'Had a client needing a property manager, Newera was on it within 24 hours. Great response time, awesome crew for questions and property management needs. If you are active duty needing a property manager while you are away check them out Veteran friendly!'
+        }
+      ]
+    }
   };
 
   var root = document.getElementById('google-reviews');
@@ -47,7 +63,20 @@
   setLinks(els.write, writeUrl);
   setLinks(els.seeAll, seeAllUrl);
 
-  if (!CONFIG.placeId || !CONFIG.apiKey) { showFallback(); return; }
+  if (!CONFIG.placeId || !CONFIG.apiKey) {
+    var m = CONFIG.manual;
+    if (m && m.reviews && m.reviews.length) {
+      render({
+        rating: m.rating,
+        userRatingCount: m.count,
+        reviews: m.reviews.map(function (r) {
+          return { rating: r.rating, text: r.text, relativePublishTimeDescription: r.date,
+                   authorAttribution: { displayName: r.name } };
+        })
+      });
+    } else { showFallback(); }
+    return;
+  }
 
   loadMaps(CONFIG.apiKey)
     .then(function () { return google.maps.importLibrary('places'); })

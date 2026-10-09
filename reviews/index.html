@@ -136,7 +136,7 @@
     <section class="section" aria-labelledby="reviews-title">
       <div class="container">
         <h2 id="reviews-title" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Reviews</h2>
-        <!-- GOOGLE REVIEWS: set placeId + apiKey in /js/google-reviews.js -->
+        <!-- GOOGLE REVIEWS: add reviews in CONFIG.manual in /js/google-reviews.js (or set apiKey for live) -->
         <div class="gr" id="google-reviews">
           <div class="gr__summary" data-gr-summary hidden>
             <div class="gr__score">
@@ -153,6 +153,10 @@
           </div>
 
           <div class="gr__list" data-gr-list aria-live="polite" hidden></div>
+
+          <div class="gr__actions" style="justify-content:center;margin-top:2rem;">
+            <a class="btn btn--primary" href="https://search.google.com/local/reviews?placeid=ChIJtxxwa8N6FaMRjWgHACJsg9Y" data-gr-see-all target="_blank" rel="noopener noreferrer">Read Our Reviews on Google</a>
+          </div>
 
           <div class="gr__fallback" data-gr-fallback>
             <h3>Worked with Newera?</h3>
