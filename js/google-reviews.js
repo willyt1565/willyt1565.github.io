@@ -19,7 +19,8 @@
     apiKey: '',             // e.g. 'AIzaSy...'
     minRating: 4,           // only show reviews with this many stars or more
     maxReviews: 5,
-    profileUrl: ''          // optional: your Google profile / Maps link (used if placeId is blank)
+    writeReviewUrl: 'https://g.page/r/CY1oBwAibIPWEBM/review', // Google "Ask for reviews" link
+    profileUrl: 'https://share.google/q1V0jyPUU8SKCFUMM' // Google Business Profile link ("See all reviews" button)
   };
 
   var root = document.getElementById('google-reviews');
@@ -37,9 +38,9 @@
   };
 
   // Links work even without an API key, as long as placeId is set.
-  var writeUrl = CONFIG.placeId
+  var writeUrl = CONFIG.writeReviewUrl || (CONFIG.placeId
     ? 'https://search.google.com/local/writereview?placeid=' + encodeURIComponent(CONFIG.placeId)
-    : CONFIG.profileUrl;
+    : CONFIG.profileUrl);
   var seeAllUrl = CONFIG.placeId
     ? 'https://search.google.com/local/reviews?placeid=' + encodeURIComponent(CONFIG.placeId)
     : CONFIG.profileUrl;
