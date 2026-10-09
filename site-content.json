@@ -4,7 +4,7 @@
   "global": {
     "businessName": "Newera Property Management",
     "legalName": "Newera Property Management LLC",
-    "tagline": "The New Era of Property Management",
+    "tagline": "The New Age of Property Management",
     "phone": "(832) 558-2911",
     "phoneTel": "+18325582911",
     "emailOwners": "info@newerapm.com",
@@ -225,7 +225,7 @@
   },
 
   "footer": {
-    "tagline": "The New Era of Property Management",
+    "tagline": "The New Age of Property Management",
     "servicesLinks": [
       { "label": "Marketing, Leasing & Tenant Screening", "href": "/services.html#leasing" },
       { "label": "Rent Collection & Owner Reporting", "href": "/services.html#reporting" },
