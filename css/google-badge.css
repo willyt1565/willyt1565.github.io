@@ -1,0 +1,18 @@
+/* Homepage hero — Google rating badge */
+.g-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  margin-top: var(--space-5);
+  padding: 0.55rem 1rem 0.55rem 0.6rem;
+  background: #fff; color: var(--color-ink);
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+  font-size: 0.95rem; text-decoration: none;
+  opacity: 0; animation: fadeUp var(--dur-slow) var(--ease-out) 700ms forwards;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.g-badge:hover, .g-badge:focus-visible { color: var(--color-ink); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(15, 23, 42, 0.32); }
+.g-badge__g { flex-shrink: 0; }
+.g-badge__stars { color: #FBBC05; letter-spacing: 1px; font-size: 1.05rem; line-height: 1; }
+.g-badge__text strong { font-weight: 700; }
+.g-badge__arrow { color: var(--color-slate-soft); flex-shrink: 0; }
+@media (prefers-reduced-motion: reduce) { .g-badge { opacity: 1; animation: none; } }
