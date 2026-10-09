@@ -15,7 +15,7 @@
    ============================================================================= */
 (function () {
   var CONFIG = {
-    placeId: '',            // e.g. 'ChIJxxxxxxxxxxxxxxxxxxxx'
+    placeId: 'ChIJtxxwa8N6FaMRjWgHACJsg9Y', // Newera Property Management (verified on Google Maps)
     apiKey: '',             // e.g. 'AIzaSy...'
     minRating: 4,           // only show reviews with this many stars or more
     maxReviews: 5,
