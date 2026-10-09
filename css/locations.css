@@ -1,0 +1,107 @@
+/* =============================================================================
+   NEWERA — LOCATION PAGES (/houston-property-management/, /san-antonio-property-management/)
+   Built only on the brand tokens in styles.css (navy, teal, slate, off-white,
+   League Spartan / Inter). Motion: gentle hero fade-in + the site-wide
+   [data-reveal] scroll reveal + soft hover lifts. All motion is switched off
+   when the visitor's device asks for reduced motion.
+   ============================================================================= */
+
+/* ---------- Hero ---------- */
+.loc-hero .page-banner__content { max-width: 1040px; }
+.loc-hero h1 { margin-bottom: var(--space-4); }
+@media (min-width: 640px) {
+  .loc-hero h1 { white-space: nowrap; font-size: min(var(--fs-4xl), calc((100vw - 3rem) / 22)); }
+}
+.loc-hero__lead { max-width: 680px; margin: 0 auto var(--space-6); color: rgba(255,255,255,.86); font-size: var(--fs-md); line-height: var(--lh-normal); }
+.loc-hero__ctas svg { width: 18px; height: 18px; flex: none; }
+.loc-hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; margin-bottom: var(--space-6); }
+.loc-hero__chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: center; }
+.loc-hero__chips li { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-xs); font-weight: 500; color: var(--color-white); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: var(--radius-pill); padding: 6px 12px; }
+.loc-hero__chips svg { width: 14px; height: 14px; color: var(--color-teal); }
+.loc-hero .page-banner__content > * { animation: loc-rise .8s var(--ease-out) both; }
+.loc-hero .page-banner__content > *:nth-child(2) { animation-delay: .06s; }
+.loc-hero .page-banner__content > *:nth-child(3) { animation-delay: .12s; }
+.loc-hero .page-banner__content > *:nth-child(4) { animation-delay: .18s; }
+.loc-hero .page-banner__content > *:nth-child(5) { animation-delay: .24s; }
+.loc-hero .page-banner__content > *:nth-child(6) { animation-delay: .30s; }
+@keyframes loc-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Shared section bits ---------- */
+.loc-section .section__header { margin-bottom: var(--space-8); }
+.loc-note { text-align: center; color: var(--color-slate-soft); font-size: var(--fs-sm); margin: var(--space-6) auto 0; max-width: 640px; }
+.loc-note a { font-weight: 600; }
+.loc-icon { flex: none; display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-md); background: rgba(14,165,233,.10); color: var(--color-teal-deep); transition: transform var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out); }
+.loc-icon svg { width: 20px; height: 20px; }
+
+/* ---------- Service areas ---------- */
+.loc-areas { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.loc-area { display: flex; gap: var(--space-3); align-items: flex-start; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); box-shadow: var(--shadow-xs); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
+.loc-area:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: rgba(14,165,233,.45); }
+.loc-area:hover .loc-icon { background: var(--color-teal); color: var(--color-white); }
+.loc-area h3 { font-size: var(--fs-md); margin: 2px 0 4px; color: var(--color-ink); }
+.loc-area p { font-size: var(--fs-sm); color: var(--color-slate-soft); line-height: 1.55; margin: 0; }
+
+/* ---------- Pricing + team ---------- */
+.loc-duo { display: grid; gap: var(--space-5); grid-template-columns: 1fr; max-width: 1040px; margin-inline: auto; }
+@media (min-width: 860px) { .loc-duo { grid-template-columns: 1fr 1fr; } }
+.loc-card { border-radius: var(--radius-xl); padding: clamp(var(--space-6), 4vw, var(--space-8)); }
+.loc-card h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: var(--space-3); }
+.loc-card--price { background: linear-gradient(140deg, var(--color-navy) 0%, var(--color-navy-deep) 100%); color: rgba(255,255,255,.88); box-shadow: var(--shadow-lg); }
+.loc-card--price h2 { color: var(--color-white); }
+.loc-price { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; color: var(--color-white); line-height: 1; margin: var(--space-2) 0 var(--space-2); }
+.loc-price small { font-size: var(--fs-md); font-weight: 600; color: rgba(255,255,255,.75); margin-left: 6px; }
+.loc-price-sub { color: var(--color-teal); font-weight: 600; margin-bottom: var(--space-5); }
+.loc-card--team { background: var(--color-white); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); }
+.loc-contact { list-style: none; padding: 0; margin: var(--space-5) 0 var(--space-6); display: grid; gap: var(--space-3); }
+.loc-contact li { display: flex; gap: var(--space-3); align-items: center; font-size: var(--fs-sm); color: var(--color-slate); }
+.loc-contact a { font-weight: 600; color: var(--color-navy); text-decoration: none; }
+.loc-contact a:hover { color: var(--color-teal-deep); }
+
+/* ---------- Check lists ---------- */
+.loc-checks { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
+.loc-checks li { position: relative; padding-left: 30px; line-height: 1.55; }
+.loc-checks li::before { content: ""; position: absolute; left: 0; top: 2px; width: 20px; height: 20px; border-radius: 50%; background: rgba(14,165,233,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230284C7' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center / 12px no-repeat; }
+.loc-card--price .loc-checks li { color: rgba(255,255,255,.9); }
+.loc-card--price .loc-checks li::before { background-color: rgba(255,255,255,.12); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230EA5E9' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E"); }
+.loc-included { max-width: 1040px; margin-inline: auto; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: clamp(var(--space-6), 4vw, var(--space-8)); box-shadow: var(--shadow-sm); }
+@media (min-width: 860px) { .loc-included .loc-checks { grid-template-columns: 1fr 1fr; column-gap: var(--space-7); } }
+.loc-included__foot { margin: var(--space-6) 0 0; font-size: var(--fs-sm); color: var(--color-slate-soft); }
+
+/* ---------- Local tips ---------- */
+.loc-tips { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.loc-tip { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.loc-tip:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.loc-tip h3 { font-size: var(--fs-md); margin: var(--space-4) 0 var(--space-2); color: var(--color-ink); }
+.loc-tip p { font-size: var(--fs-sm); color: var(--color-slate-soft); line-height: 1.6; margin: 0; }
+
+/* ---------- FAQ accordion (native details/summary) ---------- */
+.loc-faq { max-width: 820px; margin-inline: auto; display: grid; gap: var(--space-3); }
+.loc-faq details { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.loc-faq details:hover { border-color: rgba(14,165,233,.5); }
+.loc-faq details[open] { border-color: var(--color-teal); box-shadow: var(--shadow-sm); }
+.loc-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5); font-weight: 600; color: var(--color-navy); }
+.loc-faq summary::-webkit-details-marker { display: none; }
+.loc-faq summary svg { flex: none; width: 20px; height: 20px; color: var(--color-teal); transition: transform var(--dur-base) var(--ease-out); }
+.loc-faq details[open] summary svg { transform: rotate(180deg); }
+.loc-faq details > div { padding: 0 var(--space-5) var(--space-5); color: var(--color-slate); line-height: var(--lh-normal); }
+.loc-faq details[open] > div { animation: loc-open .35s var(--ease-out); }
+.loc-faq details > div p { margin: 0; max-width: none; }
+@keyframes loc-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Other city ---------- */
+.loc-other { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); max-width: 1040px; margin: 0 auto; padding: var(--space-5) var(--space-6); border: 1px dashed var(--color-border); border-radius: var(--radius-lg); }
+.loc-other p { margin: 0; color: var(--color-slate); }
+.loc-other a.loc-other__link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--color-navy); text-decoration: none; }
+.loc-other a.loc-other__link svg { width: 18px; height: 18px; transition: transform var(--dur-base) var(--ease-out); }
+.loc-other a.loc-other__link:hover svg { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .loc-hero .page-banner__content > *, .loc-faq details[open] > div { animation: none; }
+  .loc-area, .loc-tip, .loc-icon, .loc-faq summary svg, .loc-other a svg { transition: none; }
+  .loc-area:hover, .loc-tip:hover { transform: none; }
+}
+
+/* Fixes: icon sizing in the closing CTA, wider section headings */
+.final-cta__phone svg { width: 18px; height: 18px; flex: none; }
+.loc-section .section__header { max-width: 900px; }
+.loc-section .section__header p { margin-inline: auto; }

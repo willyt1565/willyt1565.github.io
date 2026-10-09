@@ -4,8 +4,10 @@
   <!-- =======================================================================
        NEWERA — SAN ANTONIO PROPERTY MANAGEMENT (/san-antonio-property-management/)
        Location landing page for "san antonio property management" searches.
-       Keep the office, phone and service areas here in sync with /contact,
-       the homepage "Areas We Serve" section, /llms.txt and the homepage JSON-LD.
+       No street address is published (service-area business).
+       Keep phone and service areas in sync with /contact, the homepage
+       "Areas We Serve" section, /llms.txt and /site-content.json.
+       Styles: /css/locations.css (brand tokens from /css/styles.css).
        ======================================================================= -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,24 +40,7 @@
 
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/scroll-animations.css">
-
-  <style>
-    .sa-prose { max-width: 820px; margin-inline: auto; }
-    .sa-prose h2 { margin-top: var(--space-8); margin-bottom: var(--space-4); }
-    .sa-prose h3 { margin-top: var(--space-6); margin-bottom: var(--space-2); }
-    .sa-prose ul { padding-left: 1.25rem; margin-bottom: var(--space-5); }
-    .sa-prose li { margin-bottom: var(--space-2); }
-    .sa-price { font-size: 1.75rem; font-weight: 800; color: var(--color-ink); margin-bottom: var(--space-2); }
-    .loc-areas { list-style: none; padding: 0 !important; display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
-    .loc-areas li { margin: 0 !important; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md, 10px); padding: var(--space-4); }
-    .loc-areas strong { display: block; color: var(--color-ink); margin-bottom: 4px; }
-    .loc-areas span { font-size: var(--fs-sm); color: var(--color-slate-soft); line-height: 1.5; display: block; }
-    .loc-office { display: grid; gap: var(--space-3); background: var(--color-offwhite); border: 1px solid var(--color-border); border-radius: var(--radius-lg, 14px); padding: var(--space-5); margin: var(--space-5) 0; }
-    .loc-office h3 { margin: 0 !important; }
-    .loc-office p { margin: 0; display: flex; gap: .6rem; align-items: flex-start; }
-    .loc-office svg { flex: none; margin-top: 3px; color: var(--color-navy); }
-    .loc-other { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
-  </style>
+  <link rel="stylesheet" href="/css/locations.css">
 
   <script type="application/ld+json">
 {
@@ -92,14 +77,6 @@
       "logo": "https://newerapm.com/assets/brand/logo.svg",
       "priceRange": "$$",
       "description": "Newera manages single-family and multifamily rentals in San Antonio, Schertz, Garden Ridge, Bulverde and Canyon Lake. Licensed Texas broker. 8% management fee, no vendor markups.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "5835 Callaghan Rd Suite 204",
-        "addressLocality": "San Antonio",
-        "addressRegion": "TX",
-        "postalCode": "78228",
-        "addressCountry": "US"
-      },
       "areaServed": [
         {
           "@type": "City",
@@ -225,10 +202,10 @@
         },
         {
           "@type": "Question",
-          "name": "Where is your San Antonio office?",
+          "name": "How do I reach your San Antonio team?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our San Antonio office is at 5835 Callaghan Rd, Suite 204, San Antonio, TX 78228. You can reach our San Antonio team at (210) 812-5880."
+            "text": "Call our San Antonio team at (210) 812-5880 or email info@newerapm.com, Monday to Friday, 9 AM to 5 PM Central. Residents with an emergency can call our 24/7 emergency line at any time."
           }
         },
         {
@@ -416,7 +393,8 @@
 
   <main id="main">
 
-    <section class="page-banner" aria-labelledby="page-title">
+    <!-- HERO -->
+    <section class="page-banner loc-hero" aria-labelledby="page-title">
       <div class="container">
         <div class="page-banner__content">
           <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -424,57 +402,124 @@
             <span class="breadcrumbs__sep" aria-hidden="true">›</span>
             <span aria-current="page">San Antonio</span>
           </nav>
-          <span class="eyebrow page-banner__eyebrow">San Antonio, TX</span>
+          <span class="eyebrow page-banner__eyebrow">San Antonio &amp; Surrounding Areas</span>
           <h1 id="page-title">Property Management in San Antonio, TX</h1>
-          <p>Newera Property Management manages single-family and multifamily rentals in San Antonio, Schertz, Garden Ridge, Bulverde, Canyon Lake and the surrounding area, from our office on Callaghan Road. We are a licensed Texas real estate broker (TREC #9016567-BB), built by real estate investors. Owners pay 8% of monthly rent with no markup on vendor invoices, and can see rent, work orders and inspection photos in their owner portal at any time.</p>
+          <p class="loc-hero__lead">Single-family and multifamily rental management across San Antonio, Schertz, Garden Ridge, Bulverde and Canyon Lake. A licensed Texas broker (TREC #9016567-BB), built by real estate investors, with a dedicated local team member for your property.</p>
+          <div class="loc-hero__ctas">
+            <a href="/contact?form=consultation" class="btn btn--primary">Get a Free Consultation</a>
+            <a href="tel:+12108125880" class="btn btn--on-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/></svg> (210) 812-5880</a>
+          </div>
+          <ul class="loc-hero__chips" aria-label="Highlights">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg> 8% management fee</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg> Licensed Texas broker</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg> Dedicated local team member</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 24/7 emergency line</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- SERVICE AREAS -->
+    <section class="section loc-section" aria-labelledby="areas-title">
       <div class="container">
-        <div class="sa-prose">
+        <div class="section__header">
+          <span class="eyebrow">Service Areas</span>
+          <h2 id="areas-title">Where We Work in the San Antonio Area</h2>
+          <p>We manage homes across San Antonio and the communities around it.</p>
+        </div>
+        <ul class="loc-areas">
+          <li class="loc-area" data-reveal="up">
+            <span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><h3>San Antonio</h3><p>Single-family homes and multifamily rentals across the city.</p></div>
+          </li>
+          <li class="loc-area" data-reveal="up">
+            <span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><h3>Schertz</h3><p>Northeast along I-35, next to Joint Base San Antonio–Randolph, with steady demand from military families.</p></div>
+          </li>
+          <li class="loc-area" data-reveal="up">
+            <span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><h3>Garden Ridge</h3><p>A quiet city between San Antonio and New Braunfels, known for larger lots and single-family homes.</p></div>
+          </li>
+          <li class="loc-area" data-reveal="up">
+            <span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><h3>Bulverde</h3><p>Hill Country living north of San Antonio along US 281, popular with families who want more space.</p></div>
+          </li>
+          <li class="loc-area" data-reveal="up">
+            <span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><h3>Canyon Lake</h3><p>A lake community in Comal County, north of San Antonio, with year-round residents and long-term rentals.</p></div>
+          </li>
+        </ul>
+        <p class="loc-note">Not limited to these areas. If your property is elsewhere in or around San Antonio, <a href="/contact?form=consultation">ask us</a> and we'll let you know if we can manage it.</p>
+      </div>
+    </section>
 
-          <h2>Where we work in the San Antonio area</h2>
-          <p>We manage homes across San Antonio and in these communities around it:</p>
-          <ul class="loc-areas">
-            <li><strong>San Antonio</strong><span>Homes and multifamily rentals across the city, managed from our Northwest Side office on Callaghan Road.</span></li>
-            <li><strong>Schertz</strong><span>Northeast along I-35, next to Joint Base San Antonio–Randolph, with steady demand from military families.</span></li>
-            <li><strong>Garden Ridge</strong><span>A quiet city between San Antonio and New Braunfels, known for larger lots and single-family homes.</span></li>
-            <li><strong>Bulverde</strong><span>Hill Country living north of San Antonio along US 281, popular with families who want more space.</span></li>
-            <li><strong>Canyon Lake</strong><span>A lake community in Comal County, north of San Antonio, with year-round residents and long-term rentals.</span></li>
-          </ul>
-          <p>These are the areas we work in most, but we are not limited to them. If your property is elsewhere in or around San Antonio, <a href="/contact?form=consultation">ask us</a> and we'll let you know if we can manage it.</p>
-
-          <div class="loc-office">
-            <h3>Our San Antonio office</h3>
-            <p><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>5835 Callaghan Rd Suite 204<br>San Antonio, TX 78228</span></p>
-            <p><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/></svg><a href="tel:+12108125880">(210) 812-5880</a></p>
-            <p><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Monday – Friday, 9:00 AM – 5:00 PM (Central). 24/7 emergency line for residents.</span></p>
+    <!-- PRICING + LOCAL TEAM -->
+    <section class="section section--offwhite loc-section" aria-label="Pricing and your local team">
+      <div class="container">
+        <div class="loc-duo">
+          <div class="loc-card loc-card--price" data-reveal="left">
+            <span class="eyebrow" style="color: var(--color-teal);">Simple Pricing</span>
+            <h2>What property management costs in San Antonio</h2>
+            <p class="loc-price">8%<small>of monthly rent</small></p>
+            <p class="loc-price-sub">Portfolio discounts down to as little as 6%</p>
+            <ul class="loc-checks">
+              <li>Leasing and renewal fees quoted during your free consultation, based on your property</li>
+              <li>Any other fees spelled out in writing before you sign</li>
+              <li>No markup on vendor invoices. No administration fees.</li>
+            </ul>
           </div>
+          <div class="loc-card loc-card--team" data-reveal="right">
+            <span class="eyebrow">Your Local Team</span>
+            <h2>Who looks after your San Antonio property</h2>
+            <p>Newera assigns a dedicated team member to each market. Your San Antonio-area home is handled by our San Antonio team member, who takes care of showings, inspections and vendor visits locally. Owners who live out of the area get scheduled check-ins, and everything is visible in the owner portal.</p>
+            <ul class="loc-contact">
+              <li><span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/></svg></span><a href="tel:+12108125880">(210) 812-5880</a></li>
+              <li><span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><a href="mailto:info@newerapm.com">info@newerapm.com</a></li>
+              <li><span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span>Mon – Fri, 9 AM – 5 PM Central · 24/7 emergency line</span></li>
+            </ul>
+            <a href="/contact?form=consultation" class="btn btn--secondary">Talk to Our San Antonio Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <h2>What property management costs with Newera in San Antonio</h2>
-          <p class="sa-price">8% of monthly rent</p>
-          <p><strong>Portfolio discounts down to as little as 6%</strong> for owners with multiple properties.</p>
-          <ul>
-            <li>Leasing fee: quoted during your free consultation, based on your property.</li>
-            <li>Lease renewal fee: quoted during your free consultation, based on your property.</li>
-            <li>Any other fees are spelled out in writing before you sign.</li>
-            <li>No markup on vendor invoices. No administration fees.</li>
-          </ul>
+    <!-- LOCAL KNOWLEDGE -->
+    <section class="section loc-section" aria-labelledby="tips-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="eyebrow">Local Know-How</span>
+          <h2 id="tips-title">What San Antonio Owners Should Know</h2>
+          <p>A few things that shape how we manage rentals in the San Antonio area.</p>
+        </div>
+        <div class="loc-tips">
+          <article class="loc-tip" data-reveal="up">
+            <span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M8.2 10.5 5 2h4l3 6 3-6h4l-3.2 8.5"/></svg></span>
+            <h3>Military owners and residents</h3>
+            <p>San Antonio is home to Joint Base San Antonio (Lackland, Fort Sam Houston and Randolph). We manage homes for owners relocating on PCS orders and work with military residents moving into the area.</p>
+          </article>
+          <article class="loc-tip" data-reveal="up">
+            <span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+            <h3>Long, hot summers</h3>
+            <p>AC is the repair residents care about most. We prioritize AC failures by urgency and keep you informed before larger repairs.</p>
+          </article>
+          <article class="loc-tip" data-reveal="up">
+            <span class="loc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-6 9h4l-4 6h12l-4-6h4Z"/><path d="M12 18v3"/></svg></span>
+            <h3>Hill Country homes</h3>
+            <p>Homes in Bulverde, Canyon Lake and Garden Ridge often sit on larger lots and may have septic systems or wells. Let us know about them when we take over the home so routine upkeep is planned for, not missed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-          <h2>Who looks after your property in San Antonio?</h2>
-          <p>Newera assigns a dedicated team member to each market we serve. Your San Antonio-area property is handled by our San Antonio team member, who takes care of showings, inspections and vendor visits locally. Owners who live out of the area get scheduled check-ins, and everything is visible in the owner portal.</p>
-
-          <h2>Managing a San Antonio rental: what owners should know</h2>
-          <ul>
-            <li><strong>Military owners and residents.</strong> San Antonio is home to Joint Base San Antonio (Lackland, Fort Sam Houston and Randolph). We manage homes for owners relocating on PCS orders and work with military residents moving into the area.</li>
-            <li><strong>Long, hot summers.</strong> AC is the repair residents care about most. We prioritize AC failures by urgency and keep you informed before larger repairs.</li>
-            <li><strong>Hill Country properties.</strong> Homes in Bulverde, Canyon Lake and Garden Ridge often sit on larger lots and may have septic systems or wells. Let us know about them when we take over the home so routine upkeep is planned for, not missed.</li>
-          </ul>
-
-          <h2>What's included</h2>
-          <ul>
+    <!-- WHAT'S INCLUDED -->
+    <section class="section section--offwhite loc-section" aria-labelledby="included-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="eyebrow">Full-Service Management</span>
+          <h2 id="included-title">What's Included</h2>
+        </div>
+        <div class="loc-included" data-reveal="up">
+          <ul class="loc-checks">
             <li>Your listing live on Zillow, Trulia, Apartments.com, Realtor.com, Rent. and HotPads within 24–48 hours of the marketing agreement</li>
             <li>Consistent, Fair-Housing compliant screening on every applicant, based on our published <a href="/qualification-criteria">Resident Qualification Criteria</a></li>
             <li>Online rent collection, with owner payouts on a consistent monthly schedule, typically by the 10th once rent has been collected and cleared</li>
@@ -482,34 +527,63 @@
             <li>Maintenance prioritized by urgency: emergencies typically dispatched within the hour, urgent items the same day, routine items within a few business days</li>
             <li>A maintenance reserve covers routine repairs under $500, replenished from rent and itemized on your statement; larger repairs reviewed with you first</li>
             <li>24/7 emergency line answered by a real person, not a call center</li>
+            <li>Owner portal access around the clock: rent, statements, work orders and inspection photos</li>
           </ul>
-          <p>See every service in detail on our <a href="/services">Services page</a>.</p>
+          <p class="loc-included__foot">See every service in detail on our <a href="/services">Services page</a>.</p>
+        </div>
+      </div>
+    </section>
 
-          <h2>Homes we work with in San Antonio</h2>
-          <p>We currently manage homes in San Antonio, including a 3-bedroom townhome at <a href="/properties/8515-echo-creek-lane/">8515 Echo Creek Lane (78240)</a> on the Northwest Side. See every listing on our <a href="/properties">Available Properties page</a>.</p>
+    <!-- FAQ -->
+    <section class="section loc-section" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section__header">
+          <span class="eyebrow">FAQ</span>
+          <h2 id="faq-title">Questions San Antonio Owners Ask Us</h2>
+        </div>
+        <div class="loc-faq">
+          <details data-reveal="up">
+            <summary>What areas around San Antonio do you serve?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div><p>We manage rentals in San Antonio, Schertz, Garden Ridge, Bulverde and Canyon Lake, and we are not limited to these areas. If your property is elsewhere around San Antonio, contact us and we'll let you know if we can take it on.</p></div>
+          </details>
+          <details data-reveal="up">
+            <summary>How do I reach your San Antonio team?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div><p>Call our San Antonio team at (210) 812-5880 or email info@newerapm.com, Monday to Friday, 9 AM to 5 PM Central. Residents with an emergency can call our 24/7 emergency line at any time.</p></div>
+          </details>
+          <details data-reveal="up">
+            <summary>I live out of state. Can you manage my San Antonio rental?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div><p>Yes. Everything is visible in your owner portal: rent payments, statements, work orders, and inspection reports with photos. We keep in touch through scheduled check-ins, and we reach out whenever something needs your attention or decision.</p></div>
+          </details>
+          <details data-reveal="up">
+            <summary>I&#x27;m military and leaving San Antonio on PCS orders. Can you manage my home while I&#x27;m away?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div><p>Yes. We manage homes for military owners relocating on PCS orders, and your owner portal lets you follow your property from wherever you are stationed.</p></div>
+          </details>
+          <details data-reveal="up">
+            <summary>Can I switch to Newera from my current property manager?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div><p>Yes. It starts with a free consultation, where we review your property and your current management agreement. From there, we coordinate the handover with your current manager, including leases, security deposits, keys and property records, and keep you informed at each step so the transition is as smooth as possible for you and your residents.</p></div>
+          </details>
+          <details data-reveal="up">
+            <summary>Do you manage multifamily properties?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div><p>Yes. We manage multifamily rentals as well as single-family homes.</p></div>
+          </details>
+          <details data-reveal="up">
+            <summary>How much does property management cost in San Antonio with Newera?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div><p>Our management fee is 8% of the monthly rent, with portfolio discounts down to as little as 6% for owners with multiple properties. Leasing and renewal fees are quoted during your free consultation, based on your property. There is no markup on vendor invoices and no administration fee.</p></div>
+          </details>
+          <details data-reveal="up">
+            <summary>Do you manage short-term rentals or Airbnbs?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div><p>No. We focus on long-term residential rentals: single-family and multifamily homes leased to residents on standard leases.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
 
-          <h2>Questions San Antonio owners ask us</h2>
-          <h3>What areas around San Antonio do you serve?</h3>
-          <p>We manage rentals in San Antonio, Schertz, Garden Ridge, Bulverde and Canyon Lake, and we are not limited to these areas. If your property is elsewhere around San Antonio, contact us and we'll let you know if we can take it on.</p>
-          <h3>Where is your San Antonio office?</h3>
-          <p>Our San Antonio office is at 5835 Callaghan Rd, Suite 204, San Antonio, TX 78228. You can reach our San Antonio team at (210) 812-5880.</p>
-          <h3>I live out of state. Can you manage my San Antonio rental?</h3>
-          <p>Yes. Everything is visible in your owner portal: rent payments, statements, work orders, and inspection reports with photos. We keep in touch through scheduled check-ins, and we reach out whenever something needs your attention or decision.</p>
-          <h3>I&#x27;m military and leaving San Antonio on PCS orders. Can you manage my home while I&#x27;m away?</h3>
-          <p>Yes. We manage homes for military owners relocating on PCS orders, and your owner portal lets you follow your property from wherever you are stationed.</p>
-          <h3>Can I switch to Newera from my current property manager?</h3>
-          <p>Yes. It starts with a free consultation, where we review your property and your current management agreement. From there, we coordinate the handover with your current manager, including leases, security deposits, keys and property records, and keep you informed at each step so the transition is as smooth as possible for you and your residents.</p>
-          <h3>Do you manage multifamily properties?</h3>
-          <p>Yes. We manage multifamily rentals as well as single-family homes.</p>
-          <h3>How much does property management cost in San Antonio with Newera?</h3>
-          <p>Our management fee is 8% of the monthly rent, with portfolio discounts down to as little as 6% for owners with multiple properties. Leasing and renewal fees are quoted during your free consultation, based on your property. There is no markup on vendor invoices and no administration fee.</p>
-          <h3>Do you manage short-term rentals or Airbnbs?</h3>
-          <p>No. We focus on long-term residential rentals: single-family and multifamily homes leased to residents on standard leases.</p>
-
-          <div class="loc-other">
-            <p><strong>Own property in Houston too?</strong> We manage there as well. See <a href="/houston-property-management/">Houston property management</a>.</p>
-          </div>
-
+    <!-- OTHER MARKET -->
+    <section class="section" style="padding-top: 0;" aria-label="Other market">
+      <div class="container">
+        <div class="loc-other" data-reveal="fade">
+          <p><strong>Own property in Houston too?</strong> We manage there as well.</p>
+          <a class="loc-other__link" href="/houston-property-management/">Houston property management <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </div>
       </div>
     </section>
@@ -522,7 +596,7 @@
           <div class="final-cta__ctas">
             <a href="/contact?form=consultation" class="btn btn--inverse">Schedule Your Free Consultation</a>
             <a href="tel:+12108125880" class="final-cta__phone">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/></svg>
               Or call us at (210) 812-5880
             </a>
           </div>
