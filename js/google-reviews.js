@@ -27,8 +27,20 @@
     // of the list, and update rating + count to match Google.
     manual: {
       rating: 5.0,   // overall Google rating
-      count: 1,      // total number of Google reviews
+      count: 3,      // total number of Google reviews
       reviews: [
+        {
+          name: 'Alex G.',
+          date: 'October 2026',
+          rating: 5,
+          text: 'Excellent property management service, handles every issue that comes up quickly and without hassle. Will use them for all of my properties'
+        },
+        {
+          name: 'Keli V.',
+          date: 'October 2026',
+          rating: 5,
+          text: 'If you\u2019re looking for a highly skilled dedicated property management team I highly recommend Newera Property Management. [The Newera team] are experienced landlords and understand what makes our life easier and they know how to deliver.'
+        },
         {
           name: 'Sean M.',
           date: 'October 2026',
