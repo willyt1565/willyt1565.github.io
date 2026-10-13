@@ -66,6 +66,14 @@
 .tp-list li:hover { box-shadow: 0 0 0 1px rgba(14,165,233,.45), var(--shadow-sm); }
 .tp-list li::before { content: ""; flex: none; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--color-teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4 8-9'/%3E%3C/svg%3E") center / 14px no-repeat; }
 
+.tp-photo { position: relative; margin: var(--space-2) 0 var(--space-6); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); aspect-ratio: 4 / 3; background: var(--color-border); }
+.tp-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(15,23,42,.55)); pointer-events: none; }
+.tp-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s var(--ease-out); }
+.tp-photo:hover img { transform: scale(1.03); }
+.tp-photo__badge { position: absolute; z-index: 1; left: var(--space-4); right: var(--space-4); bottom: var(--space-4); display: inline-flex; align-items: center; gap: 8px; width: fit-content; max-width: calc(100% - 2rem); padding: 8px 14px; border-radius: var(--radius-pill); background: rgba(255,255,255,.94); color: var(--color-navy); font-size: var(--fs-xs); font-weight: 600; box-shadow: var(--shadow-md); }
+.tp-photo__dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: var(--color-gold); }
+@media (prefers-reduced-motion: reduce) { .tp-photo img { transition: none; } .tp-photo:hover img { transform: none; } }
+
 /* ---------- HOW IT WORKS (timeline) ----------------------------------------- */
 .tp-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-6); counter-reset: s; position: relative; }
 @media (min-width: 900px) {
