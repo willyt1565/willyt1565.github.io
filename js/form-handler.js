@@ -97,10 +97,10 @@
         if (window.gtag) window.gtag('event', 'generate_lead', { event_category: 'Contact', event_label: data.inquiryType });
       } else {
         const err = await res.json().catch(() => ({}));
-        showStatus('error', err.message || 'Something went wrong. Please try again or call (832) 558-2911.');
+        showStatus('error', err.message || 'Something went wrong. Please try again or call Houston (832) 558-2911 or San Antonio (210) 812-5880.');
       }
     } catch {
-      showStatus('error', 'Network error. Please check your connection or call (832) 558-2911.');
+      showStatus('error', 'Network error. Please check your connection or call Houston (832) 558-2911 or San Antonio (210) 812-5880.');
     } finally { setLoading(false); }
   });
 

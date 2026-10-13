@@ -2473,7 +2473,9 @@ p:last-child { margin-bottom: 0; }
 .ft__social a { width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--color-navy); background: var(--color-offwhite); border: 1px solid var(--color-border); }
 .ft__social a:hover { background: var(--color-navy); color: #fff; border-color: var(--color-navy); }
 .ft__social svg { width: 16px; height: 16px; }
-.ft__right { display: flex; align-items: center; gap: 18px; }
+.ft__right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.ft__phones { display: flex; flex-direction: column; gap: 6px; }
+.ft__phone-label { font-weight: 500; color: var(--color-slate-soft); margin-right: 4px; }
 .ft__phone { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--color-navy) !important; white-space: nowrap; }
 .ft__bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-border); font-size: 0.78rem; }
 .ft__legal { display: flex; flex-wrap: wrap; gap: 6px 18px; }
@@ -2500,3 +2502,15 @@ p:last-child { margin-bottom: 0; }
   .site-header__logo-img { width: 120px; }
   .site-header__cta { padding-inline: 0.9rem; font-size: 0.8125rem; }
 }
+
+
+/* =========================================================================
+   TENANT PLACEMENT CALLOUT — homepage (under services grid) + /services
+   ========================================================================= */
+.tp-callout { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); max-width: 1040px; margin: var(--space-8) auto 0; padding: var(--space-5) var(--space-6); background: var(--color-white); border: 1px solid var(--color-border); border-left: 4px solid var(--color-teal); border-radius: var(--radius-lg); }
+.tp-callout__text { flex: 1 1 320px; }
+.tp-callout__eyebrow { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-teal-deep); margin-bottom: 4px; }
+.tp-callout h3 { margin: 0 0 4px; font-size: 1.2rem; color: var(--color-ink); }
+.tp-callout p { margin: 0; color: var(--color-slate); }
+.tp-callout__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.tp-callout__actions .btn svg { width: 18px; height: 18px; }
