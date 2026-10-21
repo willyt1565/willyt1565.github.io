@@ -54,13 +54,55 @@
   gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + CONFIG.GA4_ID;
   document.head.appendChild(gaScript);
 
+  // ------------------------------------------------------------------
+  // Internal traffic flag — visit any page with ?internal=on once on each
+  // team device/browser (?internal=off to undo). GA4's "Internal Traffic"
+  // data filter then excludes these visits from reports.
+  // ------------------------------------------------------------------
+  var isInternal = false;
+  try {
+    var flag = new URLSearchParams(window.location.search).get('internal');
+    if (flag === 'on') localStorage.setItem('newera_internal', '1');
+    if (flag === 'off') localStorage.removeItem('newera_internal');
+    isInternal = localStorage.getItem('newera_internal') === '1';
+  } catch (e) {}
+
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer.push(arguments); };
   window.gtag('js', new Date());
-  window.gtag('config', CONFIG.GA4_ID, {
+  var gaConfig = {
     anonymize_ip: true,
     send_page_view: true,
-  });
+  };
+  if (isInternal) gaConfig.traffic_type = 'internal';
+  window.gtag('config', CONFIG.GA4_ID, gaConfig);
+
+  // ------------------------------------------------------------------
+  // Leads from forms that submit with JavaScript (property inquiry and
+  // "notify me" forms post to Formspree via fetch). Counted only when
+  // Formspree confirms the submission.
+  // ------------------------------------------------------------------
+  var origFetch = window.fetch;
+  if (origFetch) {
+    window.fetch = function (input, init) {
+      var url = typeof input === 'string' ? input : (input && input.url) || '';
+      var p = origFetch.apply(this, arguments);
+      if (url.indexOf('formspree.io') !== -1 && init && init.method && String(init.method).toUpperCase() === 'POST') {
+        p.then(function (res) {
+          if (res && res.ok && window.gtag) {
+            window.gtag('event', 'generate_lead', {
+              form_id: 'property-inquiry',
+              inquiry_type: 'property',
+              page_location: window.location.pathname,
+              currency: 'USD',
+              value: 1,
+            });
+          }
+        }).catch(function () {});
+      }
+      return p;
+    };
+  }
 
   // ------------------------------------------------------------------
   // Auto-tracked lead events
@@ -104,7 +146,9 @@
     // Contact form submission — marked as a lead in GA4
     var contactForm = document.getElementById('contact-form');
     if (contactForm) {
-      contactForm.addEventListener('submit', function () {
+      contactForm.addEventListener('submit', function (e) {
+        if (e.defaultPrevented) return;
+        if (contactForm.checkValidity && !contactForm.checkValidity()) return;
         var typeEl = contactForm.querySelector('[name="inquiry-type"], #inquiry-type');
         track('generate_lead', {
           form_id: 'contact-form',
