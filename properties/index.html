@@ -410,7 +410,7 @@
                 <span><strong>3</strong> ba</span>
                 <span><strong>1,527</strong> sqft</span>
               </div>
-              <p class="property-card__meta">Townhome · Echo Creek · Gated Community</p>
+              <p class="property-card__meta">Townhome | Echo Creek | Gated Community</p>
               <a class="btn btn--primary property-card__cta" href="/properties/8515-echo-creek-lane">View Details</a>
             </div>
           </article>
@@ -433,7 +433,7 @@
                 <span><strong>2</strong> ba</span>
                 <span><strong>1,176</strong> sqft</span>
               </div>
-              <p class="property-card__meta">Single-Family · Northside / Ryon · Pet Friendly</p>
+              <p class="property-card__meta">Single-Family | Northside / Ryon | Pet Friendly</p>
               <a class="btn btn--primary property-card__cta" href="/properties/4106-robertson-st">View Details</a>
             </div>
           </article>
@@ -534,7 +534,7 @@
                 <span><strong>1</strong> ba</span>
                 <span><strong>1,411</strong> sqft</span>
               </div>
-              <p class="property-card__meta">Single-Family · Baker Place · Owner Financing Available</p>
+              <p class="property-card__meta">Single-Family | Baker Place | Owner Financing Available</p>
               <a class="btn btn--primary property-card__cta" href="/properties/7911-carolwood-dr">View Details</a>
             </div>
           </article>
@@ -556,7 +556,7 @@
                 <span><strong>3</strong> ba</span>
                 <span><strong>2,166</strong> sqft</span>
               </div>
-              <p class="property-card__meta">Single-Family · 2024 New Construction · Barbers Hill ISD</p>
+              <p class="property-card__meta">Single-Family | 2024 New Construction | Barbers Hill ISD</p>
               <a class="btn btn--primary property-card__cta" href="/properties/10002-wilma-ln">View Details</a>
             </div>
           </article>
@@ -780,7 +780,7 @@
           var p = PROPS[slug];
           if (!p) return null;
           if (p.status === 'sold') return {
-            eyebrow: 'Property Sold · ' + p.name,
+            eyebrow: 'Property Sold | ' + p.name,
             title:   'Alert Me to Similar Homes',
             sub:     "This property has sold. Drop your details and we'll reach out when a comparable rental becomes available.",
             subject: '[' + p.tag + '] Rental alert — similar properties',
@@ -791,7 +791,7 @@
             successMsg:   "Thanks! We'll reach out when a comparable rental hits the market."
           };
           return {
-            eyebrow: 'Property Occupied · ' + p.name,
+            eyebrow: 'Property Occupied | ' + p.name,
             title:   'Notify Me If It Reopens',
             sub:     "This home is currently occupied. Leave your details and we'll reach out if it comes available again — or when a similar rental does.",
             subject: '[' + p.tag + '] Waitlist — notify when available',

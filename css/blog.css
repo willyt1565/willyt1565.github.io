@@ -23,8 +23,7 @@
   font-size: clamp(2rem, 4.2vw, 3.25rem); line-height: 1.08; letter-spacing: -0.015em; margin-top: var(--space-4); max-width: 22ch; }
 .post-hero__meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-5);
   font-size: var(--fs-sm); color: var(--color-slate-soft); }
-.post-hero__meta > * + *::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--color-gold); margin-right: var(--space-5); vertical-align: middle; position: relative; top: -1px; }
+.post-hero__meta > * + *::before { content: "|"; color: var(--color-gold); font-weight: 600; margin-right: var(--space-5); }
 
 /* ---------- Layout: sticky table of contents + reading column ---------- */
 .post { padding: var(--space-6) 0 var(--space-11); }
@@ -148,7 +147,8 @@
   .post__cta { padding: var(--space-6) var(--space-5) var(--space-6) var(--space-6); }
   .post-hero__panel { border-radius: var(--radius-md) var(--radius-md) 0 0; }
   .post-hero__meta { gap: var(--space-1) var(--space-4); }
-  .post-hero__meta > * + *::before { display: none; }
+  .post-hero__meta > :first-child { flex-basis: 100%; }
+  .post-hero__meta > :nth-child(2)::before { display: none; }
 }
 
 /* ---------- Blog index cards ---------- */
@@ -164,3 +164,5 @@
 .blog-card h3 a::after { content: ""; position: absolute; inset: 0; }
 .blog-card p { margin-top: var(--space-3); color: var(--color-slate); }
 .blog-card__meta { margin-top: auto; padding-top: var(--space-4); font-size: var(--fs-sm); color: var(--color-slate-soft); }
+
+.blog-card__meta .sep { color: var(--color-gold); margin: 0 0.4em; }

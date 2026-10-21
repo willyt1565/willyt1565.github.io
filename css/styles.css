@@ -1128,6 +1128,7 @@ p:last-child { margin-bottom: 0; }
 }
 .property-card__badge--now-leasing::before,
 .property-card__badge--for-sale::before {
+  display: none !important;
   content: "";
   display: inline-block;
   width: 7px;

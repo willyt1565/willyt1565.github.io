@@ -64,7 +64,7 @@
             <span><strong>${baths}</strong> ba</span>
             <span><strong>${Number(sqft).toLocaleString()}</strong> sqft</span>
           </div>
-          <p class="property-card__meta">${dateText} · ${typeLabel}</p>
+          <p class="property-card__meta">${dateText} | ${typeLabel}</p>
           <a href="/properties.html${id ? '?id=' + id : ''}" class="btn btn--primary property-card__cta">View Details</a>
         </div>
       </article>`;
