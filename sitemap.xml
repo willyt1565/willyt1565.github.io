@@ -19,5 +19,8 @@
   <url><loc>https://newerapm.com/referral/</loc><lastmod>2026-10-06</lastmod><priority>0.4</priority></url>
   <url><loc>https://newerapm.com/privacy/</loc><lastmod>2026-10-06</lastmod><priority>0.2</priority></url>
   <url><loc>https://newerapm.com/terms/</loc><lastmod>2026-10-06</lastmod><priority>0.2</priority></url>
-  <!-- /reviews/ and /blog/ are left out until they have real content (they are noindex for now). -->
+  <url><loc>https://newerapm.com/blog/</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+  <url><loc>https://newerapm.com/blog/self-manage-vs-property-manager-houston/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
+  <url><loc>https://newerapm.com/blog/renting-out-your-home-pcs-san-antonio/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
+  <!-- /reviews/ is left out until it has real content (noindex for now). -->
 </urlset>

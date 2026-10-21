@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Blog &amp; Articles | Newera Property Management Houston &amp; San Antonio</title>
-  <meta name="description" content="Property management tips, Houston and San Antonio rental market updates, and resources for owners and residents from Newera Property Management. Coming soon.">
-  <meta name="robots" content="noindex, follow">
-  <!-- noindex until this page has real content. Switch back to "index, follow" and add it to sitemap.xml then. -->
+  <meta name="description" content="Property management tips, Houston and San Antonio rental market updates, and resources for owners and residents from Newera Property Management.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://newerapm.com/blog/">
   <meta name="theme-color" content="#1E3A8A">
 
@@ -25,6 +24,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/scroll-animations.css">
+  <link rel="stylesheet" href="/css/blog.css">
 
   <script type="application/ld+json">
   {
@@ -40,10 +40,6 @@
   <!-- Analytics --------------------------------------------------- -->
   <script defer src="/js/analytics.js"></script>
   <script defer src="/js/scroll-effects.js"></script>
-  <style>
-    .blog-coming-soon__topics { list-style: none; padding: 0; margin: var(--space-7) auto 0; max-width: 820px; display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
-    .blog-coming-soon__topics li { padding: var(--space-2) var(--space-5); border: 1px solid rgba(30, 58, 138, 0.18); border-radius: 999px; background: rgba(30, 58, 138, 0.05); color: var(--color-slate, #334155); font-weight: 500; font-size: 0.95rem; }
-  </style>
 </head>
 
 <body>
@@ -137,21 +133,27 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="coming-soon-title">
+    <section class="section" aria-labelledby="latest-title">
       <div class="container">
-        <div class="section__header text-center" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-          <span class="eyebrow">Coming Soon</span>
-          <h2 id="coming-soon-title">Our First Articles Are on the Way</h2>
-          <p>We're putting together practical guides for owners and residents. Check back soon.</p>
+        <div class="section__header">
+          <span class="eyebrow">Latest Articles</span>
+          <h2 id="latest-title">Practical Guides for Texas Rental Owners</h2>
         </div>
 
-        <ul class="blog-coming-soon__topics" aria-label="Topics we'll cover">
-          <li>Houston &amp; San Antonio Rental Market Updates</li>
-          <li>Tips for Property Owners &amp; Investors</li>
-          <li>Leasing &amp; Tenant Screening</li>
-          <li>Maintenance &amp; Property Care</li>
-          <li>Resources for Residents</li>
-        </ul>
+        <div class="blog-list">
+          <article class="blog-card">
+            <span class="blog-card__tag">San Antonio Owners</span>
+            <h3><a href="/blog/renting-out-your-home-pcs-san-antonio/">Renting Out Your San Antonio-Area Home When You PCS or Move Out of State</a></h3>
+            <p>Sell or rent, VA loans, landlord insurance, homestead taxes, military lease clauses and how to manage a rental from a distance.</p>
+            <p class="blog-card__meta"><time datetime="2026-10-21">Oct 21, 2026</time> &middot; 10 min read</p>
+          </article>
+          <article class="blog-card">
+            <span class="blog-card__tag">Houston Owners</span>
+            <h3><a href="/blog/self-manage-vs-property-manager-houston/">Should You Self-Manage Your Houston Rental or Hire a Property Manager?</a></h3>
+            <p>What it really costs to run a Houston rental: fees, vacancy, Texas landlord laws, flood disclosure, property taxes and when each option makes sense.</p>
+            <p class="blog-card__meta"><time datetime="2026-10-21">Oct 21, 2026</time> &middot; 9 min read</p>
+          </article>
+        </div>
 
         <div class="text-center" style="margin-top: var(--space-8); display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
           <a href="/contact?form=consultation" class="btn btn--primary">Get a Free Consultation</a>

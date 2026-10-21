@@ -158,3 +158,69 @@
 }
 
 @media (max-width: 959px) { .tp-hero { background: linear-gradient(180deg, rgba(22,43,101,.93), rgba(30,58,138,.85)), url("/assets/images/tenant-placement-lease-signing.jpg") 60% center / cover no-repeat, var(--color-navy-deep); } }
+
+/* =============================================================================
+   ANIMATIONS (driven by /js/tenant-placement.js — html.tp-js)
+   ============================================================================= */
+/* Hero entrance */
+.tp-js .tp-hero__copy > * { animation: tp-rise .8s var(--ease-out) both; }
+.tp-js .tp-hero__copy > *:nth-child(2) { animation-delay: .08s; }
+.tp-js .tp-hero__copy > *:nth-child(3) { animation-delay: .16s; }
+.tp-js .tp-hero__copy > *:nth-child(4) { animation-delay: .24s; }
+.tp-js .tp-hero__copy > *:nth-child(5) { animation-delay: .32s; }
+.tp-js .tp-glance { animation: tp-slide 1s .25s var(--ease-out) both; }
+.tp-js .tp-glance li { animation: tp-rise .6s var(--ease-out) both; }
+.tp-js .tp-glance li:nth-child(1) { animation-delay: .55s; }
+.tp-js .tp-glance li:nth-child(2) { animation-delay: .7s; }
+.tp-js .tp-glance li:nth-child(3) { animation-delay: .85s; }
+.tp-js .tp-glance li:nth-child(4) { animation-delay: 1s; }
+@keyframes tp-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes tp-slide { from { opacity: 0; transform: translateX(32px); } to { opacity: 1; transform: none; } }
+
+/* Slow drift on the hero photo */
+@media (min-width: 960px) {
+  .tp-hero { background-size: auto, max(115%, 190vh) auto, auto; animation: tp-drift 24s ease-in-out infinite alternate; }
+}
+@keyframes tp-drift { from { background-position: 0 0, 62% 40%, 0 0; } to { background-position: 0 0, 78% 55%, 0 0; } }
+
+/* Glance: active step highlight */
+.tp-glance li { padding: 8px 10px; margin: -8px -10px; border-radius: 12px; transition: background .5s var(--ease-out); }
+.tp-glance li::before { transition: background .5s, color .5s, box-shadow .5s, transform .5s var(--ease-out); }
+.tp-glance li.is-active { background: rgba(255,255,255,.08); }
+.tp-glance li.is-active::before { background: var(--color-teal); color: var(--color-white); transform: scale(1.08); box-shadow: 0 0 0 6px rgba(14,165,233,.25); }
+
+/* Timeline draw + step pop */
+@media (min-width: 900px) {
+  .tp-js .tp-steps::before { transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease-out); }
+  .tp-js .tp-steps.is-in::before { transform: scaleX(1); }
+}
+.tp-js .tp-step { opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.tp-js .tp-step::before { transform: scale(.4); transition: transform .6s cubic-bezier(.34,1.56,.64,1); }
+.tp-js .tp-steps.is-in .tp-step { opacity: 1; transform: none; }
+.tp-js .tp-steps.is-in .tp-step::before { transform: scale(1); }
+.tp-js .tp-steps.is-in .tp-step:nth-child(2), .tp-js .tp-steps.is-in .tp-step:nth-child(2)::before { transition-delay: .3s; }
+.tp-js .tp-steps.is-in .tp-step:nth-child(3), .tp-js .tp-steps.is-in .tp-step:nth-child(3)::before { transition-delay: .6s; }
+.tp-js .tp-steps.is-in .tp-step:nth-child(4), .tp-js .tp-steps.is-in .tp-step:nth-child(4)::before { transition-delay: .9s; }
+.tp-step:hover::before { box-shadow: 0 0 0 6px var(--color-white), 0 0 0 9px rgba(14,165,233,.35), 0 8px 20px rgba(30,58,138,.25); }
+
+/* Compare table checkmarks */
+.tp-js .tp-compare .tp-yes, .tp-js .tp-compare .tp-no { transform: scale(0); transition: transform .45s cubic-bezier(.34,1.56,.64,1) var(--tp-d, 0ms); }
+.tp-js .tp-compare.is-in .tp-yes, .tp-js .tp-compare.is-in .tp-no { transform: scale(1); }
+.tp-compare tbody tr { transition: background var(--dur-fast); }
+.tp-compare tbody tr:hover { background: rgba(14,165,233,.04); }
+
+/* Buttons: soft shine on primary CTAs in this page */
+.tp .btn--primary, .tp-sticky .btn--primary { position: relative; overflow: hidden; }
+.tp .btn--primary::after, .tp-sticky .btn--primary::after { content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); animation: tp-shine 5s 2s ease-in-out infinite; pointer-events: none; }
+@keyframes tp-shine { 0%, 70% { left: -60%; } 100% { left: 130%; } }
+
+/* Mobile sticky CTA */
+.tp-sticky { position: fixed; z-index: var(--z-sticky); left: 12px; right: 12px; bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 10px 10px 18px; border-radius: var(--radius-pill); background: rgba(22,43,101,.96); color: var(--color-white); font-weight: 600; font-size: var(--fs-sm); box-shadow: var(--shadow-xl); transform: translateY(140%); transition: transform .45s var(--ease-out); }
+.tp-sticky .btn { padding: 10px 18px; border-radius: var(--radius-pill); }
+.tp-sticky.is-shown { transform: none; }
+@media (min-width: 900px) { .tp-sticky { display: none; } }
+
+/* Reduce motion: everything static and visible */
+.tp-reduce .tp-hero, .tp-reduce .tp-hero__copy > *, .tp-reduce .tp-glance, .tp-reduce .tp-glance li, .tp-reduce .btn--primary::after { animation: none !important; }
+.tp-reduce .tp-step, .tp-reduce .tp-step::before, .tp-reduce .tp-steps::before, .tp-reduce .tp-compare .tp-yes, .tp-reduce .tp-compare .tp-no { opacity: 1 !important; transform: none !important; transition: none !important; }
+.tp-reduce .tp-sticky { transition: none; }
