@@ -7,6 +7,7 @@
      3. Compare table — checkmarks pop in when the table scrolls into view
      4. FAQ — only one answer open at a time, smooth open
      5. Mobile — a sticky "Contact Us" bar after you scroll past the header
+     6. Owner advantages — clickable topics (tabs on desktop, accordion on mobile)
    ============================================================================= */
 (function () {
   'use strict';
@@ -82,4 +83,49 @@
     new IntersectionObserver(function (e) { pastHero = !e[0].isIntersecting; sync(); }).observe(hero);
     if (finalCta) new IntersectionObserver(function (e) { atEnd = e[0].isIntersecting; sync(); }).observe(finalCta);
   }
+
+  /* 6. Owner advantages — tabs on desktop (one always open), accordion on mobile */
+  (function () {
+    var root = document.querySelector('[data-tp-adv]');
+    if (!root) return;
+    var items = Array.prototype.slice.call(root.querySelectorAll('.tp-adv__item'));
+    var tabs = items.map(function (it) { return it.querySelector('.tp-adv__tab'); });
+    var desktop = window.matchMedia('(min-width: 900px)');
+
+    function setOpen(idx, open) {
+      items.forEach(function (it, i) {
+        var on = i === idx ? open : false;
+        it.classList.toggle('is-open', on);
+        tabs[i].setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+    }
+    function current() { for (var i = 0; i < items.length; i++) if (items[i].classList.contains('is-open')) return i; return -1; }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () {
+        var isOpen = items[i].classList.contains('is-open');
+        if (desktop.matches) { setOpen(i, true); return; }
+        setOpen(i, !isOpen);
+        if (!isOpen) setTimeout(function () {
+          var r = tab.getBoundingClientRect();
+          if (r.top < 80 || r.top > window.innerHeight * 0.6) window.scrollBy({ top: r.top - 96, behavior: reduce ? 'auto' : 'smooth' });
+        }, 360);
+      });
+      tab.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = tabs.length - 1;
+        if (n === null) return;
+        e.preventDefault();
+        tabs[n].focus();
+        if (desktop.matches) setOpen(n, true);
+      });
+    });
+
+    function sync() { if (desktop.matches && current() < 0) setOpen(0, true); }
+    if (desktop.addEventListener) desktop.addEventListener('change', sync); else if (desktop.addListener) desktop.addListener(sync);
+    setOpen(0, true);
+  })();
 })();
