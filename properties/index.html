@@ -417,6 +417,25 @@
             </div>
           </article>
 
+          <!-- COMING SOON — 5718 Sherman St, Houston TX 77011 (no detail page yet; card opens the "Notify Me" form) -->
+          <article id="prop-5718-sherman-st" class="property-card property-card--unavailable property-card--coming-soon" data-type="single-family" data-status="coming-soon">
+            <div class="property-card__media">
+              <button type="button" class="property-card__media-link property-card__notify-trigger" data-notify="5718-sherman-st" aria-label="5718 Sherman St, Houston TX — coming soon. Get notified when it opens">
+                <img src="/assets/images/properties/5718-sherman-st/01.jpg"
+                     alt="Front exterior and covered brick porch of the home at 5718 Sherman St, Houston TX"
+                     loading="lazy" width="800" height="500">
+              </button>
+              <span class="property-card__badge property-card__badge--coming-soon">Coming Soon</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__address">5718 Sherman St<br>Houston, TX 77011</p>
+              <p class="property-card__rent">TBD<span> / month</span></p>
+              <div class="property-card__specs"><span>Details <strong>TBD</strong></span></div>
+              <p class="property-card__meta">Single-Family | East End Houston</p>
+              <button type="button" class="btn btn--primary property-card__cta property-card__notify-trigger" data-notify="5718-sherman-st">Notify Me If It Reopens</button>
+            </div>
+          </article>
+
           <!-- OCCUPIED — 8515 Echo Creek Lane, San Antonio TX 78240 -->
           <article id="prop-8515-echo-creek-lane" class="property-card property-card--unavailable" data-beds="3" data-rent="1750" data-type="single-family" data-status="occupied">
             <div class="property-card__media">
@@ -820,7 +839,8 @@
         var PROPS = {
           '8515-echo-creek-lane': { name: '8515 Echo Creek Lane', tag: 'Echo Creek Ln', address: '8515 Echo Creek Lane, San Antonio TX 78240', status: 'occupied' },
           '4106-robertson-st':    { name: '4106 Robertson St',    tag: 'Robertson St',  address: '4106 Robertson St, Houston TX 77009',     status: 'occupied' },
-          '10002-wilma-ln':       { name: '10002 Wilma Ln',       tag: 'Wilma Ln',      address: '10002 Wilma Ln, Beach City TX 77523',     status: 'sold' }
+          '10002-wilma-ln':       { name: '10002 Wilma Ln',       tag: 'Wilma Ln',      address: '10002 Wilma Ln, Beach City TX 77523',     status: 'sold' },
+          '5718-sherman-st':      { name: '5718 Sherman St',      tag: 'Sherman St',    address: '5718 Sherman St, Houston TX 77011',       status: 'coming-soon' }
         };
         function cfgFor(slug) {
           var p = PROPS[slug];
@@ -835,6 +855,17 @@
             submit:  'Add Me to the List',
             successTitle: "You're on the list",
             successMsg:   "Thanks! We'll reach out when a comparable rental hits the market."
+          };
+          if (p.status === 'coming-soon') return {
+            eyebrow: 'Coming Soon | ' + p.name,
+            title:   'Notify Me If It Reopens',
+            sub:     "This home isn't open for leasing yet. Leave your details and we'll reach out as soon as it's available.",
+            subject: '[' + p.tag + '] Coming soon — notify when available',
+            type:    'waitlist',
+            message: 'Hi! I saw ' + p.name + ' is coming soon. Please let me know as soon as it opens for leasing. Thanks!',
+            submit:  'Notify Me',
+            successTitle: "You're on the list",
+            successMsg:   "Thanks! We'll reach out as soon as this home opens for leasing."
           };
           return {
             eyebrow: 'Property Occupied | ' + p.name,
@@ -991,6 +1022,11 @@
               skipBtn.hidden = false;
             });
           });
+        });
+
+        // Coming-soon cards (no detail page): photo and button open the form directly.
+        Array.prototype.forEach.call(document.querySelectorAll('.property-card__notify-trigger[data-notify]'), function(btn){
+          btn.addEventListener('click', function(){ openModal(btn.getAttribute('data-notify')); });
         });
 
         // Arriving from the homepage: /properties/?notify=<slug>#prop-<slug>

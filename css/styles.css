@@ -2515,3 +2515,17 @@ p:last-child { margin-bottom: 0; }
 .tp-callout p { margin: 0; color: var(--color-slate); }
 .tp-callout__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 .tp-callout__actions .btn svg { width: 18px; height: 18px; }
+
+/* =============================================================================
+   REAL "COMING SOON" LISTINGS (e.g. 5718 Sherman St)
+   Grayed like .property-card--unavailable, but there is no detail page: the
+   photo and CTA are <button>s that open the "Notify Me If It Reopens" form.
+   Rent is TBD, so no strike-through.
+   ============================================================================= */
+.property-card--coming-soon .property-card__rent { text-decoration: none; }
+.property-card--coming-soon button.property-card__media-link {
+  display: block; width: 100%; height: 100%;
+  padding: 0; margin: 0; border: 0; background: none;
+  cursor: pointer; font: inherit; color: inherit;
+}
+.property-card--coming-soon button.property-card__cta { cursor: pointer; width: 100%; }
