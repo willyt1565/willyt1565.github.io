@@ -2333,10 +2333,11 @@ p:last-child { margin-bottom: 0; }
   transition: filter .25s ease, opacity .25s ease;
 }
 
+/* Stay grayed on hover/focus — unavailable homes never "light up". */
 .property-card--unavailable:hover .property-card__media img,
 .property-card--unavailable:focus-within .property-card__media img {
-  filter: grayscale(25%);
-  opacity: 0.9;
+  filter: grayscale(65%);
+  opacity: 0.72;
 }
 
 .property-card--unavailable .property-card__rent,
@@ -2438,8 +2439,8 @@ p:last-child { margin-bottom: 0; }
 }
 .card-slide.is-in { opacity: 1; }
 .property-card:hover .card-slide { transform: scale(1.05); }
-.property-card--unavailable .card-slide { filter: grayscale(25%); }
-.property-card--unavailable .card-slide.is-in { opacity: .9; }
+.property-card--unavailable .card-slide { filter: grayscale(65%); }
+.property-card--unavailable .card-slide.is-in { opacity: .72; }
 
 .card-slides-dots {
   position: absolute;
