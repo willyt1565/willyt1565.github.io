@@ -2529,3 +2529,19 @@ p:last-child { margin-bottom: 0; }
   cursor: pointer; font: inherit; color: inherit;
 }
 .property-card--coming-soon button.property-card__cta { cursor: pointer; width: 100%; }
+
+/* Coming-soon listings: heavy gray veil (~75%) over the photo. Badge stays on top. */
+.property-card--coming-soon .property-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(55, 65, 81, 0.75);
+  pointer-events: none;
+  z-index: 1;
+}
+.property-card--coming-soon .property-card__media img,
+.property-card--coming-soon:hover .property-card__media img,
+.property-card--coming-soon:focus-within .property-card__media img {
+  filter: grayscale(100%);
+  opacity: 1;
+}
