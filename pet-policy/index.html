@@ -170,12 +170,14 @@
       .pp-type, .pp-card, .pp-rules li, .pp-step__num, .pp-ico { transition: none; }
       .pp-type:hover, .pp-card:hover, .pp-rules li:hover, .pp-steps li:hover .pp-step__num { transform: none; }
     }
-    .pp-why__grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-    .pp-why__item { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
-    .pp-why__item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-    .pp-why__item:hover .pp-ico { background: var(--color-teal); color: #fff; }
-    .pp-why__item h3 { font-size: var(--fs-md); margin: var(--space-4) 0 var(--space-2); color: var(--color-ink); }
-    .pp-why__item p { margin: 0; font-size: var(--fs-sm); color: var(--color-slate-soft); line-height: 1.6; }
+    .pp-why { padding-block: var(--space-7); background: var(--color-offwhite, #F8FAFC); border-block: 1px solid var(--color-border); }
+    .pp-why__title { text-align: center; font-size: clamp(1.25rem, 2.2vw, 1.6rem); margin: 0 0 var(--space-5); color: var(--color-navy); }
+    .pp-why__grid { display: grid; gap: var(--space-3) var(--space-6); grid-template-columns: 1fr; max-width: 1000px; margin: 0 auto; }
+    @media (min-width: 860px) { .pp-why__grid { grid-template-columns: repeat(3, 1fr); } }
+    .pp-why__item { display: flex; gap: var(--space-3); align-items: center; }
+    .pp-why__item .pp-ico { width: 38px; height: 38px; } .pp-why__item .pp-ico svg { width: 19px; height: 19px; }
+    .pp-why__item p { margin: 0; font-size: var(--fs-sm); color: var(--color-slate); line-height: 1.5; }
+    .pp-why__item strong { color: var(--color-ink); }
     .pp-legal { max-width: 820px; margin: var(--space-8) auto 0; text-align: center; font-size: var(--fs-xs); color: var(--color-slate-soft); line-height: 1.6; }
   </style>
 
@@ -375,34 +377,22 @@
     </section>
 
     <!-- WHY THIS POLICY -->
-    <section class="section section--offwhite pp-why" aria-labelledby="why-title">
+    <section class="pp-why" aria-labelledby="why-title">
       <div class="container pp-wrap">
-        <div class="section__header">
-          <span class="eyebrow">Why We Use PetScreening</span>
-          <h2 id="why-title">A Policy That Works for Residents, Too</h2>
-          <p>This process is designed to be fair, simple and transparent, and it benefits pet owners and non-pet owners alike.</p>
-        </div>
+        <h2 id="why-title" class="pp-why__title">A Policy That Works for Residents, Too</h2>
         <div class="pp-why__grid">
-          <article class="pp-why__item" data-reveal="up">
+          <div class="pp-why__item" data-reveal="up">
             <span class="pp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 7h14M7 7l-3 7a3 3 0 0 0 6 0Zm10 0-3 7a3 3 0 0 0 6 0Z"/></svg></span>
-            <h3>The same standard for everyone</h3>
-            <p>Every household follows one process, so each request is reviewed fairly and consistently.</p>
-          </article>
-          <article class="pp-why__item" data-reveal="up">
+            <p><strong>Fair for everyone.</strong> One process, applied the same way to every household.</p>
+          </div>
+          <div class="pp-why__item" data-reveal="up">
             <span class="pp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 15 8.5l7 .9-5.1 4.8 1.3 6.9L12 17.8 5.8 21.1l1.3-6.9L2 9.4l7-.9Z"/></svg></span>
-            <h3>Responsible owners are rewarded</h3>
-            <p>Pets with a higher FIDO Score qualify for a lower monthly pet fee, so good records and well-cared-for pets pay off.</p>
-          </article>
-          <article class="pp-why__item" data-reveal="up">
+            <p><strong>Rewards responsible owners.</strong> A higher FIDO Score means a lower monthly pet fee.</p>
+          </div>
+          <div class="pp-why__item" data-reveal="up">
             <span class="pp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg></span>
-            <h3>More homes can welcome pets</h3>
-            <p>Clear records give property owners the confidence to keep their homes pet-friendly for current and future residents.</p>
-          </article>
-          <article class="pp-why__item" data-reveal="up">
-            <span class="pp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
-            <h3>No cost unless you have a pet</h3>
-            <p>No-pet and assistance animal profiles are always free. A fee applies only to household pet profiles.</p>
-          </article>
+            <p><strong>Keeps homes pet-friendly.</strong> Clear records help owners keep welcoming pets.</p>
+          </div>
         </div>
       </div>
     </section>
