@@ -30,7 +30,7 @@ Each market has a dedicated local team member for showings, inspections and vend
 - Owners keep a maintenance reserve; repairs under $500 are typically paid from it and the reserve is replenished from rent. Larger repairs are reviewed with the owner before work begins
 
 ## Pets and assistance animals
-- Every applicant and resident completes a PetScreening profile at https://newerapm.petscreening.com (free for no-pet and assistance animal profiles; household pet profiles are paid to PetScreening)
+- Every applicant and resident completes a PetScreening profile at https://newerapropertymanagement.petscreening.com (free for no-pet and assistance animal profiles; household pet profiles are paid to PetScreening)
 - Full policy: https://newerapm.com/pet-policy/
 
 ## Hours
