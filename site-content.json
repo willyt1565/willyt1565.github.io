@@ -1,5 +1,5 @@
 {
-  "_comment": "NEWERA PROPERTY MANAGEMENT — SITE CONTENT CONFIG. This file is the single source of truth for all editable content, colors, links, and toggles across the website. Mary Ann (designer) edits this JSON file and the site content updates throughout the codebase. See Section 8 of the project spec and the README for the edit-and-rebuild workflow.",
+  "_comment": "NEWERA PROPERTY MANAGEMENT, SITE CONTENT CONFIG. This file is the single source of truth for all editable content, colors, links, and toggles across the website. Mary Ann (designer) edits this JSON file and the site content updates throughout the codebase. See Section 8 of the project spec and the README for the edit-and-rebuild workflow.",
 
   "global": {
     "businessName": "Newera Property Management",
@@ -59,7 +59,7 @@
     },
     "hero": {
       "headline": "Modern Property Management for Houston Investors.",
-      "subheadline": "We manage your single-family and small multifamily properties with the transparency, technology, and investor focus you deserve — whether you're across town or across the country.",
+      "subheadline": "We manage your single-family and small multifamily properties with the transparency, technology, and investor focus you deserve, whether you're across town or across the country.",
       "primaryCta": { "label": "Get a Free Rental Analysis", "href": "/contact.html?form=rental-analysis" },
       "secondaryCta": { "label": "See How We Work", "href": "/services.html" },
       "backgroundImage": "images/hero/houston-home.jpg"
@@ -72,30 +72,30 @@
     ],
     "services": {
       "headline": "Everything Your Investment Needs",
-      "subheadline": "Four pillars of professional property management — covering every stage of ownership from first listing to long-term asset protection.",
+      "subheadline": "Four pillars of professional property management, covering every stage of ownership from first listing to long-term asset protection.",
       "cards": [
         {
           "icon": "key",
           "title": "Marketing, Leasing & Tenant Screening",
-          "description": "We list your property across all major rental platforms, conduct professional showings, and rigorously screen every applicant — credit, criminal, employment, and rental history — to place long-term, qualified residents fast.",
+          "description": "We list your property across all major rental platforms, conduct professional showings, and rigorously screen every applicant (credit, criminal, employment, and rental history) to place long-term, qualified residents fast.",
           "href": "/services.html#leasing"
         },
         {
           "icon": "dollar",
           "title": "Rent Collection & Owner Reporting",
-          "description": "Rent arrives in your account on time through secure online payments. Monthly owner statements, real-time income tracking, and year-end tax documents — all available 24/7 in your owner portal.",
+          "description": "Rent arrives in your account on time through secure online payments. Monthly owner statements, real-time income tracking, and year-end tax documents, all available 24/7 in your owner portal.",
           "href": "/services.html#reporting"
         },
         {
           "icon": "wrench",
           "title": "Maintenance & Vendor Management",
-          "description": "Every repair handled by vetted, licensed vendors. Residents submit requests online, work orders are tracked live, and every job is photo-documented — so you always know what was done and why.",
+          "description": "Every repair handled by vetted, licensed vendors. Residents submit requests online, work orders are tracked live, and every job is photo-documented, so you always know what was done and why.",
           "href": "/services.html#maintenance"
         },
         {
           "icon": "clipboard",
           "title": "Inspections & Property Oversight",
-          "description": "Move-in, mid-lease, and move-out inspections — all with full photo documentation uploaded to your portal. We catch issues early to protect your property's long-term value.",
+          "description": "Move-in, mid-lease, and move-out inspections, all with full photo documentation uploaded to your portal. We catch issues early to protect your property's long-term value.",
           "href": "/services.html#inspections"
         }
       ],
@@ -104,16 +104,16 @@
     "about": {
       "headline": "A New Era of Property Management in Houston",
       "paragraphs": [
-        "Newera Property Management wasn't born in a corporate office — it was born from frustration. Our founders have spent years in the trenches: buying distressed properties, renovating them, managing rehabilitation timelines and contractor relationships, and learning what it takes to keep a property profitable and well-maintained. As our fix-and-flip portfolio grew into rental holdings, we realized that most property management companies don't think the way investors think. They treat properties like files, not assets. They optimize for their commission, not your long-term wealth. So we built Newera as the property management company we wished existed when we started out.",
-        "Because we own and actively manage properties ourselves, we bring something most traditional property managers lack: real investor perspective. We understand renovation economics. We know which repairs protect property value and which ones are unnecessary. We recognize that responsive maintenance isn't an expense — it's an investment in asset protection. Every decision we make is informed by our own property holdings. We don't just manage your investments; we manage them the way we'd manage our own.",
-        "Today, Newera combines our decade of hands-on real estate experience with modern property management technology. We're a licensed Texas broker focused exclusively on Houston single-family and small multifamily properties — the same properties we invest in ourselves. That alignment means your success is our success."
+        "Newera Property Management wasn't born in a corporate office. It was born from frustration. Our founders have spent years in the trenches: buying distressed properties, renovating them, managing rehabilitation timelines and contractor relationships, and learning what it takes to keep a property profitable and well-maintained. As our fix-and-flip portfolio grew into rental holdings, we realized that most property management companies don't think the way investors think. They treat properties like files, not assets. They optimize for their commission, not your long-term wealth. So we built Newera as the property management company we wished existed when we started out.",
+        "Because we own and actively manage properties ourselves, we bring something most traditional property managers lack: real investor perspective. We understand renovation economics. We know which repairs protect property value and which ones are unnecessary. We recognize that responsive maintenance isn't an expense. It's an investment in asset protection. Every decision we make is informed by our own property holdings. We don't just manage your investments; we manage them the way we'd manage our own.",
+        "Today, Newera combines our decade of hands-on real estate experience with modern property management technology. We're a licensed Texas broker focused exclusively on Houston single-family and small multifamily properties, the same properties we invest in ourselves. That alignment means your success is our success."
       ],
       "cta": { "label": "Learn More About Us", "href": "/about.html" },
       "differentiators": [
         {
           "icon": "device",
           "title": "Anywhere, Anytime Access",
-          "description": "Check your property's performance anytime, from anywhere. Our secure online owner portal gives you real-time access to rent payments, maintenance updates, inspection reports, financial statements, and property photos — all from your phone or laptop."
+          "description": "Check your property's performance anytime, from anywhere. Our secure online owner portal gives you real-time access to rent payments, maintenance updates, inspection reports, financial statements, and property photos, all from your phone or laptop."
         },
         {
           "icon": "headset",
@@ -142,7 +142,7 @@
     },
     "trustStrip": {
       "headline": "Why Investors Choose Newera",
-      "subheadline": "We're new — and that's the point. Newera was built from the ground up around the things traditional property managers get wrong.",
+      "subheadline": "We're new, and that's the point. Newera was built from the ground up around the things traditional property managers get wrong.",
       "cards": [
         {
           "icon": "shield",
@@ -152,7 +152,7 @@
         {
           "icon": "device",
           "title": "Modern, Transparent Technology",
-          "description": "Owners and residents get 24/7 portal access to statements, work orders, and photo-documented reports — no chasing updates, no guessing what's happening at your property."
+          "description": "Owners and residents get 24/7 portal access to statements, work orders, and photo-documented reports. No chasing updates, no guessing what's happening at your property."
         },
         {
           "icon": "growth",
@@ -169,7 +169,7 @@
     "residentCta": {
       "headline": "Currently Renting With Us?",
       "cardTitle": "Resident Portal",
-      "cardSubtext": "Pay rent, submit maintenance requests, and manage your lease — all in one place.",
+      "cardSubtext": "Pay rent, submit maintenance requests, and manage your lease, all in one place.",
       "buttonLabel": "Resident Portal Login"
     },
     "blogPreview": {

@@ -105,3 +105,96 @@
 .final-cta__phone svg { width: 18px; height: 18px; flex: none; }
 .loc-section .section__header { max-width: 900px; }
 .loc-section .section__header p { margin-inline: auto; }
+
+/* =============================================================================
+   PHOTO HERO (location pages)
+   Full-bleed aerial photos with a navy gradient, a slow crossfade between two
+   aerials, a gentle zoom, and light parallax (js/location-hero.js).
+   Layering inside .page-banner (isolation: isolate):
+     -3 photos | -2 gradient shade | -1 existing radial accent (::before)
+   ============================================================================= */
+.loc-hero--photo {
+  min-height: clamp(560px, 84vh, 820px);
+  display: flex;
+  align-items: center;
+  padding-block: clamp(72px, 8vw, 104px) clamp(104px, 10vw, 136px);
+  background: #0B1F4A;
+}
+.loc-hero--photo::before { opacity: .7; }
+.loc-hero--photo > .container { width: 100%; }
+
+.loc-hero__media {
+  position: absolute; left: 0; right: 0; top: -6%; height: 112%;
+  z-index: -3; overflow: hidden; will-change: transform;
+}
+.loc-hero__slide {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 60%;
+  opacity: 0; transform: scale(1.1);
+  transition: opacity 1.8s var(--ease-out), transform 14s linear;
+}
+.loc-hero__slide.is-active { opacity: 1; transform: scale(1); }
+
+.loc-hero__shade {
+  position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(11,31,74,.78) 0%, rgba(22,43,101,.62) 45%, rgba(11,31,74,.92) 100%);
+}
+@media (min-width: 960px) {
+  .loc-hero__shade {
+    background:
+      linear-gradient(90deg, rgba(11,31,74,.94) 0%, rgba(22,43,101,.80) 34%, rgba(22,43,101,.38) 66%, rgba(11,31,74,.18) 100%),
+      linear-gradient(0deg, rgba(11,31,74,.80) 0%, rgba(11,31,74,0) 38%),
+      linear-gradient(180deg, rgba(11,31,74,.45) 0%, rgba(11,31,74,0) 26%);
+  }
+}
+
+/* Text sits left on desktop so the photo can breathe on the right */
+.loc-hero--photo h1 { white-space: normal; font-size: clamp(2.1rem, 4.4vw, 3.75rem); line-height: 1.06; letter-spacing: -.01em; text-shadow: 0 2px 24px rgba(0,0,0,.25); }
+.loc-hero__city { display: block; background: linear-gradient(90deg, #FFFFFF 0%, #7DD3FC 55%, var(--color-teal) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.loc-hero--photo .loc-hero__lead { color: rgba(255,255,255,.9); }
+.loc-hero__eyebrow-pin { display: inline-block; }
+.loc-hero__eyebrow-pin svg { display: inline-block; vertical-align: -2px; margin-right: 8px; width: 16px; height: 16px; animation: loc-bob 3.2s ease-in-out infinite; }
+@keyframes loc-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+.loc-hero--photo .loc-hero__chips li { background: rgba(11,31,74,.35); border-color: rgba(255,255,255,.22); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+
+@media (min-width: 960px) {
+  .loc-hero--photo .page-banner__content { text-align: left; margin-inline: 0; max-width: 740px; }
+  .loc-hero--photo .breadcrumbs,
+  .loc-hero--photo .loc-hero__ctas,
+  .loc-hero--photo .loc-hero__chips { justify-content: flex-start; }
+  .loc-hero--photo .loc-hero__lead { margin-left: 0; }
+}
+
+/* Bottom strip: coordinates | slide progress | photo note */
+.loc-hero__meta {
+  position: absolute; left: 0; right: 0; bottom: clamp(18px, 3vw, 32px);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+  color: rgba(255,255,255,.7); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+}
+.loc-hero__meta .container { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); width: 100%; }
+.loc-hero__coords { display: inline-flex; align-items: center; gap: 10px; font-variant-numeric: tabular-nums; }
+.loc-hero__coords::before { content: ""; width: 28px; height: 1px; background: rgba(255,255,255,.5); }
+.loc-hero__bars { display: inline-flex; gap: 6px; }
+.loc-hero__bars i { position: relative; display: block; width: 34px; height: 2px; background: rgba(255,255,255,.25); overflow: hidden; border-radius: 2px; }
+.loc-hero__bars i::after { content: ""; position: absolute; inset: 0; background: var(--color-teal); transform: scaleX(0); transform-origin: left; }
+.loc-hero__bars i.is-active::after { animation: loc-fill var(--loc-interval, 7s) linear forwards; }
+.loc-hero__bars i.is-done::after { transform: scaleX(1); }
+@keyframes loc-fill { to { transform: scaleX(1); } }
+.loc-hero--photo .loc-hero__credit { margin: 0; line-height: 1.5; text-transform: none; letter-spacing: .02em; font-size: 11px; color: rgba(255,255,255,.55); text-align: right; max-width: 52ch; }
+@media (max-width: 639px) { .loc-hero--photo .loc-hero__credit, .loc-hero__coords::before { display: none; } .loc-hero__meta .container { justify-content: center; gap: var(--space-5); } }
+
+/* Scroll cue: a thin line with a travelling highlight */
+.loc-hero__cue { position: absolute; left: 50%; bottom: clamp(56px, 7vw, 76px); width: 1px; height: 44px; background: rgba(255,255,255,.22); overflow: hidden; transform: translateX(-50%); }
+.loc-hero__cue::after { content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: #fff; animation: loc-cue 2.4s var(--ease-out) infinite; }
+@keyframes loc-cue { to { top: 100%; } }
+@media (max-width: 959px), (max-height: 700px) { .loc-hero__cue { display: none; } }
+
+/* Price figure on the pricing card counts up (scroll-effects.js [data-count]) */
+.loc-price [data-count] { display: inline-block; min-width: 1.6em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .loc-hero__slide { transition: opacity .01s; transform: none !important; }
+  .loc-hero__eyebrow-pin svg, .loc-hero__cue::after, .loc-hero__bars i.is-active::after { animation: none; }
+  .loc-hero__media { will-change: auto; }
+}
