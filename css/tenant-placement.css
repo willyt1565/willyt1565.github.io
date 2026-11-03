@@ -274,3 +274,9 @@
 }
 @keyframes tpAdvIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .tp-reduce .tp-adv__panel, .tp-reduce .tp-adv__inner, .tp-reduce .tp-adv__chev { transition: none !important; animation: none !important; }
+
+/* Syndication platforms (More renters see your home) */
+.tp-platforms { margin-top: var(--space-4); }
+.tp-platforms__title { margin: 0 0 var(--space-2); font-size: var(--fs-sm); font-weight: 700; color: var(--color-ink); }
+.tp-platforms__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.tp-platforms__list li { padding: 6px 12px; border: 1px solid var(--color-border); border-radius: var(--radius-pill); background: var(--color-offwhite); color: var(--color-navy); font-size: var(--fs-sm); font-weight: 600; line-height: 1.2; }
