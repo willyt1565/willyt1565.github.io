@@ -24,7 +24,7 @@
       }
     },
     "hoursBusiness": "Mon–Fri 9 AM–5 PM Central",
-    "hoursEmergency": "24/7 Emergency Line",
+    "hoursEmergency": "Urgent requests: call your local team or use the resident portal",
     "trecLicense": "#9016567-BB",
     "yearFounded": "2026",
     "ownerPortalUrl": "https://newerapm.managebuilding.com/manager",
@@ -66,7 +66,7 @@
     },
     "trustStats": [
       { "icon": "shield", "primary": "Licensed", "description": "Texas Real Estate Broker License #9016567-BB" },
-      { "icon": "phone", "primary": "24/7", "description": "Emergency Maintenance Response for Residents" },
+      { "icon": "portal", "primary": "24/7", "description": "Online Portal Access for Owners & Residents" },
       { "icon": "chart", "primary": "100%", "description": "Transparent Reporting & Real-Time Portal Access" },
       { "icon": "house", "primary": "Houston-Focused", "description": "Single-Family + Small Multifamily Experts" }
     ],
@@ -118,7 +118,7 @@
         {
           "icon": "headset",
           "title": "Responsive, Real Human Support",
-          "description": "When you call Newera, a real person answers. Our dedicated support team is available by phone during business hours, with 24/7 emergency line for critical maintenance issues."
+          "description": "When you call Newera, a real person answers. Our dedicated support team is available by phone during business hours, with urgent maintenance prioritized and dispatched quickly."
         },
         {
           "icon": "camera",

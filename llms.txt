@@ -1,12 +1,11 @@
 # Newera Property Management
 
-> Licensed Texas property management company for single-family homes and multifamily rentals in San Antonio and Houston. Founded and run by real estate investors. Management fee: 8% of monthly rent, with portfolio discounts down to 6%. No markup on vendor invoices.
+> Licensed Texas property management company for single-family homes and multifamily rentals in San Antonio and Houston. Founded and run by real estate investors. Fees are quoted during a free consultation. Online owner and resident portals. No markup on vendor invoices.
 
 ## What we do
 - Marketing, leasing and tenant screening (criteria published at https://newerapm.com/qualification-criteria/)
 - Online rent collection and monthly owner reporting; owner payouts on a monthly schedule, typically by the 10th once rent has been collected and cleared
 - Maintenance and vendor management, prioritized by urgency: emergencies typically dispatched within the hour, urgent items the same day, routine items within a few business days
-- 24/7 emergency line answered by a real person, not a call center
 - Property inspections every 6 months, documented with photos in the owner portal
 - Tenant placement (leasing-only service) for self-managing landlords in Houston and San Antonio: help marketing the rental, screening applicants and preparing the lease, then the property is handed back to the owner. Owners can contact Newera to learn more about scope and pricing. Details: https://newerapm.com/tenant-placement/
 - Brokerage: buyer and seller representation
@@ -21,9 +20,10 @@ Each market has a dedicated local team member for showings, inspections and vend
 - Not limited to the areas listed; owners elsewhere near Houston or San Antonio can ask.
 
 ## Pricing
-- Management fee: 8% of monthly rent
-- Portfolio discounts: down to as little as 6% for owners with multiple properties
-- Leasing and renewal fees: quoted during a free consultation, based on the property
+- Management, leasing and renewal fees: quoted during a free consultation, based on the property
+- Portfolio discounts available for owners with multiple properties
+- Owner portal: rent payments, monthly statements, work orders, inspection photos and year-end tax documents
+- Resident portal: pay rent online and submit maintenance requests from any device
 - Tenant placement (leasing-only) fee: shared when owners contact Newera, based on the property and scope
 - Any other fees are spelled out in writing before the owner signs
 - No markup on vendor invoices. No administration fees. No hidden charges.
@@ -31,7 +31,7 @@ Each market has a dedicated local team member for showings, inspections and vend
 
 ## Hours
 Business hours: Monday-Friday, 9:00 AM-5:00 PM Central.
-Emergency maintenance: 24 hours a day, 7 days a week.
+Emergency maintenance: residents call their local Newera team or submit an urgent request through the resident portal. For immediate danger (gas, fire, flooding), call 911 first.
 
 ## Contact
 - Houston phone: (832) 558-2911
