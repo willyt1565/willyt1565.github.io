@@ -80,316 +80,122 @@
        (colors, spacing, typography) for visual consistency site-wide.
        ====================================================================== -->
   <style>
-    /* ---- Legal preface bar ------------------------------------------------ */
-    .qc-preface {
-      background: var(--color-offwhite);
-      border-top: 1px solid var(--color-border);
-      border-bottom: 1px solid var(--color-border);
-      padding-block: var(--space-6);
-    }
-    .qc-preface p {
-      max-width: 880px;
-      margin: 0 auto;
-      color: var(--color-slate);
-      font-size: var(--fs-sm);
-      line-height: var(--lh-loose);
-      text-align: center;
-    }
-    .qc-preface strong { color: var(--color-ink); }
+    /* =====================================================================
+       QUALIFICATION CRITERIA (page-scoped). Built on the global tokens in
+       /css/styles.css. One clean layer: no !important overrides.
+       ===================================================================== */
 
-    /* ---- Section header eyebrow rail ------------------------------------- */
-    .qc-rail {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      margin-bottom: var(--space-7);
-      padding-bottom: var(--space-4);
-      border-bottom: 1px solid var(--color-border);
-    }
-    .qc-rail__eyebrow {
-      font-family: var(--font-subhead);
-      font-weight: 700;
-      font-size: var(--fs-xs);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--color-teal);
-      white-space: nowrap;
-    }
-    .qc-rail__line {
-      flex: 1;
-      height: 1px;
-      background: var(--color-border);
-    }
+    /* ---- Page rhythm ---------------------------------------------------- */
+    main > .page-banner { padding-block: clamp(48px, 6vw, 80px); }
+    .qc-tight { padding-block: clamp(36px, 4.5vw, 56px); }
+    .final-cta { padding-block: clamp(48px, 6vw, 72px); }
 
-    /* ---- Criteria grid ---------------------------------------------------
-       Desktop (≥900px):   2-column grid — matches the printable flyer.
-                           Criminal Background card spans full width.
-       Tablet  (600-899):  2-column grid, same layout, tighter padding.
-       Mobile  (<600px):   single column stack.
-       -------------------------------------------------------------------- */
-    .qc-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-5);
-    }
-    @media (min-width: 600px) {
-      .qc-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+    /* ---- Section rail (eyebrow + hairline) ------------------------------- */
+    .qc-rail { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-5); }
+    .qc-rail__eyebrow { font-family: var(--font-subhead); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .18em; text-transform: uppercase; color: var(--color-teal-deep); white-space: nowrap; }
+    .qc-rail__line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--color-border), transparent); }
+
+    /* ---- Shared check / deny lists --------------------------------------- */
+    .qc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-2); }
+    .qc-list li { position: relative; padding-left: 28px; color: var(--color-slate); font-size: var(--fs-sm); line-height: 1.55; }
+    .qc-list li::before { content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 5px; background: rgba(14,165,233,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230284C7' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center / 11px no-repeat; }
+    .qc-list--deny li::before { background: rgba(220,38,38,.10) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B91C1C' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6 6 18'/%3E%3C/svg%3E") center / 10px no-repeat; }
+    @media (min-width: 760px) { .qc-list--two { grid-template-columns: 1fr 1fr; column-gap: var(--space-7); } }
+
+    /* ---- Before you apply ------------------------------------------------ */
+    .qc-before { position: relative; margin: 0 0 var(--space-6); padding: var(--space-5) var(--space-6); background: linear-gradient(135deg, #F3F8FE 0%, #FFFFFF 70%); border: 1px solid #D6E6F7; border-radius: var(--radius-lg); }
+    .qc-before__lead { max-width: none; margin: 0 0 var(--space-3); font-size: var(--fs-base); font-weight: 600; color: var(--color-ink); }
+    .qc-download { display: inline-flex; align-items: center; gap: 10px; margin-top: var(--space-4); padding: 8px 14px; font-size: var(--fs-sm); font-weight: 600; color: var(--color-navy); text-decoration: none; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-pill); transition: border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out); }
+    .qc-download:hover { color: var(--color-teal-deep); border-color: var(--color-teal); box-shadow: var(--shadow-sm); }
+    .qc-download svg { width: 18px; height: 18px; color: var(--color-teal-deep); }
+
+    /* ---- Criteria cards -------------------------------------------------- */
+    .qc-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); }
+    @media (min-width: 680px) { .qc-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1100px) {
+      .qc-grid { grid-template-columns: repeat(3, 1fr); grid-template-areas: "inc cre app" "inc cre ren" "crim crim crim"; }
+      .qc-a-inc { grid-area: inc; } .qc-a-cre { grid-area: cre; } .qc-a-app { grid-area: app; } .qc-a-ren { grid-area: ren; }
+      .qc-card--wide { grid-area: crim; }
     }
     .qc-card {
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
-      border-top: 4px solid var(--color-navy);
-      border-radius: var(--radius-md);
-      padding: var(--space-6);
-      box-shadow: var(--shadow-xs);
-      display: flex;
-      flex-direction: column;
-      transition: transform var(--dur-base) var(--ease-out),
-                  box-shadow var(--dur-base) var(--ease-out);
+      --accent: var(--color-navy);
+      position: relative; display: grid; grid-template-columns: 40px 1fr; column-gap: 14px; align-content: start;
+      background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6); box-shadow: var(--shadow-xs); overflow: hidden;
+      transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
     }
-    .qc-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    /* Accent variants — matches flyer color rhythm */
-    .qc-card--navy { border-top-color: var(--color-navy); }
-    .qc-card--teal { border-top-color: var(--color-teal); }
-    .qc-card--navy .qc-card__icon { background: var(--color-navy); color: var(--color-white); }
-    .qc-card--teal .qc-card__icon { background: var(--color-teal); color: var(--color-white); }
-    .qc-card--navy .qc-card__headline { color: var(--color-navy); }
-    .qc-card--teal .qc-card__headline { color: var(--color-teal); }
+    .qc-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 35%, transparent)); }
+    .qc-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 35%, var(--color-border)); }
+    .qc-card--navy { --accent: var(--color-navy); }
+    .qc-card--teal { --accent: var(--color-teal); }
+    .qc-card > * { grid-column: 1 / -1; }
+    .qc-card__icon { grid-column: 1; grid-row: 1 / span 2; align-self: center; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--accent); color: var(--color-white); box-shadow: 0 6px 14px -6px color-mix(in srgb, var(--accent) 70%, transparent); }
+    .qc-card__icon svg { width: 19px; height: 19px; }
+    .qc-card__label { grid-column: 2; margin: 0; font-family: var(--font-subhead); font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-slate-soft); }
+    .qc-card__headline { grid-column: 2; margin: 2px 0 0; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; line-height: 1.2; color: var(--accent); }
+    .qc-card > .qc-list { margin-top: var(--space-4); }
+    .qc-card__subhead { margin: var(--space-4) 0 var(--space-2); font-size: var(--fs-sm); font-weight: 700; color: var(--color-ink); }
+    .qc-card__body { margin: 0; color: var(--color-slate); font-size: var(--fs-sm); line-height: 1.6; }
+    .qc-card--wide { padding-block: var(--space-4); align-items: center; }
+    .qc-card--wide .qc-card__label { align-self: end; font-size: var(--fs-sm); letter-spacing: .02em; text-transform: none; color: var(--color-ink); }
+    .qc-card--wide .qc-card__body { grid-column: 2; }
 
-    .qc-card__icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-sm);
-      background: var(--color-navy);
-      color: var(--color-white);
-      margin-bottom: var(--space-5);
-    }
-    .qc-card__icon svg { width: 22px; height: 22px; }
-    .qc-card__label {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: var(--fs-base);
-      color: var(--color-ink);
-      margin: 0 0 var(--space-2);
-      letter-spacing: 0.01em;
-    }
-    .qc-card__headline {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: var(--fs-lg);
-      line-height: var(--lh-tight);
-      color: var(--color-navy);
-      margin: 0 0 var(--space-4);
-    }
-    .qc-card__body {
-      color: var(--color-slate);
-      font-size: var(--fs-sm);
-      line-height: var(--lh-loose);
-      margin: 0;
-    }
+    /* ---- Fees & insurance ------------------------------------------------ */
+    .qc-fees-wrap { display: grid; grid-template-columns: 1fr; gap: var(--space-4); max-width: 1100px; margin: 0 auto; }
+    @media (min-width: 960px) { .qc-fees-wrap { grid-template-columns: 1.15fr 1fr; align-items: stretch; } }
+    .qc-fees { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+    .qc-fee { position: relative; padding: var(--space-4); text-align: center; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+    .qc-fee:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .qc-fee__amount { display: block; margin-bottom: var(--space-2); font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; line-height: 1; background: linear-gradient(90deg, var(--color-navy), var(--color-teal-deep)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .qc-fee__amount small { font-size: .95rem; font-weight: 600; -webkit-text-fill-color: var(--color-slate-soft); }
+    .qc-fee h3 { margin: 0 0 4px; font-size: var(--fs-sm); color: var(--color-ink); }
+    .qc-fee p { margin: 0; font-size: var(--fs-xs); line-height: 1.5; color: var(--color-slate-soft); }
+    .qc-insure { padding: var(--space-5) var(--space-6); background: var(--color-white); border: 1px solid var(--color-border); border-left: 4px solid var(--color-teal); border-radius: var(--radius-lg); }
+    .qc-insure h3 { margin: 0 0 var(--space-2); font-size: var(--fs-md); color: var(--color-navy); }
+    .qc-insure > p { max-width: none; margin: 0 0 var(--space-3); font-size: var(--fs-sm); line-height: 1.6; color: var(--color-slate); }
+    .qc-ack { margin-top: var(--space-5); background: linear-gradient(135deg, #F3F8FE 0%, #FFFFFF 70%); border-left-color: var(--color-navy); }
+    .qc-ack > p { margin: 0; line-height: 1.65; }
+    .qc-ack a { font-weight: 600; }
 
-    /* Wide card — Criminal Background spans the full row */
-    .qc-card--wide {
-      grid-column: 1 / -1;
-      padding: var(--space-6) var(--space-7);
-    }
-    .qc-card--wide .qc-card__icon {
-      margin-bottom: var(--space-2);
-    }
-    .qc-card--wide .qc-card__label {
-      margin-top: calc(var(--space-2) * -1);
-    }
+    /* ---- Applicant rights ------------------------------------------------ */
+    .qc-policies { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-4); }
+    .qc-policy { position: relative; padding: var(--space-5) var(--space-5) var(--space-5) calc(var(--space-5) + 46px); background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+    .qc-policy__num { position: absolute; left: var(--space-5); top: var(--space-5); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: rgba(14,165,233,.12); color: var(--color-teal-deep); font-family: var(--font-display); font-weight: 800; font-size: var(--fs-sm); }
+    .qc-policy__title { margin: 6px 0 var(--space-2); font-family: var(--font-subhead); font-weight: 700; font-size: var(--fs-base); color: var(--color-ink); }
+    .qc-policy__body { margin: 0; font-size: var(--fs-sm); line-height: 1.6; color: var(--color-slate-soft); }
 
-    /* ---- Policy notes (bottom 3-up) ------------------------------------- */
-    .qc-policies {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: var(--space-6);
-    }
-    .qc-policy {
-      position: relative;
-      padding-left: var(--space-7);
-    }
-    .qc-policy__num {
-      position: absolute;
-      left: 0;
-      top: -4px;
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 2rem;
-      font-style: italic;
-      color: var(--color-teal);
-      line-height: 1;
-    }
-    .qc-policy__title {
-      font-family: var(--font-subhead);
-      font-weight: 600;
-      font-size: var(--fs-base);
-      color: var(--color-ink);
-      margin: 0 0 var(--space-3);
-    }
-    .qc-policy__body {
-      color: var(--color-slate-soft);
-      font-size: var(--fs-sm);
-      line-height: var(--lh-loose);
-      margin: 0;
-    }
-
-    /* ---- Equal Housing Opportunity band --------------------------------- */
-    .qc-eho {
-      background: var(--color-offwhite);
-      border-top: 3px solid var(--color-teal);
-      padding-block: var(--space-8);
-    }
-    .qc-eho__grid {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: var(--space-7);
-      align-items: center;
-    }
-    .qc-eho__badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 72px;
-      height: 72px;
-      border-radius: var(--radius-sm);
-      background: var(--color-navy);
-      color: var(--color-white);
-    }
-    .qc-eho__badge svg { width: 38px; height: 38px; }
-    .qc-eho__title {
-      font-family: var(--font-subhead);
-      font-weight: 700;
-      font-size: var(--fs-xs);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--color-navy);
-      margin: 0 0 var(--space-2);
-    }
-    .qc-eho__text {
-      color: var(--color-slate);
-      font-size: var(--fs-sm);
-      line-height: var(--lh-loose);
-      margin: 0;
-      max-width: 640px;
-    }
-    .qc-eho__brand {
-      text-align: right;
-      font-family: var(--font-subhead);
-      color: var(--color-slate);
-      font-size: var(--fs-sm);
-      line-height: var(--lh-snug);
-    }
-    .qc-eho__brand strong {
-      display: block;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: var(--fs-md);
-      color: var(--color-navy);
-      margin-bottom: var(--space-1);
-    }
-    .qc-eho__brand a {
-      color: var(--color-teal);
-      font-weight: 600;
-      text-decoration: none;
-    }
+    /* ---- Equal Housing band ---------------------------------------------- */
+    .qc-eho { padding-block: clamp(32px, 4vw, 48px); background: var(--color-offwhite); border-top: 1px solid var(--color-border); }
+    .qc-eho__grid { display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-6); align-items: center; }
+    .qc-eho__badge { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 14px; background: var(--color-navy); color: var(--color-white); }
+    .qc-eho__badge svg { width: 30px; height: 30px; }
+    .qc-eho__title { margin: 0 0 var(--space-2); font-family: var(--font-subhead); font-weight: 700; font-size: var(--fs-xs); letter-spacing: .18em; text-transform: uppercase; color: var(--color-navy); }
+    .qc-eho__text { max-width: 640px; margin: 0; font-size: var(--fs-sm); line-height: 1.65; color: var(--color-slate); }
+    .qc-eho__brand { text-align: right; font-family: var(--font-subhead); font-size: var(--fs-sm); line-height: var(--lh-snug); color: var(--color-slate); }
+    .qc-eho__brand strong { display: block; margin-bottom: var(--space-1); font-family: var(--font-display); font-size: var(--fs-md); color: var(--color-navy); }
+    .qc-eho__brand a { color: var(--color-teal-deep); font-weight: 600; text-decoration: none; }
     .qc-eho__brand a:hover { text-decoration: underline; }
-
     @media (max-width: 720px) {
-      .qc-eho__grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
+      .qc-eho__grid { grid-template-columns: 1fr; text-align: center; }
       .qc-eho__badge { justify-self: center; }
       .qc-eho__brand { text-align: center; }
     }
 
-    /* ---- Action row ----------------------------------------------------- */
-    .qc-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-4);
-      justify-content: center;
-      margin-top: var(--space-7);
+    /* ---- Accessibility --------------------------------------------------- */
+    .qc-download:focus-visible, .qc-ack a:focus-visible, .qc-eho__brand a:focus-visible { outline: 2px solid var(--color-teal); outline-offset: 3px; border-radius: 6px; }
+    @media (prefers-reduced-motion: reduce) {
+      .qc-card, .qc-fee, .qc-download { transition: none; }
+      .qc-card:hover, .qc-fee:hover { transform: none; }
     }
-    .qc-actions .btn { min-width: 240px; }
 
-    /* Print styles — preserve flyer-like appearance when exported to PDF */
+    /* ---- Print: clean, flyer-like ---------------------------------------- */
     @media print {
-      .site-header, .site-footer, .qc-actions, .final-cta { display: none !important; }
-      .qc-card:hover { transform: none; box-shadow: var(--shadow-xs); }
-      .page-banner, .qc-preface, .qc-eho { background: transparent !important; }
+      .site-header, .ft, .final-cta, .mobile-nav { display: none !important; }
+      .page-banner { background: none; color: var(--color-ink); padding-block: 0 16px; }
+      .page-banner h1, .page-banner p { color: var(--color-ink); }
+      .qc-card, .qc-fee, .qc-insure, .qc-policy { box-shadow: none; break-inside: avoid; }
+      .qc-card:hover, .qc-fee:hover { transform: none; }
     }
-    .qc-before { max-width: 1000px; margin: 0 auto; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: clamp(var(--space-5), 3vw, var(--space-7)); }
-    .qc-before__lead { font-size: var(--fs-md); color: var(--color-ink); font-weight: 600; margin: 0 0 var(--space-5); max-width: none; }
-    .qc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
-    .qc-list li { position: relative; padding-left: 28px; color: var(--color-slate); line-height: 1.55; font-size: var(--fs-sm); }
-    .qc-list li::before { content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 5px; background: rgba(14,165,233,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230284C7' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center / 11px no-repeat; }
-    .qc-list--deny li::before { background: rgba(220,38,38,.10) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B91C1C' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6 6 18'/%3E%3C/svg%3E") center / 10px no-repeat; }
-    @media (min-width: 760px) { .qc-list--two { grid-template-columns: 1fr 1fr; column-gap: var(--space-7); } }
-    .qc-card__subhead { margin: var(--space-5) 0 var(--space-3); font-weight: 700; color: var(--color-ink); font-size: var(--fs-sm); }
-    .qc-download { display: inline-flex; align-items: center; gap: 10px; margin-top: var(--space-6); font-weight: 600; color: var(--color-navy); text-decoration: none; border-bottom: 2px solid rgba(14,165,233,.4); padding-bottom: 2px; }
-    .qc-download:hover { color: var(--color-teal-deep); border-color: var(--color-teal); }
-    .qc-download svg { width: 20px; height: 20px; color: var(--color-teal-deep); }
-    .qc-fees { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 1100px; margin: 0 auto var(--space-6); }
-    .qc-fee { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); text-align: center; }
-    .qc-fee__amount { display: block; font-family: var(--font-display); font-size: 2.25rem; font-weight: 800; line-height: 1; color: var(--color-navy); margin-bottom: var(--space-3); }
-    .qc-fee__amount small { font-size: 1rem; font-weight: 600; color: var(--color-slate-soft); }
-    .qc-fee h3 { font-size: var(--fs-md); margin: 0 0 var(--space-2); color: var(--color-ink); }
-    .qc-fee p { margin: 0; font-size: var(--fs-sm); color: var(--color-slate-soft); line-height: 1.55; }
-    .qc-insure { max-width: 1100px; margin: 0 auto; background: var(--color-offwhite); border: 1px solid var(--color-border); border-left: 4px solid var(--color-teal); border-radius: var(--radius-lg); padding: var(--space-6) var(--space-7); }
-    .qc-ack { margin-top: var(--space-7); }
-    .qc-ack p, .qc-insure > p { margin: 0 0 var(--space-4); line-height: 1.65; max-width: none; }
-    .qc-ack p { margin: 0 !important; }
-    .qc-insure h3 { margin: 0 0 var(--space-2); font-size: var(--fs-md); color: var(--color-navy); }
-    .qc-insure > p { margin: 0 0 var(--space-4); color: var(--color-slate); font-size: var(--fs-sm); }
-    /* ---- Compact layout overrides ---- */
-    .qc-tight { padding-block: clamp(36px, 4.5vw, 56px); }
-    .qc-tight .qc-rail { margin-bottom: var(--space-5); }
-    .qc-preface p { padding-block: var(--space-3); }
-    .qc-before { max-width: none; margin: 0 0 var(--space-6); padding: var(--space-5) var(--space-6); background: var(--color-offwhite); }
-    .qc-before__lead { font-size: var(--fs-base); margin-bottom: var(--space-3); }
-    .qc-before .qc-list { gap: var(--space-2); }
-    .qc-download { margin-top: var(--space-4); font-size: var(--fs-sm); }
-    .qc-grid { gap: var(--space-4); }
-    .qc-card { padding: var(--space-5) var(--space-6) !important; }
-    .qc-card__icon { width: 36px !important; height: 36px !important; margin-bottom: var(--space-2) !important; }
-    .qc-card__icon svg { width: 18px; height: 18px; }
-    .qc-card__headline { margin-bottom: var(--space-3) !important; }
-    .qc-card .qc-list { gap: var(--space-2); }
-    .qc-card__subhead { margin: var(--space-4) 0 var(--space-2); }
-    .qc-card--wide { padding: var(--space-4) var(--space-6) !important; display: grid; grid-template-columns: auto 1fr; column-gap: var(--space-4); align-items: center; }
-    .qc-card--wide .qc-card__icon { grid-row: span 2; margin: 0 !important; }
-    .qc-card--wide .qc-card__label { margin: 0 !important; }
-    .qc-card--wide .qc-card__body { margin: 0; }
-    .qc-fees-wrap { display: grid; gap: var(--space-4); grid-template-columns: 1fr; max-width: 1100px; margin: 0 auto; }
-    @media (min-width: 960px) { .qc-fees-wrap { grid-template-columns: 1.15fr 1fr; align-items: stretch; } }
-    .qc-fees { grid-template-columns: repeat(2, 1fr) !important; gap: var(--space-3) !important; margin: 0 !important; }
-    .qc-fee { padding: var(--space-4) !important; }
-    .qc-fee__amount { font-size: 1.75rem !important; margin-bottom: var(--space-2) !important; }
-    .qc-fee h3 { font-size: var(--fs-sm) !important; margin-bottom: 4px !important; }
-    .qc-fee p { font-size: var(--fs-xs) !important; }
-    .qc-insure { padding: var(--space-5) var(--space-6) !important; background: var(--color-white) !important; }
-    .qc-insure .qc-list { gap: var(--space-2); }
-    .qc-ack { margin-top: var(--space-5) !important; }
-    .qc-policies { gap: var(--space-5) !important; }
-    .qc-actions { margin-top: var(--space-6) !important; }
-    .qc-eho { padding-block: clamp(32px, 4vw, 48px) !important; }
-    .qc-banner-tight { }
-    main > .page-banner { padding-block: clamp(48px, 6vw, 80px) !important; }
-    @media (min-width: 1100px) {
-      .qc-grid { grid-template-columns: repeat(3, 1fr) !important; grid-template-areas: "inc cre app" "inc cre ren" "crim crim crim"; }
-      .qc-a-inc { grid-area: inc; } .qc-a-cre { grid-area: cre; } .qc-a-app { grid-area: app; } .qc-a-ren { grid-area: ren; }
-      .qc-card--wide { grid-area: crim; }
-    }
-    .final-cta { padding-block: clamp(48px, 6vw, 72px) !important; }
   </style>
 
   <!-- Analytics --------------------------------------------------- -->
@@ -539,7 +345,7 @@
             <span class="breadcrumbs__sep" aria-hidden="true">›</span>
             <span aria-current="page">Qualification Criteria</span>
           </nav>
-          <span class="eyebrow page-banner__eyebrow">All criteria applied uniformly to every applicant | San Antonio &amp; Houston, TX</span>
+          <span class="eyebrow page-banner__eyebrow">All criteria applied uniformly to every applicant</span>
           <h1 id="page-title">Resident Qualification Criteria</h1>
           <p>
             Please review our rental criteria before you apply. These standards are
