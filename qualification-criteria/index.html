@@ -21,7 +21,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>Resident Qualification Criteria | Newera Property Management | Houston &amp; San Antonio</title>
-  <meta name="description" content="Newera Property Management's resident qualification standards: income, credit, rental history, eviction, criminal background, employment, and application requirements. Applied uniformly to every applicant per Texas Property Code § 92.3515.">
+  <meta name="description" content="Newera Property Management's rental criteria for Houston and San Antonio homes: income (3x rent), credit (640+ TransUnion), rental history, criminal background, application and lease fees, Resident Benefits Package and renters insurance. Texas Property Code § 92.3515.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://newerapm.com/qualification-criteria/">
   <meta name="theme-color" content="#1E3A8A">
@@ -327,6 +327,29 @@
       .qc-card:hover { transform: none; box-shadow: var(--shadow-xs); }
       .page-banner, .qc-preface, .qc-eho { background: transparent !important; }
     }
+    .qc-before { max-width: 1000px; margin: 0 auto; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: clamp(var(--space-5), 3vw, var(--space-7)); }
+    .qc-before__lead { font-size: var(--fs-md); color: var(--color-ink); font-weight: 600; margin: 0 0 var(--space-5); max-width: none; }
+    .qc-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-3); }
+    .qc-list li { position: relative; padding-left: 28px; color: var(--color-slate); line-height: 1.55; font-size: var(--fs-sm); }
+    .qc-list li::before { content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 5px; background: rgba(14,165,233,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230284C7' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center / 11px no-repeat; }
+    .qc-list--deny li::before { background: rgba(220,38,38,.10) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B91C1C' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6 6 18'/%3E%3C/svg%3E") center / 10px no-repeat; }
+    @media (min-width: 760px) { .qc-list--two { grid-template-columns: 1fr 1fr; column-gap: var(--space-7); } }
+    .qc-card__subhead { margin: var(--space-5) 0 var(--space-3); font-weight: 700; color: var(--color-ink); font-size: var(--fs-sm); }
+    .qc-download { display: inline-flex; align-items: center; gap: 10px; margin-top: var(--space-6); font-weight: 600; color: var(--color-navy); text-decoration: none; border-bottom: 2px solid rgba(14,165,233,.4); padding-bottom: 2px; }
+    .qc-download:hover { color: var(--color-teal-deep); border-color: var(--color-teal); }
+    .qc-download svg { width: 20px; height: 20px; color: var(--color-teal-deep); }
+    .qc-fees { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 1100px; margin: 0 auto var(--space-6); }
+    .qc-fee { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); text-align: center; }
+    .qc-fee__amount { display: block; font-family: var(--font-display); font-size: 2.25rem; font-weight: 800; line-height: 1; color: var(--color-navy); margin-bottom: var(--space-3); }
+    .qc-fee__amount small { font-size: 1rem; font-weight: 600; color: var(--color-slate-soft); }
+    .qc-fee h3 { font-size: var(--fs-md); margin: 0 0 var(--space-2); color: var(--color-ink); }
+    .qc-fee p { margin: 0; font-size: var(--fs-sm); color: var(--color-slate-soft); line-height: 1.55; }
+    .qc-insure { max-width: 1100px; margin: 0 auto; background: var(--color-offwhite); border: 1px solid var(--color-border); border-left: 4px solid var(--color-teal); border-radius: var(--radius-lg); padding: var(--space-6) var(--space-7); }
+    .qc-ack { margin-top: var(--space-7); }
+    .qc-ack p, .qc-insure > p { margin: 0 0 var(--space-4); line-height: 1.65; max-width: none; }
+    .qc-ack p { margin: 0 !important; }
+    .qc-insure h3 { margin: 0 0 var(--space-2); font-size: var(--fs-md); color: var(--color-navy); }
+    .qc-insure > p { margin: 0 0 var(--space-4); color: var(--color-slate); font-size: var(--fs-sm); }
   </style>
 
   <!-- Analytics --------------------------------------------------- -->
@@ -479,10 +502,9 @@
           <span class="eyebrow page-banner__eyebrow">All criteria applied uniformly to every applicant | San Antonio &amp; Houston, TX</span>
           <h1 id="page-title">Resident Qualification Criteria</h1>
           <p>
-            Clear, consistent, and published in advance, so every applicant knows
-            exactly what we look for before they apply. These standards are the
-            same for everyone, and they meet every requirement of Texas Property
-            Code § 92.3515 and applicable fair housing law.
+            Please review our rental criteria before you apply. These standards are
+            published in advance and applied the same way to every applicant, as
+            required by Texas Property Code § 92.3515.
           </p>
         </div>
       </div>
@@ -504,9 +526,35 @@
 
 
     <!-- ===================================================================
-         QUALIFICATION STANDARDS — 8-card responsive grid
+         BEFORE YOU APPLY (from Newera Rental Criteria PDF)
          =================================================================== -->
-    <section class="section" aria-labelledby="standards-title">
+    <section class="section" aria-labelledby="before-title">
+      <div class="container">
+        <div class="qc-rail">
+          <span class="qc-rail__eyebrow" id="before-title">Before You Apply</span>
+          <span class="qc-rail__line" aria-hidden="true"></span>
+        </div>
+        <div class="qc-before">
+          <p class="qc-before__lead">We do not pre-screen applications. Please review the criteria below to confirm you meet the minimum requirements. If you do, you are encouraged to apply.</p>
+          <ul class="qc-list qc-list--two">
+            <li>Multiple applications may be accepted for the same property. The most qualified applicant will be selected.</li>
+            <li>Incomplete applications will not be considered.</li>
+            <li>If others will be applying with you, all applications must be submitted at the same time to be considered.</li>
+            <li>By submitting an application, you acknowledge that you have read and understand these criteria and policies.</li>
+          </ul>
+          <a class="qc-download" href="/assets/legal/newera-rental-criteria.pdf" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M12 12v6M9 15l3 3 3-3"/></svg>
+            Download the printable Rental Criteria (PDF)
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         QUALIFICATION STANDARDS
+         =================================================================== -->
+    <section class="section section--offwhite" aria-labelledby="standards-title">
       <div class="container">
 
         <div class="qc-rail">
@@ -516,140 +564,127 @@
 
         <div class="qc-grid">
 
-          <!-- 1. Income Requirement — left column, navy accent -->
+          <!-- Applicants -->
           <article class="qc-card qc-card--navy">
             <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="6" width="20" height="12" rx="2"/>
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M6 10v.01M18 14v.01"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
             </span>
-            <h3 class="qc-card__label">Income Requirement</h3>
-            <p class="qc-card__headline">3× Monthly Rent</p>
-            <p class="qc-card__body">
-              Gross monthly income must equal at least three times the monthly rent.
-              Acceptable documentation includes pay stubs (last 60 days), employer
-              verification letter, tax returns (self-employed), benefit award letters,
-              or bank statements showing consistent deposits.
-            </p>
+            <h3 class="qc-card__label">Applicants</h3>
+            <p class="qc-card__headline">Every Adult 18+ Applies</p>
+            <ul class="qc-list">
+              <li>Each person 18 or older who will live in the home must complete an online application.</li>
+              <li>Co-signers are not accepted. The financially responsible person must reside at the property.</li>
+              <li>A government-issued photo ID is required.</li>
+            </ul>
           </article>
 
-          <!-- 2. Credit History — right column, teal accent -->
+          <!-- Income -->
           <article class="qc-card qc-card--teal">
             <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="6" width="18" height="12" rx="2"/>
-                <path d="M3 10h18"/>
-                <path d="M7 15h3"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 10v.01M18 14v.01"/></svg>
             </span>
-            <h3 class="qc-card__label">Credit History</h3>
-            <p class="qc-card__headline">620+ Credit Score</p>
-            <p class="qc-card__body">
-              Minimum TransUnion / Equifax score of 620. Prior landlord debt,
-              outstanding collections, and recent bankruptcies are evaluated
-              individually as part of a comprehensive credit review, not as
-              automatic disqualifiers.
-            </p>
+            <h3 class="qc-card__label">Income</h3>
+            <p class="qc-card__headline">3× Monthly Rent</p>
+            <ul class="qc-list">
+              <li>One applicant must have gross monthly income of at least 3 times the monthly rent.</li>
+              <li>Up to two incomes may be combined, but together must equal at least 3.5 times the monthly rent. Combined income must come from people who will live in the home.</li>
+              <li>Income is verified through the employer's HR department or the prior month's pay stubs showing year-to-date totals, provided with the application.</li>
+              <li>25% of child support received is counted toward income.</li>
+              <li>Self-employed applicants must provide the 2 most recent years of tax returns, with no exceptions. The adjusted gross income (AGI) must meet the income requirement. Bank statements are used only together with tax returns.</li>
+              <li>Income that cannot be verified will not be considered.</li>
+            </ul>
           </article>
 
-          <!-- 3. Rental History — left column, navy accent -->
+          <!-- Credit -->
+          <article class="qc-card qc-card--teal">
+            <span class="qc-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg>
+            </span>
+            <h3 class="qc-card__label">Credit</h3>
+            <p class="qc-card__headline">640+ TransUnion Score</p>
+            <ul class="qc-list">
+              <li>We use TransUnion for credit scores and reporting. Scores from other sources, and reports supplied by applicants, are not accepted.</li>
+              <li>A credit score of 640 or higher is required. Exceptions are occasionally made for scores between 550 and 639, after a complete application has been reviewed.</li>
+              <li>The security deposit amount is scaled based on your credit score.</li>
+              <li>Bankruptcy status and age determine whether an application is approved with an increased deposit or denied.</li>
+            </ul>
+            <p class="qc-card__subhead">Applications will be denied for:</p>
+            <ul class="qc-list qc-list--deny">
+              <li>No credit score, or a report showing N/A</li>
+              <li>Any debt owed to the Attorney General's Office for back child support</li>
+              <li>An open federal tax lien</li>
+            </ul>
+          </article>
+
+          <!-- Rental history -->
           <article class="qc-card qc-card--navy">
             <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="5" width="18" height="16" rx="2"/>
-                <path d="M3 10h18M8 3v4M16 3v4"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
             </span>
             <h3 class="qc-card__label">Rental History</h3>
-            <p class="qc-card__headline">2 Landlord References</p>
-            <p class="qc-card__body">
-              Minimum two verifiable landlord references from the prior 5 years. We
-              verify on-time payment history, lease compliance, and property care.
-              First-time renters may substitute with additional income documentation
-              or a co-signer.
-            </p>
+            <p class="qc-card__headline">Clean Last 5 Years</p>
+            <ul class="qc-list">
+              <li>An eviction, broken lease, or judgment within the last 5 years results in automatic denial.</li>
+              <li>An eviction or balance owed to a previous landlord that is more than 5 years old may result in an increased deposit or denial.</li>
+              <li>Rental verifications from family members are not accepted.</li>
+              <li>Please provide correct contact information for each previous landlord.</li>
+            </ul>
           </article>
 
-          <!-- 4. Eviction History — right column, teal accent -->
-          <article class="qc-card qc-card--teal">
-            <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3 2 20h20L12 3Z"/>
-                <path d="M12 10v4M12 17h.01"/>
-              </svg>
-            </span>
-            <h3 class="qc-card__label">Eviction History</h3>
-            <p class="qc-card__headline">Individually Reviewed</p>
-            <p class="qc-card__body">
-              All prior eviction filings within the past 5 years are reviewed
-              individually. Judgments within 5 years are generally disqualifying;
-              older records and dismissed filings are evaluated in full context,
-              including written explanation from the applicant.
-            </p>
-          </article>
-
-          <!-- 5. Criminal Background — full-width feature card, teal accent -->
+          <!-- Criminal -->
           <article class="qc-card qc-card--teal qc-card--wide">
             <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
-                <path d="M9 12h6M12 9v6"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M9 12h6M12 9v6"/></svg>
             </span>
             <h3 class="qc-card__label">Criminal Background</h3>
-            <p class="qc-card__body">
-              Criminal history is screened at the county, state, and national level.
-              <strong>Per HUD 2024 guidance, Newera Property Management does not apply
-              blanket denial policies.</strong> Each applicant receives an individualized
-              assessment considering the nature and severity of the offense, time
-              elapsed, evidence of rehabilitation, and relevance to tenancy.
-              Applicants registered on the sex offender registry and those with
-              felony convictions for crimes involving harm to persons or property
-              within the past 7 years are generally ineligible. Applicants are
-              encouraged to provide a written explanation of any record.
-            </p>
+            <p class="qc-card__body">A criminal background check is run on every applicant. Felony convictions involving persons or property are cause for automatic rejection. Submitting an application authorizes Newera Property Management to perform a criminal background check.</p>
           </article>
 
-          <!-- 6. Employment Verification — left column, navy accent -->
-          <article class="qc-card qc-card--navy">
-            <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="7" width="18" height="13" rx="2"/>
-                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                <path d="M3 13h18"/>
-              </svg>
-            </span>
-            <h3 class="qc-card__label">Employment Verification</h3>
-            <p class="qc-card__headline">Current &amp; Stable</p>
-            <p class="qc-card__body">
-              Current employment or a verifiable income source required. Self-employed,
-              retired, military, and first responder applicants are welcome.
-              Alternative income documentation accepted. Gaps in employment are
-              evaluated with context.
-            </p>
-          </article>
+        </div>
+      </div>
+    </section>
 
-          <!-- 7. Application Requirements — right column, navy accent (closes the rhythm) -->
-          <article class="qc-card qc-card--navy">
-            <span class="qc-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
-                <path d="M14 2v6h6M9 13h6M9 17h4"/>
-              </svg>
-            </span>
-            <h3 class="qc-card__label">Application Requirements</h3>
-            <p class="qc-card__headline">Complete File Required</p>
-            <p class="qc-card__body">
-              All adults 18+ must submit a separate application. Government-issued
-              photo ID required. Application fee is non-refundable. If denied on any
-              criterion not disclosed here, applicant is entitled to a full refund
-              per TX § 92.3515. Written FCRA consent is required before any report
-              is pulled.
-            </p>
-          </article>
 
+    <!-- ===================================================================
+         FEES & MOVE-IN REQUIREMENTS
+         =================================================================== -->
+    <section class="section" aria-labelledby="fees-title">
+      <div class="container">
+        <div class="qc-rail">
+          <span class="qc-rail__eyebrow" id="fees-title">Fees &amp; Move-In Requirements</span>
+          <span class="qc-rail__line" aria-hidden="true"></span>
+        </div>
+        <div class="qc-fees">
+          <div class="qc-fee">
+            <span class="qc-fee__amount">$75</span>
+            <h3>Application fee</h3>
+            <p>Per adult applicant. Covers the credit and background check. Non-refundable.</p>
+          </div>
+          <div class="qc-fee">
+            <span class="qc-fee__amount">$75</span>
+            <h3>Lease administration fee</h3>
+            <p>Charged at lease signing and again at each renewal.</p>
+          </div>
+          <div class="qc-fee">
+            <span class="qc-fee__amount">$49<small>/mo</small></span>
+            <h3>Resident Benefits Package</h3>
+            <p>Required with all Newera lease agreements and billed monthly.</p>
+          </div>
+          <div class="qc-fee">
+            <span class="qc-fee__amount">$100K</span>
+            <h3>Renters insurance</h3>
+            <p>Minimum liability coverage, required before move-in.</p>
+          </div>
+        </div>
+
+        <div class="qc-insure">
+          <h3>Renters insurance requirements</h3>
+          <p>Proof of the following must be provided to Newera Property Management before your move-in date:</p>
+          <ul class="qc-list">
+            <li>Evidence of the required coverage, showing the policy is in effect, its start and end dates, and who is named on the policy.</li>
+            <li>Newera Property Management named as an "Additional Interested" party on the insurance binder.</li>
+            <li>Resident liability coverage of at least $100,000.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -702,11 +737,16 @@
 
         </div>
 
+        <div class="qc-insure qc-ack">
+          <h3>Acknowledgment of Tenant Selection Criteria</h3>
+          <p>As required by Texas Property Code § 92.3515, these tenant selection criteria and the grounds on which an application may be denied are provided to every applicant. Grounds include criminal history, previous rental history, current income, credit history, and inaccurate or incomplete information on the application. If you do not meet the criteria, or provide inaccurate or incomplete information, your application may be denied and the application fee will not be refunded. Each applicant 18 or older signs the acknowledgment included in the <a href="/assets/legal/newera-rental-criteria.pdf" target="_blank" rel="noopener noreferrer">printable Rental Criteria</a>.</p>
+        </div>
+
         <div class="qc-actions">
           <a href="https://newerapm.managebuilding.com/Resident/portal" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
             Start an Application ↗
           </a>
-          <a href="/contact" class="btn btn--outline">Questions? Contact Our Office</a>
+          <a href="/contact" class="btn btn--outline">Questions? Call (832) 558-2911</a>
         </div>
 
       </div>
