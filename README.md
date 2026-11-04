@@ -150,7 +150,7 @@ FORMSPREE_ID=mlgajalw
 
 **⚠️ IMPORTANT:** Never commit `.env` to GitHub. The `.gitignore` prevents this automatically.
 
-For sensitive keys used by contact form or API calls, update the key directly in the relevant HTML/JS files or use GitHub Secrets for CI/CD workflows (if needed in the future).
+SECURITY: never put API keys, passwords or tokens in any HTML/JS file. This repository and site are public, so anything here can be read by anyone (if needed in the future).
 
 ---
 
@@ -160,7 +160,7 @@ For sensitive keys used by contact form or API calls, update the key directly in
 
 **Key file:** `js/api-client.js` — customize field mappings in `normalizeListings()` function.
 
-**Authentication:** Add `BUILDIUM_API_KEY` to `.env` for local testing. For production, embed directly in `properties.html` or use a GitHub Secret for CI/CD workflows.
+**Authentication: DO NOT embed a Buildium API key in this site.** This repository is public, and a key in browser code would expose the full Buildium account (owner and resident data). Listings are maintained as static pages; if live listings are ever needed, use a server-side proxy that holds the key.
 
 **CORS Note:** Buildium API may require CORS proxy if browser blocks cross-origin requests. Update the API base URL in `api-client.js` if needed.
 

@@ -1,0 +1,14 @@
+# GitHub Pages build settings.
+# Files listed here stay in the repository but are NOT published on newerapm.com.
+exclude:
+  - README.md
+  - DEPLOYMENT_CHECKLIST.md
+  - READY_FOR_GITHUB_PAGES.md
+  - ANALYTICS_SETUP_GUIDE.md
+  - LICENSE
+  - netlify.toml
+  - package.json
+  - site-content.json
+  - main
+  - header.html
+  - footer.html
