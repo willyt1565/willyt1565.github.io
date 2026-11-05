@@ -125,6 +125,10 @@ body {
   overflow-x: hidden;
 }
 
+/* Stops the off-screen mobile menu from widening the page on phones (keeps
+   fixed elements like the help chat button on screen). */
+@supports (overflow-x: clip) { html, body { overflow-x: clip; } }
+
 body.has-open-menu { overflow: hidden; }    /* lock scroll when mobile drawer open */
 
 img, svg, video { max-width: 100%; height: auto; display: block; }
@@ -2546,3 +2550,25 @@ p:last-child { margin-bottom: 0; }
   filter: grayscale(100%);
   opacity: 1;
 }
+
+/* =============================================================================
+   BALANCED TEXT WRAPPING (site-wide, desktop and mobile)
+   Headings, labels and short centered text split evenly across lines, and
+   longer text never leaves a single word alone on its last line.
+   Supported in current Chrome, Edge, Safari and Firefox; older browsers
+   simply keep normal wrapping.
+   ============================================================================= */
+h1, h2, h3, h4, h5, h6,
+.eyebrow, blockquote, figcaption, summary, dt,
+.btn, .page-banner p, .section__header p, .final-cta p,
+.text-center p, [class*="__lead"], [class*="__sub"], [class*="__desc"],
+[class*="__label"], [class*="__title"], [class*="__headline"], [class*="__note"],
+[class*="__hint"], [class*="__tagline"], [class*="-badge"], [class*="__chips"] li {
+  text-wrap: balance;
+}
+p, li, dd, td, label {
+  text-wrap: pretty;
+}
+/* Long words and web addresses wrap instead of spilling outside their box */
+p, li, dd, td, h1, h2, h3, h4 { overflow-wrap: break-word; }
+p a[href^="http"], li a[href^="http"] { overflow-wrap: anywhere; }
