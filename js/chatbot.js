@@ -229,7 +229,7 @@
     '.nb-foot{padding:10px 12px 12px;border-top:1px solid #E2E8F0;background:#fff}' +
     '.nb-send{display:flex;gap:8px}.nb-send input{flex:1;min-width:0;padding:11px 13px;border:1px solid #CBD5E1;border-radius:12px;font:400 15px/1.3 Inter,system-ui,sans-serif}' +
     '.nb-send button{flex:none;width:44px;border:0;border-radius:12px;background:#1E3A8A;color:#fff;cursor:pointer;display:grid;place-items:center}.nb-send button:hover{background:#162B65}.nb-send svg{width:18px;height:18px}' +
-    '.nb-note{margin:8px 2px 0;font-size:11px;color:#64748B;line-height:1.4}' +
+    '.nb-note{margin:8px 2px 0;font-size:11px;color:#64748B;line-height:1.4}.nb-note a{color:#0284C7;font-weight:600}' +
     '.nb-typing{display:inline-flex;gap:4px}.nb-typing i{width:6px;height:6px;border-radius:50%;background:#94A3B8;animation:nbb 1s infinite}.nb-typing i:nth-child(2){animation-delay:.15s}.nb-typing i:nth-child(3){animation-delay:.3s}' +
     '.nb-launch{touch-action:none;user-select:none;-webkit-user-select:none}.nb-launch.nb-dragging{cursor:grabbing;transform:scale(1.06);transition:none}' +
     '@media (min-width:521px){.nb-head{cursor:move;user-select:none;-webkit-user-select:none;touch-action:none}.nb-head .nb-x{cursor:pointer}}' +
@@ -262,7 +262,7 @@
     '<button type="button" class="nb-x" aria-label="Close chat">' + ICON_X + '</button></div>' +
     '<div class="nb-log" aria-live="polite"></div>' +
     '<div class="nb-foot"><form class="nb-send" autocomplete="off"><label class="nb-hp" for="nb-q" style="position:absolute;left:-9999px">Your question</label><input id="nb-q" type="text" maxlength="300" placeholder="Type your question..." aria-label="Type your question"><button type="submit" aria-label="Send">' + ICON_SEND + '</button></form>' +
-    '<p class="nb-note">Automated answers from newerapm.com. For emergencies call 911 first. Application, lease and accommodation decisions are made by our team.</p></div>';
+    '<p class="nb-note">Answers are general and may not reflect recent updates. For specific questions, please <a href="/contact">contact our team</a>.</p></div>';
 
   document.body.appendChild(launch); document.body.appendChild(panel);
   var log = panel.querySelector('.nb-log'), input = panel.querySelector('#nb-q');
