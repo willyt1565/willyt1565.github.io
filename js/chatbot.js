@@ -29,7 +29,7 @@
   var KB = [
     // ---------- Owners ----------
     { q: 'Property management fees', k: ['cost', 'price', 'pricing', 'fee', 'fees', 'charge', 'how much do you charge', 'how much does it cost', 'how much is management', 'management fee', 'percent', 'percentage', 'rate', 'rates', 'expensive', 'cheap', 'quote', 'commission', 'flat fee'],
-      a: 'Our management, leasing and renewal fees are quoted during your <strong>free consultation</strong>, based on your property. Owners with multiple properties can qualify for portfolio discounts. There are no hidden charges, no markups on vendor invoices and no administration fees.',
+      a: 'Our management, leasing and renewal fees are quoted during your <strong>free consultation</strong>, based on your property. Owners with multiple properties can qualify for portfolio discounts. There are no hidden charges and no markups on vendor invoices.',
       l: ['Get a Free Consultation', '/contact?form=consultation'] },
     { q: 'Areas we serve', k: ['area', 'areas', 'serve', 'service area', 'location', 'locations', 'where', 'city', 'cities', 'houston', 'san antonio', 'katy', 'cypress', 'spring', 'woodlands', 'tomball', 'sugar land', 'pearland', 'schertz', 'garden ridge', 'new braunfels', 'bulverde', 'canyon lake', 'near me', 'texas'],
       a: 'We serve <strong>Houston</strong> (including Katy, Cypress, Spring, The Woodlands, Tomball, Sugar Land and Pearland) and <strong>San Antonio</strong> (including Schertz, Garden Ridge, New Braunfels, Bulverde and Canyon Lake), plus surrounding areas. Each market has a dedicated local team member.',
