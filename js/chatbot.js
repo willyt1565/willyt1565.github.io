@@ -40,7 +40,7 @@
       a: 'No, we don\'t manage short-term rentals or Airbnbs. We focus on long-term residential rentals: single-family and multifamily homes leased to residents on standard leases.' },
     { q: 'Our services', k: ['service', 'services', 'what do you do', 'offer', 'full service', 'property management', 'manage my property', 'manage my home', 'manage my house', 'hire', 'help me manage'],
       a: 'Our full property management covers four areas: <strong>marketing, leasing and tenant screening</strong>, <strong>rent collection and owner reporting</strong>, <strong>maintenance and vendor management</strong>, and <strong>inspections</strong> every 6 months. We are also a licensed Texas brokerage and can help you buy or sell.',
-      l: ['See All Services', '/services'] },
+      l: ['See All Services', '/services'], l2: ['Get a Free Consultation', '/contact?form=consultation'] },
     { q: 'Tenant placement (leasing only)', k: ['tenant placement', 'leasing only', 'leasing-only', 'placement', 'find a tenant', 'find tenant', 'just leasing', 'only find', 'self manage', 'self-manage', 'manage myself'],
       a: 'Yes, we offer <strong>tenant placement</strong> (leasing only) for landlords who want help finding and screening a tenant but plan to manage the property themselves. We help market the rental, screen applicants and prepare a Texas lease, then hand the property back to you. Reach out to learn more about the process and pricing, with no obligation.',
       l: ['Tenant Placement', '/tenant-placement/'] },
@@ -120,7 +120,7 @@
     { q: 'Will I be approved?', k: ['will i be approved', 'will i get approved', 'approved', 'pre approve', 'pre-approve', 'prequalify', 'pre qualify', 'guarantee', 'chance', 'chances', 'denied', 'denial', 'rejected', 'exception', 'bad credit', 'low credit', 'no credit'],
       a: 'We can\'t pre-approve or pre-screen applications here. Every application is reviewed against our published Qualification Criteria, the same way for every applicant. Please review the criteria, and if you meet the minimum requirements you are encouraged to apply. For specific questions, contact our team.',
       l: ['Qualification Criteria', '/qualification-criteria'], team: true },
-    { q: 'Rental requirements', k: ['requirement', 'requirements', 'qualify', 'qualification', 'criteria', 'income', 'credit', 'credit score', 'minimum', 'rental history', 'eviction history', 'background', 'criminal', 'felony', '3x', 'three times'],
+    { q: 'Rental requirements', k: ['tenant criteria', 'rental criteria', 'requirement', 'requirements', 'qualify', 'qualification', 'criteria', 'income', 'credit', 'credit score', 'minimum', 'rental history', 'eviction history', 'background', 'criminal', 'felony', '3x', 'three times'],
       a: 'In short: one applicant needs gross monthly income of at least <strong>3 times the rent</strong> (two combined incomes must total 3.5 times), a <strong>640+ TransUnion credit score</strong>, no eviction, broken lease or judgment in the last 5 years, and a criminal background check. The criteria are applied the same way to every applicant. Please read the full page before applying.',
       l: ['Full Qualification Criteria', '/qualification-criteria'] },
     { q: 'Application and move-in fees', k: ['application', 'fee', 'application fee', 'app fee', 'apply fee', 'lease administration', 'admin fee', 'move in cost', 'move-in cost', 'move in fee', 'resident benefits package', 'benefits package', '75', '49'],
@@ -163,7 +163,7 @@
       l: ['Vendors &amp; Partners', '/vendors'] }
   ];
 
-  var CHIPS = ['Management fees', 'Areas we serve', 'Pay rent online', 'Maintenance request', 'Rental requirements', 'Pet policy', 'Homes for rent', 'Talk to the team'];
+  var CHIPS = ['Our services', 'Management fees', 'Tenant placement', 'Areas we serve', 'Homes for rent', 'Tenant criteria', 'Pay rent online', 'Maintenance request', 'Talk to the team'];
 
   /* ---------------- Matching ---------------- */
   var STOP = ' a an the i me my we our you your is are am do does did can could would should will to of in on for and or it its this that there what how when where who why with be been have has at as by from if any about so just please hi hey hello thanks ';
@@ -233,6 +233,12 @@
     '.nb-typing{display:inline-flex;gap:4px}.nb-typing i{width:6px;height:6px;border-radius:50%;background:#94A3B8;animation:nbb 1s infinite}.nb-typing i:nth-child(2){animation-delay:.15s}.nb-typing i:nth-child(3){animation-delay:.3s}' +
     '.nb-launch{touch-action:none;user-select:none;-webkit-user-select:none}.nb-launch.nb-dragging{cursor:grabbing;transform:scale(1.06);transition:none}' +
     '@media (min-width:521px){.nb-head{cursor:move;user-select:none;-webkit-user-select:none;touch-action:none}.nb-head .nb-x{cursor:pointer}}' +
+    '.nb-teaser{position:fixed;z-index:801;width:260px;max-width:calc(100vw - 32px);padding:14px 36px 14px 16px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;box-shadow:0 18px 40px -14px rgba(11,31,74,.45);font:400 14px/1.5 Inter,system-ui,sans-serif;color:#334155;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}' +
+    '.nb-teaser.nb-show{opacity:1;transform:none}.nb-teaser[hidden]{display:none}' +
+    '.nb-teaser strong{display:block;margin-bottom:2px;font:700 15.5px/1.3 "League Spartan",Inter,sans-serif;color:#1E3A8A}' +
+    '.nb-teaser p{margin:0}.nb-teaser__x{position:absolute;top:8px;right:8px;width:24px;height:24px;border:0;border-radius:8px;background:#F1F5F9;color:#475569;cursor:pointer;display:grid;place-items:center;padding:0}.nb-teaser__x:hover{background:#E2E8F0}.nb-teaser__x svg{width:12px;height:12px}' +
+    'body.has-open-menu .nb-teaser{display:none}' +
+    '@media (prefers-reduced-motion:reduce){.nb-teaser{transition:none}}' +
     '@keyframes nbb{0%,80%,100%{opacity:.3}40%{opacity:1}}' +
     '@media (prefers-reduced-motion:reduce){.nb-launch{transition:none}.nb-typing i{animation:none}}';
 
@@ -368,7 +374,7 @@
   }
 
   // Chip labels that should map to a specific answer
-  var CHIP_MAP = { 'management fees': 'Property management fees', 'pay rent online': 'Paying rent online', 'maintenance request': 'Submitting a maintenance request', 'homes for rent': 'Available homes for rent' };
+  var CHIP_MAP = { 'tenant criteria': 'Rental requirements', 'our services': 'Our services', 'tenant placement': 'Tenant placement (leasing only)', 'management fees': 'Property management fees', 'pay rent online': 'Paying rent online', 'maintenance request': 'Submitting a maintenance request', 'homes for rent': 'Available homes for rent' };
   var origRespond = respond;
   respond = function (text) {
     var key = String(text).toLowerCase().trim(), title = CHIP_MAP[key] || text;
@@ -377,7 +383,7 @@
   };
 
   function greet() {
-    addMsg('bot', '<p>Hi! I\'m the Newera help assistant. I can answer questions about our services, renting with Newera, pets and more.</p><p>What can I help you with?</p>', '', true);
+    addMsg('bot', '<p>Hi! I\'m Newera\'s virtual assistant. I can tell you about our full-service property management, fees, tenant placement, the areas we serve and more. Residents and renters, I can help you too.</p><p>What can I help you with?</p>', '', true);
     chips(CHIPS);
   }
 
@@ -391,7 +397,7 @@
   function open() {
     if (!started) { started = true; restore(); }
     panel.hidden = false; launch.hidden = true; if (!isSheet()) place(panel, lget('nbPanelPos')); launch.setAttribute('aria-expanded', 'true');
-    store('nbOpen', '1'); setTimeout(function () { input.focus(); scroll(); }, 30);
+    store('nbOpen', '1'); if (typeof hideTeaser === 'function' && !teaser.hidden) hideTeaser(true); setTimeout(function () { input.focus(); scroll(); }, 30);
   }
   function close() { panel.hidden = true; launch.hidden = false; launch.setAttribute('aria-expanded', 'false'); store('nbOpen', '0'); launch.focus(); }
 
@@ -442,6 +448,35 @@
   }
   applyPositions();
   window.addEventListener('resize', applyPositions);
+
+  /* ---------------- Greeting bubble next to the button ---------------- */
+  var teaser = el('div', 'nb-teaser', '<button type="button" class="nb-teaser__x" aria-label="Dismiss greeting">' + ICON_X + '</button><strong>Hello, Welcome to Newera!</strong><p>I\'m Newera\'s virtual assistant. Ask me about our property management services in Houston and San Antonio, fees, tenant placement and more.</p>');
+  teaser.hidden = true; teaser.setAttribute('role', 'status');
+  document.body.appendChild(teaser);
+  function placeTeaser() {
+    if (teaser.hidden) return;
+    var r = launch.getBoundingClientRect(), tw = teaser.offsetWidth, th = teaser.offsetHeight, m = 8, gap = 12;
+    var left = (r.left + r.width / 2 > window.innerWidth / 2) ? r.right - tw : r.left;
+    var top = r.top - th - gap; if (top < m) top = r.bottom + gap;
+    left = Math.min(Math.max(m, left), window.innerWidth - tw - m);
+    teaser.style.left = left + 'px'; teaser.style.top = top + 'px';
+  }
+  function hideTeaser(forGood) {
+    teaser.classList.remove('nb-show'); teaser.hidden = true;
+    if (forGood) store('nbTeaser', 'done');
+  }
+  function showTeaser() {
+    if (store('nbTeaser') === 'done' || !panel.hidden || launch.hidden) return;
+    teaser.hidden = false; placeTeaser();
+    requestAnimationFrame(function () { teaser.classList.add('nb-show'); });
+  }
+  teaser.addEventListener('click', function (e) {
+    if (e.target.closest('.nb-teaser__x')) { hideTeaser(true); return; }
+    hideTeaser(true); open();
+  });
+  new MutationObserver(placeTeaser).observe(launch, { attributes: true, attributeFilter: ['style', 'class'] });
+  window.addEventListener('resize', placeTeaser);
+  setTimeout(showTeaser, 2000);
   launch.addEventListener('click', open);
   panel.querySelector('.nb-x').addEventListener('click', close);
   panel.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
