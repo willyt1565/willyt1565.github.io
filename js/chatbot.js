@@ -383,7 +383,7 @@
   };
 
   function greet() {
-    addMsg('bot', '<p>Hi! I\'m Newera\'s virtual assistant. I can tell you about our full-service property management, fees, tenant placement, the areas we serve and more. Residents and renters, I can help you too.</p><p>What can I help you with?</p>', '', true);
+    addMsg('bot', '<p>Hi! I\'m Newera\'s help assistant. I can tell you about our full-service property management, fees, tenant placement, the areas we serve and more. Residents and renters, I can help you too.</p><p>What can I help you with?</p>', '', true);
     chips(CHIPS);
   }
 
@@ -450,7 +450,7 @@
   window.addEventListener('resize', applyPositions);
 
   /* ---------------- Greeting bubble next to the button ---------------- */
-  var teaser = el('div', 'nb-teaser', '<button type="button" class="nb-teaser__x" aria-label="Dismiss greeting">' + ICON_X + '</button><strong>Hello, Welcome to Newera!</strong><p>I\'m Newera\'s virtual assistant. Ask me about our property management services in Houston and San Antonio, fees, tenant placement and more.</p>');
+  var teaser = el('div', 'nb-teaser', '<button type="button" class="nb-teaser__x" aria-label="Dismiss greeting">' + ICON_X + '</button><strong>Hello, Welcome to Newera!</strong><p>I\'m Newera\'s help assistant. Ask me about our property management services in Houston and San Antonio, fees, tenant placement and more.</p>');
   teaser.hidden = true; teaser.setAttribute('role', 'status');
   document.body.appendChild(teaser);
   function placeTeaser() {
