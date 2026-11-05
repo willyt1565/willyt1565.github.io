@@ -262,7 +262,7 @@
     '<button type="button" class="nb-x" aria-label="Close chat">' + ICON_X + '</button></div>' +
     '<div class="nb-log" aria-live="polite"></div>' +
     '<div class="nb-foot"><form class="nb-send" autocomplete="off"><label class="nb-hp" for="nb-q" style="position:absolute;left:-9999px">Your question</label><input id="nb-q" type="text" maxlength="300" placeholder="Type your question..." aria-label="Type your question"><button type="submit" aria-label="Send">' + ICON_SEND + '</button></form>' +
-    '<p class="nb-note">Answers are general and may not reflect recent updates. For specific questions, please <a href="/contact">contact our team</a>.</p></div>';
+    '<p class="nb-note">Answers are general and may not reflect recent updates. For accurate answers, please <a href="/contact">contact our team</a>.</p></div>';
 
   document.body.appendChild(launch); document.body.appendChild(panel);
   var log = panel.querySelector('.nb-log'), input = panel.querySelector('#nb-q');
