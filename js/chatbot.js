@@ -29,7 +29,7 @@
   var KB = [
     // ---------- Owners ----------
     { q: 'Property management fees', k: ['cost', 'price', 'pricing', 'fee', 'fees', 'charge', 'how much do you charge', 'how much does it cost', 'how much is management', 'management fee', 'percent', 'percentage', 'rate', 'rates', 'expensive', 'cheap', 'quote', 'commission', 'flat fee'],
-      a: 'Our management, leasing and renewal fees are quoted during your <strong>free consultation</strong>, based on your property. Owners with multiple properties can qualify for portfolio discounts. There are no hidden charges and no markups on vendor invoices.',
+      a: 'Our management fee is typically <strong>8% of the monthly rent</strong>. Leasing and renewal fees are quoted during your <strong>free consultation</strong>, based on your property. Owners with multiple properties can qualify for portfolio discounts. There are no hidden charges and no markups on vendor invoices.',
       l: ['Get a Free Consultation', '/contact?form=consultation'] },
     { q: 'Areas we serve', k: ['area', 'areas', 'serve', 'service area', 'location', 'locations', 'where', 'city', 'cities', 'houston', 'san antonio', 'katy', 'cypress', 'spring', 'woodlands', 'tomball', 'sugar land', 'pearland', 'schertz', 'garden ridge', 'new braunfels', 'bulverde', 'canyon lake', 'near me', 'texas'],
       a: 'We serve <strong>Houston</strong> (including Katy, Cypress, Spring, The Woodlands, Tomball, Sugar Land and Pearland) and <strong>San Antonio</strong> (including Schertz, Garden Ridge, New Braunfels, Bulverde and Canyon Lake), plus surrounding areas. Each market has a dedicated local team member.',
@@ -196,6 +196,7 @@
   /* ---------------- UI ---------------- */
   var css = '' +
     '.nb-launch{position:fixed;right:20px;bottom:20px;z-index:800;display:inline-flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border:0;border-radius:999px;background:#1E3A8A;color:#fff;font:600 15px/1 Inter,system-ui,sans-serif;box-shadow:0 14px 34px -10px rgba(11,31,74,.55);cursor:pointer;transition:transform .2s,background .2s}' +
+    '.nb-launch[hidden]{display:none!important}' +
     '.nb-launch:hover{background:#162B65;transform:translateY(-2px)}.nb-launch svg{width:22px;height:22px;flex:none}' +
     '.nb-launch:focus-visible,.nb-panel button:focus-visible,.nb-panel a:focus-visible,.nb-panel input:focus-visible,.nb-panel select:focus-visible{outline:3px solid #0EA5E9;outline-offset:2px}' +
     'body.has-open-menu .nb-launch,body.has-open-menu .nb-panel{display:none}' +
@@ -230,6 +231,8 @@
     '.nb-send button{flex:none;width:44px;border:0;border-radius:12px;background:#1E3A8A;color:#fff;cursor:pointer;display:grid;place-items:center}.nb-send button:hover{background:#162B65}.nb-send svg{width:18px;height:18px}' +
     '.nb-note{margin:8px 2px 0;font-size:11px;color:#64748B;line-height:1.4}' +
     '.nb-typing{display:inline-flex;gap:4px}.nb-typing i{width:6px;height:6px;border-radius:50%;background:#94A3B8;animation:nbb 1s infinite}.nb-typing i:nth-child(2){animation-delay:.15s}.nb-typing i:nth-child(3){animation-delay:.3s}' +
+    '.nb-launch{touch-action:none;user-select:none;-webkit-user-select:none}.nb-launch.nb-dragging{cursor:grabbing;transform:scale(1.06);transition:none}' +
+    '@media (min-width:521px){.nb-head{cursor:move;user-select:none;-webkit-user-select:none;touch-action:none}.nb-head .nb-x{cursor:pointer}}' +
     '@keyframes nbb{0%,80%,100%{opacity:.3}40%{opacity:1}}' +
     '@media (prefers-reduced-motion:reduce){.nb-launch{transition:none}.nb-typing i{animation:none}}';
 
@@ -387,11 +390,58 @@
   var started = false;
   function open() {
     if (!started) { started = true; restore(); }
-    panel.hidden = false; launch.hidden = true; launch.setAttribute('aria-expanded', 'true');
+    panel.hidden = false; launch.hidden = true; if (!isSheet()) place(panel, lget('nbPanelPos')); launch.setAttribute('aria-expanded', 'true');
     store('nbOpen', '1'); setTimeout(function () { input.focus(); scroll(); }, 30);
   }
   function close() { panel.hidden = true; launch.hidden = false; launch.setAttribute('aria-expanded', 'false'); store('nbOpen', '0'); launch.focus(); }
 
+
+  /* ---------------- Drag to move (button anywhere; window on desktop) ---------------- */
+  function lget(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
+  function lset(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function clampTo(node, x, y) {
+    var w = node.offsetWidth, h = node.offsetHeight, m = 8;
+    return { x: Math.min(Math.max(m, x), Math.max(m, window.innerWidth - w - m)), y: Math.min(Math.max(m, y), Math.max(m, window.innerHeight - h - m)) };
+  }
+  function place(node, pos) {
+    if (!pos) { node.style.left = node.style.top = node.style.right = node.style.bottom = ''; return; }
+    var c = clampTo(node, pos.x, pos.y);
+    node.style.left = c.x + 'px'; node.style.top = c.y + 'px'; node.style.right = 'auto'; node.style.bottom = 'auto';
+  }
+  function isSheet() { return window.innerWidth <= 520; }
+  function makeDraggable(node, handle, key, opts) {
+    var sx, sy, ox, oy, moved = false, active = false;
+    handle.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0 || (opts.skip && opts.skip(e))) return;
+      var r = node.getBoundingClientRect();
+      sx = e.clientX; sy = e.clientY; ox = r.left; oy = r.top; moved = false; active = true;
+      try { handle.setPointerCapture(e.pointerId); } catch (er) {}
+    });
+    handle.addEventListener('pointermove', function (e) {
+      if (!active) return;
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      if (!moved && Math.abs(dx) + Math.abs(dy) < 6) return;
+      if (!moved) { moved = true; node.classList.add('nb-dragging'); }
+      var c = clampTo(node, ox + dx, oy + dy);
+      node.style.left = c.x + 'px'; node.style.top = c.y + 'px'; node.style.right = 'auto'; node.style.bottom = 'auto';
+      e.preventDefault();
+    });
+    function end() {
+      if (!active) return; active = false; node.classList.remove('nb-dragging');
+      if (moved) { var r = node.getBoundingClientRect(); lset(key, { x: r.left, y: r.top }); node.__justDragged = true; setTimeout(function () { node.__justDragged = false; }, 50); }
+      else if (opts.onTap) opts.onTap();
+    }
+    handle.addEventListener('pointerup', end); handle.addEventListener('pointercancel', end);
+  }
+  makeDraggable(launch, launch, 'nbLaunchPos', { onTap: function () { open(); } });
+  makeDraggable(panel, panel.querySelector('.nb-head'), 'nbPanelPos', { skip: function (e) { return isSheet() || e.target.closest('.nb-x'); } });
+  launch.addEventListener('click', function (e) { if (launch.__justDragged) { e.stopImmediatePropagation(); e.preventDefault(); } }, true);
+  function applyPositions() {
+    place(launch, lget('nbLaunchPos'));
+    if (isSheet()) place(panel, null); else if (!panel.hidden) place(panel, lget('nbPanelPos'));
+  }
+  applyPositions();
+  window.addEventListener('resize', applyPositions);
   launch.addEventListener('click', open);
   panel.querySelector('.nb-x').addEventListener('click', close);
   panel.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
