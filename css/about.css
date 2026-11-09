@@ -130,3 +130,21 @@
   .credential-item { transition: none; }
   .credential-item:hover { transform: none; }
 }
+
+/* --- Story: brand illustration under the heading ------------------------
+   Blueprint sketch (where we started) -> finished rental (today) -> rising
+   line toward a new-era sunrise (long-term value). Decorative only. */
+.about-art { display: none; margin: 0; }
+@media (min-width: 960px) {
+  .about-art {
+    display: block;
+    float: left; clear: left; width: 40%;
+    margin-top: var(--space-4);
+  }
+  .about-art img {
+    display: block; width: 100%; height: auto;
+    border-radius: 22px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+}
