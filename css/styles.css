@@ -953,6 +953,14 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: var(--space-3);
   line-height: var(--lh-tight);
 }
+.service-card__title { overflow-wrap: normal; text-wrap: balance; }
+.service-card__title .nowrap { white-space: nowrap; }
+/* 4-column layout: slightly tighter padding and title size so long
+   service names like "Vendor Management" stay on one line. */
+@media (min-width: 1100px) {
+  .service-card { padding-inline: var(--space-5); }
+  .service-card__title { font-size: clamp(1.0625rem, 1.65vw, 1.25rem); }
+}
 .service-card__desc {
   font-size: var(--fs-sm);
   color: var(--color-slate);

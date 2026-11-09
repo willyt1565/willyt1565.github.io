@@ -34,7 +34,10 @@
 .loc-icon svg { width: 20px; height: 20px; }
 
 /* ---------- Service areas ---------- */
-.loc-areas { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.loc-areas { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
+/* 10 service areas per market: 1, 2 or 5 columns so rows always fill evenly */
+@media (min-width: 600px) { .loc-areas { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .loc-areas { grid-template-columns: repeat(5, 1fr); } .loc-area { flex-direction: column; } }
 .loc-area { display: flex; gap: var(--space-3); align-items: flex-start; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); box-shadow: var(--shadow-xs); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
 .loc-area:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: rgba(14,165,233,.45); }
 .loc-area:hover .loc-icon { background: var(--color-teal); color: var(--color-white); }
